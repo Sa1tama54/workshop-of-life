@@ -1,0 +1,7 @@
+{
+  "./*/**/*.{js,jsx,ts,tsx}": [
+    "yarn prettier:fix",
+    "yarn lint:fix"
+  ],
+  "**/*.(md,json)": "yarn prettier:fix"
+}
