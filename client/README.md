@@ -1,4 +1,4 @@
-# Workshop-of-life
+# Workshop-of-life Frontend
 
 _Проект находится в разработке._
 
