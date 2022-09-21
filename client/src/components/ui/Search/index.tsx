@@ -15,6 +15,7 @@ const SearchBlock = styled.input`
   height: 30px;
   padding: 0 40px;
   border: none;
+  outline: 0;
   border-radius: 0 5px 5px 0;
   border-left: 7px solid #ac0000;
 `;
