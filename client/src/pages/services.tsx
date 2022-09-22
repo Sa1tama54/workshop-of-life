@@ -1,4 +1,5 @@
 import React from 'react';
+import Navbar from '../components/servicesPage/navbar';
 import Paginations from '../components/ui/Pagination';
 import Search from '../components/ui/Search';
 import BasicTabs from '../components/ui/Tabs';
@@ -8,8 +9,7 @@ const Services = () => {
     <>
       <Search />
       <BasicTabs />
-      <p>Lorem ipsum dolor sit amet.</p>
-      <p>Lorem ipsum dolor sit amet.</p>
+      <Navbar />
       <Paginations />
     </>
   );
