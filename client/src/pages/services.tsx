@@ -6,6 +6,7 @@ import Navbar from '../components/Navbar';
 import Paginations from '../components/ui/Pagination';
 import Search from '../components/ui/Search';
 import BasicTabs from '../components/ui/Tabs';
+import MainLayout from '../layouts/MainLayout';
 
 const MainBlock = styled.div`
   width: 90%;
@@ -29,7 +30,7 @@ const SecondBlock = styled.div`
 
 const Services = () => {
   return (
-    <>
+    <MainLayout>
       <MainBlock>
         <NavBlock>
           <BasicTabs />
@@ -44,7 +45,7 @@ const Services = () => {
         <CardMap />
         <Paginations />
       </SecondBlock>
-    </>
+    </MainLayout>
   );
 };
 
