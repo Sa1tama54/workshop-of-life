@@ -1,16 +1,40 @@
 import React from 'react';
+import styled from 'styled-components';
+import InformBanner from '../components/InformBanner';
 import Navbar from '../components/Navbar';
 import Paginations from '../components/ui/Pagination';
 import Search from '../components/ui/Search';
 import BasicTabs from '../components/ui/Tabs';
 
+const MainBlock = styled.div`
+  width: 90%;
+  margin: 30px auto;
+  display: flex;
+  justify-content: space-between;
+`;
+
+const NavBlock = styled.div`
+  width: 30px;
+`;
+
+const RightBlock = styled.div`
+  width: 60%;
+`;
+
 const Services = () => {
   return (
     <>
-      <Search />
-      <BasicTabs />
-      <Navbar />
-      <Paginations />
+      <MainBlock>
+        <NavBlock>
+          <BasicTabs />
+          <Navbar />
+        </NavBlock>
+        <RightBlock>
+          <Search />
+          <InformBanner />
+          <Paginations />
+        </RightBlock>
+      </MainBlock>
     </>
   );
 };

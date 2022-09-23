@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const MainBlock = styled.div`
   width: 600px;
-  margin: 50px auto;
+  margin: 90px 0 30px 0;
   height: 30px;
   position: relative;
 `;
