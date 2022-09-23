@@ -49,18 +49,8 @@ const Btn = styled.button`
 `;
 
 const card: { desc: string; url: string }[] = [
-  {
-    desc: 'hello world',
-    url: 'https://tehpanda.ru/wa-data/public/shop/products/82/13/1382/images/1495/1495.970.JPG',
-  },
-  {
-    desc: 'hello world',
-    url: 'https://tehpanda.ru/wa-data/public/shop/products/82/13/1382/images/1495/1495.970.JPG',
-  },
-  {
-    desc: 'hello world',
-    url: 'https://tehpanda.ru/wa-data/public/shop/products/82/13/1382/images/1495/1495.970.JPG',
-  },
+
+
   {
     desc: 'hello world',
     url: 'https://tehpanda.ru/wa-data/public/shop/products/82/13/1382/images/1495/1495.970.JPG',
