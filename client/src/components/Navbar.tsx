@@ -11,7 +11,6 @@ const CatDiv = styled.div`
 `;
 
 const Navbar = () => {
-  
   const Cat: { name: string }[] = [
     { name: 'Уникальные и коллекционные книги' },
     { name: 'Собрания сочинений и библиотеки' },
