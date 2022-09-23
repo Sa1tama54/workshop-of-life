@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import CardMap from '../components/CardMap';
 import InformBanner from '../components/InformBanner';
 import Navbar from '../components/Navbar';
 import Paginations from '../components/ui/Pagination';
@@ -21,6 +22,11 @@ const RightBlock = styled.div`
   width: 60%;
 `;
 
+const SecondBlock = styled.div`
+  width: 80%;
+  margin-left: 20%;
+`;
+
 const Services = () => {
   return (
     <>
@@ -32,9 +38,12 @@ const Services = () => {
         <RightBlock>
           <Search />
           <InformBanner />
-          <Paginations />
         </RightBlock>
       </MainBlock>
+      <SecondBlock>
+        <CardMap />
+        <Paginations />
+      </SecondBlock>
     </>
   );
 };
