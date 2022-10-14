@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import ButtonServices from './ui/Button';
 
 const Container = styled.div`
   width: 100%;
@@ -8,8 +9,8 @@ const Container = styled.div`
 `;
 
 const MainBlock = styled.div`
-  width: 27%;
-  height: 300px;
+  width: 279px;
+  height: 337px;
   margin-left: 20px;
   background: #f3f3f3;
   margin-bottom: 50px;
@@ -34,8 +35,9 @@ const DescDiv = styled.div`
 `;
 
 const BtnDiv = styled.div`
-  width: 150px;
-  margin: 30px auto;
+  min-width: 200px;
+  margin-top: 20px;
+  margin-left: 20%;
 `;
 
 const Btn = styled.button`
@@ -49,8 +51,6 @@ const Btn = styled.button`
 `;
 
 const card: { desc: string; url: string }[] = [
-
-
   {
     desc: 'hello world',
     url: 'https://tehpanda.ru/wa-data/public/shop/products/82/13/1382/images/1495/1495.970.JPG',
@@ -90,13 +90,14 @@ const CardMap: React.FC = () => {
         {card.map((item, index) => {
           return (
             <>
-              <MainBlock>
-                <ImgDiv key={index}>
+              <MainBlock key={index}>
+                <ImgDiv>
                   <ImgC src={item.url} key={index} alt="workplan_human" />
                 </ImgDiv>
                 <DescDiv>{item.desc}</DescDiv>
                 <BtnDiv>
-                  <Btn onClick={handleClick}>Оставить заявку</Btn>
+                  {/* <Btn onClick={handleClick}>Оставить заявку</Btn> */}
+                  <ButtonServices />
                 </BtnDiv>
               </MainBlock>
             </>
