@@ -5,7 +5,6 @@ import Box from '@mui/material/Box';
 import styled from 'styled-components';
 
 const MainBlock = styled.div`
-  margin-left: 40px;
   width: 250px;
   margin-bottom: 40px;
 `;

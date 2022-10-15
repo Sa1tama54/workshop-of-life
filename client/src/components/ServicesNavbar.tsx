@@ -1,17 +1,28 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const CatDiv = styled.div`
-  width: 350px;
-  margin-left: 40px;
-  padding: 15px;
+const CategoriesDiv = styled.div`
+  width: 300px;
+  padding: 15px 7px;
   line-height: 1.5;
+  font-size: 14px;
   list-style-type: none;
   background: #f3f3f3;
+  max-height: 569px;
+  border-radius: 5px;
 `;
 
-const Navbar = () => {
-  const Cat: { name: string }[] = [
+const CategoriesList = styled.li`
+  margin-bottom: 15px;
+  padding-top: 5px;
+  list-style-type: none;
+  background: #f3f3f3;
+  cursor: pointer;
+  overflow: hidden;
+`;
+
+const ServicesNavbar = () => {
+  const Categories: { name: string }[] = [
     { name: 'Уникальные и коллекционные книги' },
     { name: 'Собрания сочинений и библиотеки' },
     { name: 'Искусство и культура' },
@@ -23,17 +34,20 @@ const Navbar = () => {
     { name: 'Мебель для кабинета и библиотеки' },
   ];
 
+  
   return (
     <>
-      {Cat.map((item, index) => {
-        return (
-          <CatDiv key={index}>
-            <li>{item.name}</li>
-          </CatDiv>
-        );
-      })}
+      <CategoriesDiv>
+        {Categories.map((item, index) => {
+          return (
+            <>
+              <CategoriesList key={index}> {item.name}</CategoriesList>
+            </>
+          );
+        })}
+      </CategoriesDiv>
     </>
   );
 };
 
-export default Navbar;
+export default ServicesNavbar;
