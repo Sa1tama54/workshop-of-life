@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
-const CatDiv = styled.div`
+const CategoriesDiv = styled.div`
   width: 300px;
-  // margin-left: 40px;
   padding: 15px 7px;
   line-height: 1.5;
   font-size: 14px;
@@ -13,9 +12,7 @@ const CatDiv = styled.div`
   border-radius: 5px;
 `;
 
-const Ul = styled.ul``;
-
-const Li = styled.li`
+const CategoriesList = styled.li`
   margin-bottom: 15px;
   padding-top: 5px;
   list-style-type: none;
@@ -25,7 +22,7 @@ const Li = styled.li`
 `;
 
 const ServicesNavbar = () => {
-  const Cat: { name: string }[] = [
+  const Categories: { name: string }[] = [
     { name: 'Уникальные и коллекционные книги' },
     { name: 'Собрания сочинений и библиотеки' },
     { name: 'Искусство и культура' },
@@ -39,15 +36,15 @@ const ServicesNavbar = () => {
 
   return (
     <>
-      <CatDiv>
-        {Cat.map((item, index) => {
+      <CategoriesDiv>
+        {Categories.map((item, index) => {
           return (
             <>
-              <Li key={index}> {item.name}</Li>
+              <CategoriesList key={index}> {item.name}</CategoriesList>
             </>
           );
         })}
-      </CatDiv>
+      </CategoriesDiv>
     </>
   );
 };

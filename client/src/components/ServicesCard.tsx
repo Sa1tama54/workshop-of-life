@@ -40,16 +40,6 @@ const BtnDiv = styled.div`
   margin-left: 20%;
 `;
 
-const Btn = styled.button`
-  max-width: 130px;
-  height: 30px;
-  padding: 5px;
-  color: #ffffff;
-  background: #ac0000;
-  border-radius: 8px;
-  border: none;
-`;
-
 const card: { desc: string; url: string }[] = [
   {
     desc: 'hello world',
@@ -77,13 +67,7 @@ const card: { desc: string; url: string }[] = [
   },
 ];
 
-const CardMap: React.FC = () => {
-  const [check, setChecked] = React.useState(false);
-
-  const handleClick = () => {
-    setChecked(!check);
-  };
-
+const ServicesCard: React.FC = () => {
   return (
     <>
       <Container>
@@ -96,7 +80,6 @@ const CardMap: React.FC = () => {
                 </ImgDiv>
                 <DescDiv>{item.desc}</DescDiv>
                 <BtnDiv>
-                  {/* <Btn onClick={handleClick}>Оставить заявку</Btn> */}
                   <ButtonServices />
                 </BtnDiv>
               </MainBlock>
@@ -108,4 +91,4 @@ const CardMap: React.FC = () => {
   );
 };
 
-export default CardMap;
+export default ServicesCard;

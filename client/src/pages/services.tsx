@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import CardMap from '../components/ServicesCardMap';
+import CardMap from '../components/ServicesCard';
 import InformBanner from '../components/InformBanner';
 import ServicesNavbar from '../components/ServicesNavbar';
 import Paginations from '../components/ui/Pagination';
 import Search from '../components/ui/Search';
 import BasicTabs from '../components/ui/Tabs';
 import MainLayout from '../layouts/MainLayout';
+import ServicesCard from '../components/ServicesCard';
 
 const MainBlock = styled.div`
   width: 90%;
@@ -46,7 +47,7 @@ const Services = () => {
         </RightBlock>
       </MainBlock>
       <SecondBlock>
-        <CardMap />
+        <ServicesCard />
       </SecondBlock>
       <Paginations />
     </MainLayout>
