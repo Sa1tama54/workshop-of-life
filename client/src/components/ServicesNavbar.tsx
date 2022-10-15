@@ -34,6 +34,7 @@ const ServicesNavbar = () => {
     { name: 'Мебель для кабинета и библиотеки' },
   ];
 
+  
   return (
     <>
       <CategoriesDiv>
