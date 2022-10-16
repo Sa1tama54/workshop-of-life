@@ -72,12 +72,12 @@ const login = async (req, res) => {
 
     const { passwordHash, ...userData } = _doc;
 
-    res.json({
+    return res.json({
       userData,
       token,
     });
   } catch (error) {
-    res.status(500).json({
+    return res.status(500).json({
       message: 'Ошибка при авторизации',
     });
   }
