@@ -1,8 +1,10 @@
-require('dotenv').config();
+import * as dotenv from 'dotenv';
+import express from 'express';
+import cors from 'cors';
+import morgan from 'morgan';
+import indexRoute from './routes/index';
 
-const express = require('express');
-const cors = require('cors');
-const morgan = require('morgan');
+dotenv.config();
 
 const app = express();
 
@@ -12,6 +14,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 app.use('/static', express.static(`${__dirname}/../static`));
 
-app.use(require('./routes'));
+app.use('/', indexRoute);
 
-module.exports = app;
+export default app;
