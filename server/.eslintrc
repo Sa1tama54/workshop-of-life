@@ -1,8 +1,12 @@
 {
+  "env": {
+    "browser": false,
+    "node": true,
+    "es6": true
+  },
   "extends": ["airbnb/base", "prettier"],
   "rules": {
     "no-console": "off",
-    "no-unused-vars": "warn",
-    "allowNamedFunctions": true
+    "no-unused-vars": "warn"
   }
 }
