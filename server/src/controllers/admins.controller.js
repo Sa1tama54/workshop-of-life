@@ -5,7 +5,7 @@ import AdminModel from '../models/Admin.model';
 const register = async (req, res) => {
   try {
     const { password, login } = req.body;
-    const salt = await bcrypt.genSalt(process.env.BCRYPT_ROUNDS);
+    const salt = await bcrypt.genSalt(+process.env.BCRYPT_ROUNDS);
     const hash = await bcrypt.hash(password, salt);
 
     const doc = await AdminModel({
@@ -15,11 +15,9 @@ const register = async (req, res) => {
 
     const admin = await doc.save();
 
-    const { _id, _doc } = admin;
-
     const token = jwt.sign(
       {
-        _id,
+        _id: admin._id,
       },
       process.env.SECRET_JWT_KEY,
       {
@@ -27,7 +25,7 @@ const register = async (req, res) => {
       }
     );
 
-    const { passwordHash, ...userData } = _doc;
+    const { passwordHash, ...userData } = admin._doc;
 
     res.json({
       userData,
@@ -35,7 +33,7 @@ const register = async (req, res) => {
     });
   } catch (error) {
     res.status(500).json({
-      message: 'Ошибка при регистрации',
+      message: `Ошибка при регистрации`,
     });
   }
 };
@@ -50,9 +48,8 @@ const login = async (req, res) => {
       });
     }
 
-    const { _id, _doc } = candidate;
 
-    const isValidPassword = await bcrypt.compare(req.body.password, _doc.passwordHash);
+    const isValidPassword = await bcrypt.compare(req.body.password, candidate._doc.passwordHash);
 
     if (!isValidPassword) {
       return res.status(404).json({
@@ -62,7 +59,7 @@ const login = async (req, res) => {
 
     const token = jwt.sign(
       {
-        _id,
+        _id: candidate._id,
       },
       process.env.SECRET_JWT_KEY,
       {
@@ -70,14 +67,14 @@ const login = async (req, res) => {
       }
     );
 
-    const { passwordHash, ...userData } = _doc;
+    const { passwordHash, ...userData } = candidate._doc;
 
-    return res.json({
+    res.json({
       userData,
       token,
     });
   } catch (error) {
-    return res.status(500).json({
+    res.status(500).json({
       message: 'Ошибка при авторизации',
     });
   }
