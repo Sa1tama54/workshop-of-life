@@ -6,6 +6,8 @@
   },
   "extends": ["airbnb/base", "prettier"],
   "rules": {
+    "allowShortCircuit": true,
+    "radix": ["error", "as-needed"],
     "import/prefer-default-export": "off",
     "consistent-return": "off",
     "no-underscore-dangle": "off",
