@@ -1,0 +1,17 @@
+{
+  "env": {
+    "browser": false,
+    "node": true,
+    "es6": true
+  },
+  "extends": ["airbnb/base", "prettier"],
+  "rules": {
+    "allowShortCircuit": true,
+    "radix": ["error", "as-needed"],
+    "import/prefer-default-export": "off",
+    "consistent-return": "off",
+    "no-underscore-dangle": "off",
+    "no-console": "off",
+    "no-unused-vars": "warn"
+  }
+}
