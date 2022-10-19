@@ -1,3 +1,5 @@
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -22,26 +24,30 @@ const CategoriesList = styled.li`
 `;
 
 const ServicesNavbar = () => {
-  const Categories: { name: string }[] = [
-    { name: 'Уникальные и коллекционные книги' },
-    { name: 'Собрания сочинений и библиотеки' },
-    { name: 'Искусство и культура' },
-    { name: 'История, философия, психология' },
-    { name: 'Установка бытовыой техники' },
-    { name: 'Фотоальбомы' },
-    { name: 'Кожаные ежедневники и др.' },
-    { name: 'Подержанные книги' },
-    { name: 'Мебель для кабинета и библиотеки' },
+  const Categories: { name: string; path: string }[] = [
+    { name: 'Уникальные и коллекционные книги', path: '/books' },
+    { name: 'Собрания сочинений и библиотеки', path: '/textS' },
+    { name: 'Искусство и культура', path: '/iss' },
+    { name: 'История, философия, психология', path: '/history' },
+    { name: 'Установка бытовой техники', path: '/tec' },
+    { name: 'Фотоальбомы', path: '/photo' },
+    { name: 'Кожаные ежедневники и др.', path: '/koj' },
+    { name: 'Подержанные книги', path: '/rarelyBooks' },
+    { name: 'Мебель для кабинета и библиотеки', path: '/Cab' },
   ];
 
-  
   return (
     <>
       <CategoriesDiv>
         {Categories.map((item, index) => {
           return (
             <>
-              <CategoriesList key={index}> {item.name}</CategoriesList>
+              <Link href="">
+                <CategoriesList key={index} color="secondary">
+                  {' '}
+                  {item.name}
+                </CategoriesList>
+              </Link>
             </>
           );
         })}

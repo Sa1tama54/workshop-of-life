@@ -7,7 +7,7 @@ import Paginations from '../components/ui/Pagination';
 import Search from '../components/ui/Search';
 import BasicTabs from '../components/ui/Tabs';
 import MainLayout from '../layouts/MainLayout';
-import ServicesCard from '../components/ServicesCard';
+import ServicesCards from '../components/ServicesCard';
 
 const MainBlock = styled.div`
   width: 90%;
@@ -23,15 +23,9 @@ const RightBlock = styled.div`
   margin-left: 97px;
 `;
 
-const SecondBlock = styled.div`
-  width: 90%;
-  margin-left: 10%;
-`;
+const SecondBlock = styled.div``;
 
-const TabsBlock = styled.div`
-  width: 90%;
-  margin: auto;
-`;
+const TabsBlock = styled.div``;
 
 const Services = () => {
   return (
@@ -47,7 +41,7 @@ const Services = () => {
         </RightBlock>
       </MainBlock>
       <SecondBlock>
-        <ServicesCard />
+        <ServicesCards />
       </SecondBlock>
       <Paginations />
     </MainLayout>

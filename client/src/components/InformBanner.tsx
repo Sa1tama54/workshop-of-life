@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 const InfDiv = styled.div`
-  width: 600px;
   overflow: hidden;
   min-height: 425px;
   border-radius: 20px;

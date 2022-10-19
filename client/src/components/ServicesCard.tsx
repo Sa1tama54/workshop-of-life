@@ -6,9 +6,10 @@ const Container = styled.div`
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+  justify-content: end;
 `;
 
-const MainBlock = styled.div`
+const ServicesCard = styled.div`
   width: 279px;
   height: 337px;
   margin-left: 20px;
@@ -67,14 +68,14 @@ const card: { desc: string; url: string }[] = [
   },
 ];
 
-const ServicesCard: React.FC = () => {
+const ServicesCards: React.FC = () => {
   return (
     <>
       <Container>
         {card.map((item, index) => {
           return (
             <>
-              <MainBlock key={index}>
+              <ServicesCard key={index}>
                 <ImgDiv>
                   <ImgC src={item.url} key={index} alt="workplan_human" />
                 </ImgDiv>
@@ -82,7 +83,7 @@ const ServicesCard: React.FC = () => {
                 <BtnDiv>
                   <ButtonServices />
                 </BtnDiv>
-              </MainBlock>
+              </ServicesCard>
             </>
           );
         })}
@@ -91,4 +92,4 @@ const ServicesCard: React.FC = () => {
   );
 };
 
-export default ServicesCard;
+export default ServicesCards;
