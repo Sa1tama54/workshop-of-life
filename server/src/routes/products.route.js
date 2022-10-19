@@ -1,7 +1,7 @@
 import { Router } from 'express';
-import servicesValidation from '../validations/services';
 import handleValidationError from '../middlewares/handleValidationError';
-import servicesController from '../controllers/services.controller';
+import productsValidation from '../validations/products';
+import productsController from '../controllers/products.controller';
 import checkAuth from '../middlewares/checkAuth';
 
 const router = Router();
@@ -9,64 +9,69 @@ const router = Router();
 /**
  * @swagger
  * tags:
- *   name: Services
- *   description: The services managing API
+ *   name: Products
+ *   description: The products managing API
  */
 
 /**
  * @swagger
  * components:
  *   schemas:
- *     Service:
+ *     Product:
  *       type: object
  *       required:
- *         - title
  *         - preview
- *         - category
+ *         - title
+ *         - description
+ *         - price
  *       properties:
- *         title:
- *           type: string
- *           description: The service title
  *         preview:
  *           type: string
- *           description: The service preview
- *         category:
+ *           description: The product preview
+ *         title:
+ *           type: string
+ *           description: The product title
+ *         description:
+ *           type: string
+ *           description: The product description
+ *         price:
  *           type: ObjectId
- *           description: The service category
+ *           description: The product price
  *       example:
- *         title: "Ремонт кондиционера"
  *         preview: "http://localhost:9999/uploads/example.jpg"
- *         category: fs8tfs8d7ftsdy7f8sdtf
+ *         title: "Название продукта"
+ *         description: "Описание продукта"
+ *         price: 1000
  */
 
 /**
  * @swagger
- * /services:
+ * /products:
  *   post:
- *     summary: Добавление новой услуги.
- *     tags: [Services]
+ *     summary: Добавление нового товара.
+ *     tags: [Products]
  *     requestBody:
  *       required: true
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/Service'
+ *             $ref: '#/components/schemas/Product'
  *     responses:
  *       200:
- *         description: The service was successfully created
+ *         description: The product was successfully created
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/Service'
+ *               $ref: '#/components/schemas/Product'
  */
-router.post('/', checkAuth, servicesValidation, handleValidationError, servicesController.create);
+router.post('/', checkAuth, productsValidation, handleValidationError, productsController.create);
 
 /**
  * @swagger
- * /services:
+ * /products:
  *   get:
- *     summary: Получение услуг.
- *     tags: [Services]
+ *     summary: Получение списка товаров.
+ *     tags: [Products]
  *     parameters:
  *       - in: query
  *         name: page
@@ -84,74 +89,74 @@ router.post('/', checkAuth, servicesValidation, handleValidationError, servicesC
  *           type: string
  *         description: Поиск определенных услуг
  *       - in: query
- *         name: category
+ *         name: sort
  *         schema:
  *           type: string
- *         description: Фильтрация по категориям
+ *         description: Сортировка товаров по цене DESC/ASC(сначала дорогие/недорогие)
  *     responses:
  *        "200":
- *          description: The list of services.
+ *          description: The list of products.
  *          content:
  *            application/json:
  *              schema:
  *                type: array
  *                items:
- *                  $ref: '#/components/schemas/Service'
+ *                  $ref: '#/components/schemas/Product'
  */
-router.get('/', servicesController.getAll);
+router.get('/', productsController.getAll);
 
 /**
  * @swagger
- * /services/{id}:
+ * /products/{id}:
  *   patch:
- *     summary: Изменение услуги.
- *     tags: [Services]
+ *     summary: Изменение товара.
+ *     tags: [Products]
  *     requestBody:
  *       required: true
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/Service'
+ *             $ref: '#/components/schemas/Product'
  *     parameters:
  *       - in: path
  *         name: id
  *         schema:
  *           type: string
  *         required: true
- *         description: The service id
+ *         description: The product id
  *     responses:
  *       200:
- *         description: The service was successfully updated
+ *         description: The product was successfully updated
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/Service'
+ *               $ref: '#/components/schemas/Product'
  */
 router.patch(
   '/:id',
   checkAuth,
-  servicesValidation,
+  productsValidation,
   handleValidationError,
-  servicesController.update
+  productsController.update
 );
 
 /**
  * @swagger
- * /services/{id}:
+ * /products/{id}:
  *   delete:
- *     summary: Удаление услуги.
- *     tags: [Services]
+ *     summary: Удаление товара.
+ *     tags: [Products]
  *     parameters:
  *       - in: path
  *         name: id
  *         schema:
  *           type: string
  *         required: true
- *         description: The service id
+ *         description: The product id
  *     responses:
  *       200:
- *        description: The service was deleted
+ *         description: The product was successfully removed
  */
-router.delete('/:id', checkAuth, servicesController.remove);
+router.delete('/:id', checkAuth, productsController.remove);
 
 export default router;

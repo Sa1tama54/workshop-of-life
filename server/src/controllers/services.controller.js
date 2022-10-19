@@ -58,7 +58,7 @@ const update = async (req, res) => {
 
     const serviceId = req.params.id;
 
-    await ServiceModel.updateOne(
+    const service = await ServiceModel.updateOne(
       {
         _id: serviceId,
       },
@@ -69,7 +69,7 @@ const update = async (req, res) => {
       }
     );
 
-    res.json({ success: true });
+    res.json(service);
   } catch (error) {
     res.status(500).json({ message: 'Не удалось обновить услугу' });
   }
