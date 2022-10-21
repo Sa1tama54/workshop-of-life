@@ -1,8 +1,8 @@
 import { Router } from 'express';
-import servicesValidation from '../validations/services';
 import handleValidationError from '../middlewares/handleValidationError';
 import servicesController from '../controllers/services.controller';
 import checkAuth from '../middlewares/checkAuth';
+import { serviceValidation } from '../../validate';
 
 const router = Router();
 
@@ -66,7 +66,7 @@ const router = Router();
  *     security:
  *       - bearerAuth: []
  */
-router.post('/', checkAuth, servicesValidation, handleValidationError, servicesController.create);
+router.post('/', checkAuth, serviceValidation, handleValidationError, servicesController.create);
 
 /**
  * @swagger
@@ -129,17 +129,13 @@ router.get('/', servicesController.getAll);
  *     responses:
  *       200:
  *         description: The service was successfully updated
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/Service'
  *     security:
  *       - bearerAuth: []
  */
 router.patch(
   '/:id',
   checkAuth,
-  servicesValidation,
+  serviceValidation,
   handleValidationError,
   servicesController.update
 );

@@ -1,8 +1,8 @@
 import { Router } from 'express';
 import handleValidationError from '../middlewares/handleValidationError';
-import productsValidation from '../validations/products';
 import productsController from '../controllers/products.controller';
 import checkAuth from '../middlewares/checkAuth';
+import { productValidation } from '../../validate';
 
 const router = Router();
 
@@ -71,7 +71,7 @@ const router = Router();
  *     security:
  *       - bearerAuth: []
  */
-router.post('/', checkAuth, productsValidation, handleValidationError, productsController.create);
+router.post('/', checkAuth, productValidation, handleValidationError, productsController.create);
 
 /**
  * @swagger
@@ -134,17 +134,13 @@ router.get('/', productsController.getAll);
  *     responses:
  *       200:
  *         description: The product was successfully updated
- *         content:
- *           application/json:
- *             schema:
- *               $ref: '#/components/schemas/Product'
  *     security:
  *       - bearerAuth: []
  */
 router.patch(
   '/:id',
   checkAuth,
-  productsValidation,
+  productValidation,
   handleValidationError,
   productsController.update
 );

@@ -1,8 +1,8 @@
 import { Router } from 'express';
 import handleValidationError from '../middlewares/handleValidationError';
-import vacanciesValidation from '../validations/vacancies';
 import vacanciesController from '../controllers/vacancies.controller';
 import checkAuth from '../middlewares/checkAuth';
+import { vacancyValidation } from '../../validate';
 
 const router = Router();
 
@@ -81,7 +81,7 @@ const router = Router();
  *     security:
  *       - bearerAuth: []
  */
-router.post('/', checkAuth, vacanciesValidation, handleValidationError, vacanciesController.create);
+router.post('/', checkAuth, vacancyValidation, handleValidationError, vacanciesController.create);
 
 /**
  * @swagger
@@ -150,7 +150,7 @@ router.get('/', vacanciesController.getAll);
 router.patch(
   '/:id',
   checkAuth,
-  vacanciesValidation,
+  vacancyValidation,
   handleValidationError,
   vacanciesController.update
 );

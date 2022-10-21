@@ -77,7 +77,7 @@ const update = async (req, res) => {
       }
     );
 
-    res.json(product);
+    res.json({success: true});
   } catch (error) {
     res.status(500).json({ message: 'Не удалось обновить товар' });
   }
