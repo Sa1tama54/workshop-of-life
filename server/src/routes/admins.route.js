@@ -14,6 +14,27 @@ const router = Router();
 
 /**
  * @swagger
+ * components:
+ *   schemas:
+ *     Admin:
+ *       type: object
+ *       required:
+ *         - login
+ *         - password:
+ *       properties:
+ *         login:
+ *           type: string
+ *           description: The admin login
+ *         password:
+ *           type: string
+ *           description: The admin password
+ *       example:
+ *         login: "exampleLogin"
+ *         password: "12345"
+ */
+
+/**
+ * @swagger
  * /admins/register:
  *   post:
  *     summary: Регистрация админа.
@@ -27,6 +48,14 @@ router.post('/register', adminsController.register);
  *   post:
  *     summary: Авторизация админа.
  *     tags: [Admins]
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/Admin'
  */
 router.post('/login', authValidation, handleValidationError, adminsController.login);
 

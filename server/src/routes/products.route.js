@@ -16,6 +16,11 @@ const router = Router();
 /**
  * @swagger
  * components:
+ *   securitySchemes:
+ *     bearerAuth:
+ *       type: http
+ *       scheme: bearer
+ *       bearerFormat: JWT
  *   schemas:
  *     Product:
  *       type: object
@@ -35,7 +40,7 @@ const router = Router();
  *           type: string
  *           description: The product description
  *         price:
- *           type: ObjectId
+ *           type: number
  *           description: The product price
  *       example:
  *         preview: "http://localhost:9999/uploads/example.jpg"
@@ -63,6 +68,8 @@ const router = Router();
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Product'
+ *     security:
+ *       - bearerAuth: []
  */
 router.post('/', checkAuth, productsValidation, handleValidationError, productsController.create);
 
@@ -131,6 +138,8 @@ router.get('/', productsController.getAll);
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Product'
+ *     security:
+ *       - bearerAuth: []
  */
 router.patch(
   '/:id',
@@ -156,6 +165,8 @@ router.patch(
  *     responses:
  *       200:
  *         description: The product was successfully removed
+ *     security:
+ *       - bearerAuth: []
  */
 router.delete('/:id', checkAuth, productsController.remove);
 

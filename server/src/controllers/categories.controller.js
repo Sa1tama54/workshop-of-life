@@ -5,6 +5,7 @@ const create = async (req, res) => {
     const category = await CategoryModel.create({
       title: req.body.title,
       preview: req.body.preview,
+      description: req.body.description,
     });
 
     res.json(category);

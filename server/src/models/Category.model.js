@@ -9,6 +9,10 @@ const categoryShema = mongoose.Schema({
     type: String,
     required: true,
   },
+  description: {
+    type: String,
+    required: true,
+  },
 });
 
 const Category = mongoose.model('Category', categoryShema);
