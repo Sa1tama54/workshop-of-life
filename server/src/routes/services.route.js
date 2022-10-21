@@ -16,6 +16,11 @@ const router = Router();
 /**
  * @swagger
  * components:
+ *   securitySchemes:
+ *     bearerAuth:
+ *       type: http
+ *       scheme: bearer
+ *       bearerFormat: JWT
  *   schemas:
  *     Service:
  *       type: object
@@ -58,6 +63,8 @@ const router = Router();
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Service'
+ *     security:
+ *       - bearerAuth: []
  */
 router.post('/', checkAuth, servicesValidation, handleValidationError, servicesController.create);
 
@@ -126,6 +133,8 @@ router.get('/', servicesController.getAll);
  *           application/json:
  *             schema:
  *               $ref: '#/components/schemas/Service'
+ *     security:
+ *       - bearerAuth: []
  */
 router.patch(
   '/:id',
@@ -151,6 +160,8 @@ router.patch(
  *     responses:
  *       200:
  *        description: The service was deleted
+ *     security:
+ *       - bearerAuth: []
  */
 router.delete('/:id', checkAuth, servicesController.remove);
 
