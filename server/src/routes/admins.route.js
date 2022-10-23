@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { authValidation } from '../../validate';
+import { authValidation } from '../validate';
 import adminsController from '../controllers/admins.controller';
 import handleValidationError from '../middlewares/handleValidationError';
 

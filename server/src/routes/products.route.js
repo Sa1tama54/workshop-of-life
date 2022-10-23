@@ -2,7 +2,7 @@ import { Router } from 'express';
 import handleValidationError from '../middlewares/handleValidationError';
 import productsController from '../controllers/products.controller';
 import checkAuth from '../middlewares/checkAuth';
-import { productValidation } from '../../validate';
+import { productValidation } from '../validate';
 
 const router = Router();
 
