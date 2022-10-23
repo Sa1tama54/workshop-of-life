@@ -2,7 +2,7 @@ import { Router } from 'express';
 import handleValidationError from '../middlewares/handleValidationError';
 import servicesController from '../controllers/services.controller';
 import checkAuth from '../middlewares/checkAuth';
-import { serviceValidation } from '../../validate';
+import { serviceValidation } from '../validate';
 
 const router = Router();
 

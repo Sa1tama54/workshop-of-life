@@ -2,7 +2,7 @@ import { Router } from 'express';
 import handleValidationError from '../middlewares/handleValidationError';
 import checkAuth from '../middlewares/checkAuth';
 import photosController from '../controllers/photos.controller';
-import { photoValidation } from '../../validate';
+import { photoValidation } from '../validate';
 
 const router = Router();
 

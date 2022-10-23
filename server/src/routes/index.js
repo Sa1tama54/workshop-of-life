@@ -5,6 +5,7 @@ import servicesRoute from './services.route';
 import productsRoute from './products.route';
 import vacanciesRoute from './vacancies.route';
 import photoRoute from './photos.route';
+import reviewRoute from './reviews.route';
 
 const router = Router();
 
@@ -14,5 +15,6 @@ router.use('/services', servicesRoute);
 router.use('/products', productsRoute);
 router.use('/vacancies', vacanciesRoute);
 router.use('/photos', photoRoute);
+router.use('/reviews', reviewRoute);
 
 export default router;

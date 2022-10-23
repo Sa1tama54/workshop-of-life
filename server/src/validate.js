@@ -34,3 +34,8 @@ export const photoValidation = [
   body('image', 'Неверная ссылка на изображение').isString(),
   body('description', 'Введите описание фотографии').isLength({ min: 3 }).isString(),
 ];
+
+export const reviewValidation = [
+  body('fullName', 'Введите имя и фамилию').isLength({ min: 3 }).isString(),
+  body('text', 'Введите текст').isLength({ min: 3 }).isString(),
+];

@@ -2,7 +2,7 @@ import { Router } from 'express';
 import handleValidationError from '../middlewares/handleValidationError';
 import categoriesController from '../controllers/categories.controller';
 import checkAuth from '../middlewares/checkAuth';
-import { categoryValidation } from '../../validate';
+import { categoryValidation } from '../validate';
 
 const router = Router();
 
