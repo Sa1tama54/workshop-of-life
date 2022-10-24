@@ -26,13 +26,22 @@ const getAll = async (req, res) => {
 
     const singleCategory = await CategoryModel.findOne({ title: categoryName });
 
-    const services = await ServiceModel.find({
-      category: singleCategory,
-      title: { $regex: search, $options: 'i' },
-    })
-      .skip(page * limit)
-      .limit(limit)
-      .populate('category');
+    let services = null;
+
+    req.query.category
+      ? (services = await ServiceModel.find({
+          category: singleCategory,
+          title: { $regex: search, $options: 'i' },
+        })
+          .skip(page * limit)
+          .limit(limit)
+          .populate('category'))
+      : (services = await ServiceModel.find({
+          title: { $regex: search, $options: 'i' },
+        })
+          .skip(page * limit)
+          .limit(limit)
+          .populate('category'));
 
     const total = await ServiceModel.countDocuments({
       title: { $regex: search, $options: 'i' },
@@ -58,7 +67,7 @@ const update = async (req, res) => {
 
     const serviceId = req.params.id;
 
-    const service = await ServiceModel.updateOne(
+    await ServiceModel.updateOne(
       {
         _id: serviceId,
       },
@@ -69,7 +78,7 @@ const update = async (req, res) => {
       }
     );
 
-    res.json({success: true});
+    res.json({ success: true });
   } catch (error) {
     res.status(500).json({ message: 'Не удалось обновить услугу' });
   }

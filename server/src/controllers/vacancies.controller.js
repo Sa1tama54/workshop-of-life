@@ -65,7 +65,7 @@ const update = async (req, res) => {
 
     const vacancyId = req.params.id;
 
-    const vacancy = await VacancyModel.updateOne(
+    await VacancyModel.updateOne(
       {
         _id: vacancyId,
       },

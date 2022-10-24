@@ -65,7 +65,7 @@ const update = async (req, res) => {
 
     const productId = req.params.id;
 
-    const product = await ProductModel.updateOne(
+    await ProductModel.updateOne(
       {
         _id: productId,
       },
@@ -77,7 +77,7 @@ const update = async (req, res) => {
       }
     );
 
-    res.json({success: true});
+    res.json({ success: true });
   } catch (error) {
     res.status(500).json({ message: 'Не удалось обновить товар' });
   }

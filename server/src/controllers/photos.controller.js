@@ -39,7 +39,7 @@ const update = async (req, res) => {
   try {
     const photoId = req.params.id;
 
-    const photo = await PhotoModel.updateOne(
+    await PhotoModel.updateOne(
       {
         _id: photoId,
       },

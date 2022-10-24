@@ -48,7 +48,6 @@ const login = async (req, res) => {
       });
     }
 
-
     const isValidPassword = await bcrypt.compare(req.body.password, candidate._doc.passwordHash);
 
     if (!isValidPassword) {
