@@ -39,3 +39,8 @@ export const reviewValidation = [
   body('fullName', 'Введите имя и фамилию').isLength({ min: 3 }).isString(),
   body('text', 'Введите текст').isLength({ min: 3 }).isString(),
 ];
+
+export const requestValidation = [
+  body('fullName', 'Введите имя и фамилию').isLength({ min: 3 }).isString(),
+  body('tel', 'Введите номер телефона').isLength({ min: 0 }).isNumeric(),
+];
