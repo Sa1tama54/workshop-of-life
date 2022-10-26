@@ -3,5 +3,6 @@
     "yarn prettier:fix",
     "yarn lint:fix"
   ],
-  "**/*.(md,json)": "yarn prettier:fix"
+  "**/*.(md,json)": "yarn prettier:fix",
+  "**/*.scss": "yarn stylelint"
 }
