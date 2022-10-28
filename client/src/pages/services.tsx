@@ -15,6 +15,16 @@ const MainBlock = styled.div`
   justify-content: space-between;
   margin: auto;
   margin-bottom: 50px;
+
+  @media only screen and (max-width: 1200px) {
+  }
+  @media only screen and (max-width: 992px) {
+  }
+  @media only screen and (max-width: 768px) {
+  }
+  @media only screen and (max-width: 480px) {
+    background-color: red;
+  }
 `;
 
 const RightBlock = styled.div`
