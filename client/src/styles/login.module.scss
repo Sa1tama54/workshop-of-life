@@ -1,0 +1,30 @@
+.wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	background-color: #E5E5E5;
+}
+
+.loginForm {
+	width: 380px;
+	padding: 70px 32px;
+	border-radius: 10px;
+}
+
+.titleGroup {
+	text-align: center;
+}
+
+.loginTitle {
+	margin-bottom: 13px;
+	font-size: 24px;
+	font-weight: 600;
+}
+
+.subtitle {
+	margin-bottom: 50px;
+	color: #A4A6B3;
+	font-size: 14px;
+	font-weight: 400;
+}
