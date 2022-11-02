@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const CategoriesDiv = styled.div`
+const CategoriesDiv = styled.ul`
   width: 300px;
-  padding: 15px 7px;
+  padding: 11px 15px;
   line-height: 1.5;
   font-size: 14px;
   list-style-type: none;
@@ -12,7 +12,7 @@ const CategoriesDiv = styled.div`
   border-radius: 5px;
 `;
 
-const CategoriesList = styled.li`
+const CategoriesItem = styled.li`
   margin-bottom: 15px;
   padding-top: 5px;
   list-style-type: none;
@@ -34,14 +34,13 @@ const ServicesNavbar = () => {
     { name: 'Мебель для кабинета и библиотеки' },
   ];
 
-  
   return (
     <>
       <CategoriesDiv>
         {Categories.map((item, index) => {
           return (
             <>
-              <CategoriesList key={index}> {item.name}</CategoriesList>
+              <CategoriesItem key={index}> {item.name}</CategoriesItem>
             </>
           );
         })}

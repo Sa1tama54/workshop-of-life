@@ -3,12 +3,13 @@ import styled from 'styled-components';
 
 const InfDiv = styled.div`
   overflow: hidden;
-  min-height: 425px;
+  min-height: 500px;
   border-radius: 20px;
   background: #f3f3f3;
   display: flex;
   justify-content: space-between;
   margin-bottom: 60px;
+  margin-top: 40px;
 `;
 
 const ImgContainer = styled.div`
@@ -58,7 +59,6 @@ const InformBanner: React.FC = () => {
         {logo.map((item, index) => {
           return <Logo src={item.url} key={index} alt="workplan_human" />;
         })}
-        <p>Lorem ipsum dolor sit amet.</p>
       </ImgContainer>
       <TextContainer>
         <Text>Установка бытовой техники</Text>

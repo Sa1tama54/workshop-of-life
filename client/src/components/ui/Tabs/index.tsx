@@ -5,7 +5,7 @@ import Box from '@mui/material/Box';
 import styled from 'styled-components';
 
 const MainBlock = styled.div`
-  width: 250px;
+  width: 270px;
   margin-bottom: 40px;
 `;
 

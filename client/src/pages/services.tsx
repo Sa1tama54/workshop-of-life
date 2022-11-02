@@ -10,23 +10,18 @@ import MainLayout from '../layouts/MainLayout';
 import ServicesCard from '../components/ServicesCard';
 
 const MainBlock = styled.div`
-  width: 90%;
   display: flex;
   justify-content: space-between;
-  margin: auto;
   margin-bottom: 50px;
 `;
 
 const RightBlock = styled.div`
-  width: 823px;
-  height: 500px;
-  margin-left: 97px;
+  width: 90%;
+  min-height: 500px;
+  margin-left: 50px;
 `;
 
-const SecondBlock = styled.div`
-  width: 90%;
-  margin-left: 10%;
-`;
+const SecondBlock = styled.div``;
 
 const TabsBlock = styled.div``;
 
