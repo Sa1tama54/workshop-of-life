@@ -7,6 +7,7 @@ import styles from './Tabs.module.scss';
 export default function BasicTabs() {
   const [value, setValue] = React.useState(0);
 
+  
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
