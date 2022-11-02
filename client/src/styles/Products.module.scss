@@ -1,0 +1,16 @@
+@import './variables';
+
+.filterFeatures {
+	display: flex;
+	align-items: flex-start;
+
+	@include tablets {
+		flex-wrap: wrap;
+	}
+}
+
+.cards {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}

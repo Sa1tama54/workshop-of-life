@@ -1,0 +1,41 @@
+.sortWrapper {
+	display: flex;
+	align-items: center;
+
+	button:hover {
+		background: none;
+	}
+}
+
+.sortTitle {
+	display: flex;
+	align-items: center;
+	font-size: 14px;
+}
+
+.sortActiveItem {
+	text-decoration: underline;
+	text-transform: none;
+	color: #AC0000;
+	font-size: 14px;
+	text-decoration-style: dotted;
+
+	&:hover {
+		text-decoration: underline;
+		background: none;
+		text-decoration-style: dotted;
+	}
+}
+
+.sortItem {
+	padding: 10px 15px;
+
+	&:last-child {
+		margin-bottom: 30px;
+	}
+}
+
+.active {
+	color: #AC0000;
+	background: rgb(255 0 0 / 5%);
+}

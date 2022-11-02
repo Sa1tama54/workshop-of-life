@@ -1,3 +1,5 @@
+@import './variables';
+
 @font-face {
 	font-family: Montserrat;
 	src: url('/fonts/Montserrat-Bold.eot');
@@ -60,6 +62,8 @@ a:visited {
 }
 
 .content {
+	width: calc(100vw - 100px);
 	max-width: 1180px;
+	height: 100%;
 	margin: 0 auto;
 }
