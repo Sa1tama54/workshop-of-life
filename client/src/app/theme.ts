@@ -8,8 +8,13 @@ export const theme = createTheme({
     MuiButton: {
       styleOverrides: {
         containedPrimary: {
-          background: 'linear-gradient(91.24deg, #AC0000 1.59%, #EA6262 98.14%)',
-          boxShadow: '0px 4px 12px rgba(55, 81, 255, 0.24)',
+          background: '#AC0000',
+          textTransform: 'none',
+          fontWeight: 500,
+
+          '&:hover': {
+            background: '#AC0000',
+          },
 
           '&:disabled': {
             background: 'rgba(0,0,0,.2)',
@@ -20,6 +25,20 @@ export const theme = createTheme({
           borderRadius: '8px',
           fontWeight: 600,
           transition: 'none',
+        },
+      },
+    },
+
+    MuiButtonBase: {
+      defaultProps: {
+        disableRipple: true,
+      },
+    },
+
+    MuiCardActionArea: {
+      styleOverrides: {
+        root: {
+          cursor: 'default',
         },
       },
     },

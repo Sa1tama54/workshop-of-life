@@ -1,7 +1,7 @@
 import { Paper, Typography } from '@mui/material';
 import React from 'react';
 import LoginForm from '../components/LoginForm';
-import styles from '../styles/login.module.scss';
+import styles from '../styles/Login.module.scss';
 
 const Login = () => {
   return (

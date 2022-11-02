@@ -1,0 +1,100 @@
+@import '../../../styles/variables';
+
+.card {
+	max-width: 330px;
+	min-height: 550px;
+	margin-right: 20px;
+	margin-bottom: 60px;
+	transition: 0.3s ease-in-out;
+	border-radius: 10px;
+	background: #F3F3F3;
+
+	&:nth-child(3n) {
+		margin-right: 0;
+	}
+
+	&:hover {
+		transform: scale(0.93);
+	}
+
+	@media screen and (max-width: 1055px) {
+		&:nth-child(2n) {
+			margin-right: 0;
+		}
+
+		&:not(:nth-child(2n)) {
+			margin-right: 20px;
+		}
+	}
+
+	@media screen and (max-width: 705px) {
+		margin-right: 20px !important;
+	}
+
+	@include phones {
+		max-width: 300px;
+		min-height: 300px;
+		margin-right: 0 !important;
+
+		img {
+			height: 180px;
+		}
+	}
+}
+
+.cardContent {
+	padding: 44px;
+	padding-bottom: 0;
+
+	h5 {
+		margin-bottom: 15px;
+		font-size: 24px;
+		font-weight: 700;
+
+		@include phones {
+			font-size: 20px;
+		}
+	}
+
+	p {
+		margin-bottom: 24px;
+		font-weight: bold;
+
+		@include phones {
+			font-size: 14px;
+		}
+	}
+
+	span {
+		font-size: 24px;
+		font-weight: 500;
+
+		@include phones {
+			font-size: 18px;
+		}
+	}
+
+	@include phones {
+		padding: 25px;
+		padding-bottom: 0;
+	}
+}
+
+.cardActions {
+	margin-top: 15px;
+	padding-left: 44px;
+
+	button {
+		padding: 15px 40px;
+		font-size: 18px;
+
+		@include phones {
+			margin-bottom: 25px;
+			padding: 10px 25px;
+		}
+	}
+
+	@include phones {
+		padding-left: 25px;
+	}
+}
