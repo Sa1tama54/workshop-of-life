@@ -1,0 +1,19 @@
+.main {
+  width: 300px;
+  padding: 15px 7px;
+  line-height: 1.5;
+  font-size: 14px;
+  list-style-type: none;
+  background: #f3f3f3;
+  max-height: 569px;
+  border-radius: 5px;
+
+  .categoriesList {
+    margin-bottom: 15px;
+    padding-top: 5px;
+    list-style-type: none;
+    background: #f3f3f3;
+    cursor: pointer;
+    overflow: hidden;
+  }
+}
