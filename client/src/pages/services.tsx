@@ -28,10 +28,7 @@ const SecondBlock = styled.div`
   margin-left: 10%;
 `;
 
-const TabsBlock = styled.div`
-  width: 90%;
-  margin: auto;
-`;
+const TabsBlock = styled.div``;
 
 const Services = () => {
   return (

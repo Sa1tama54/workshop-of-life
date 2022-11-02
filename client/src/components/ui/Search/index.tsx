@@ -3,7 +3,6 @@ import SearchIcon from '@mui/icons-material/Search';
 import styled from 'styled-components';
 
 const MainBlock = styled.div`
-  width: 600px;
   margin-bottom: 40px;
   position: relative;
 `;

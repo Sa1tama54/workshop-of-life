@@ -5,10 +5,11 @@ import ButtonServices from './ui/Button';
 const Container = styled.div`
   width: 100%;
   display: flex;
+  justify-content: end;
   flex-wrap: wrap;
 `;
 
-const MainBlock = styled.div`
+const ServiceCard = styled.div`
   width: 279px;
   height: 337px;
   margin-left: 20px;
@@ -74,7 +75,7 @@ const ServicesCard: React.FC = () => {
         {card.map((item, index) => {
           return (
             <>
-              <MainBlock key={index}>
+              <ServiceCard key={index}>
                 <ImgDiv>
                   <ImgC src={item.url} key={index} alt="workplan_human" />
                 </ImgDiv>
@@ -82,7 +83,7 @@ const ServicesCard: React.FC = () => {
                 <BtnDiv>
                   <ButtonServices />
                 </BtnDiv>
-              </MainBlock>
+              </ServiceCard>
             </>
           );
         })}
