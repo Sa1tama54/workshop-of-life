@@ -1,18 +1,18 @@
 .main {
-  width: 90%;
-  display: flex;
-  justify-content: space-between;
-  margin: auto;
-  margin-bottom: 50px;
+	display: flex;
+	justify-content: space-between;
+	width: 90%;
+	margin: auto;
+	margin-bottom: 50px;
 
-  .rightBlock {
-    width: 823px;
-    height: 500px;
-    margin-left: 97px;
-  }
+	.rightBlock {
+		width: 823px;
+		height: 500px;
+		margin-left: 97px;
+	}
 }
 
 .center {
-  width: 90%;
-  margin-left: 10%;
+	width: 90%;
+	margin-left: 10%;
 }

@@ -1,11 +1,9 @@
 .main {
-	display: flex;
-	justify-content: space-between;
 	margin-bottom: 60px;
 }
 
-.rightBlock {
-	width: 90%;
-	min-height: 500px;
-	margin-left: 50px;
+.content {
+	input {
+		width: 60%;
+	}
 }

@@ -1,9 +1,14 @@
 import * as React from 'react';
 import Button from '@mui/material/Button';
 
-export default function ButtonServices() {
+export default function AppButton() {
   return (
-    <Button variant="contained" color="primary" style={{ backgroundColor: '#AC0000' }}>
+    <Button
+      sx={{ width: 200, height: 50 }}
+      variant="contained"
+      color="primary"
+      style={{ backgroundColor: '#AC0000' }}
+    >
       Оставить заявку
     </Button>
   );

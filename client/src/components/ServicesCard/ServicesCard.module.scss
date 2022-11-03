@@ -1,31 +1,48 @@
 .wrapp {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: flex-end;
+	justify-content: center;
 	width: 100%;
+	margin-top: 30px;
 }
 
 .serviceCard {
 	overflow: hidden;
 	width: 279px;
-	height: 337px;
+	min-height: 370px;
+	margin-right: 20px;
 	margin-bottom: 50px;
-	margin-left: 20px;
 	border-radius: 10px;
 	background: #F3F3F3;
 
-	p {
-		margin-left: 30px;
+	&:nth-child(4n) {
+		margin-right: 0;
+	}
+
+	@media screen and (max-width: 1275px) {
+		&:nth-child(3n) {
+			margin-right: 0;
+		}
+
+		&:not(:nth-child(3n)) {
+			margin-right: 20px;
+		}
+	}
+}
+
+.content {
+	padding: 25px 15px;
+
+	h2 {
+		margin-bottom: 20px;
 		color: #2E363E;
 		font-size: 24px;
-		font-weight: 700;
+		font-weight: bold;
 		font-style: normal;
 		line-height: 143%;
 	}
 }
 
 .button {
-	min-width: 200px;
-	margin-top: 20px;
-	margin-left: 20%;
+	text-align: center;
 }
