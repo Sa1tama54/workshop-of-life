@@ -1,13 +1,7 @@
 import * as React from 'react';
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
-import styled from 'styled-components';
-
-const Block = styled.div`
-  width: 350px;
-  margin: auto;
-  color: #ac0000;
-`;
+import styles from './Pagination.module.scss';
 
 export default function Paginations() {
   const [page, setPage] = React.useState(1);
@@ -16,10 +10,10 @@ export default function Paginations() {
   };
 
   return (
-    <Block>
+    <div className={styles.wrapper}>
       <Stack spacing={2}>
         <Pagination count={10} page={page} onChange={handleChange} />
       </Stack>
-    </Block>
+    </div>
   );
 }

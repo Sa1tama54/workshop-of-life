@@ -2,10 +2,19 @@
 
 .filterFeatures {
 	display: flex;
-	align-items: flex-start;
+	align-items: center;
+	margin-bottom: 60px;
+
+	input {
+		width: 90%;
+	}
 
 	@include tablets {
 		flex-wrap: wrap;
+
+		input {
+			width: 100%;
+		}
 	}
 }
 

@@ -1,27 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
+import styles from './ServicesNavbar.module.scss';
 
-const CategoriesDiv = styled.ul`
-  width: 300px;
-  padding: 11px 15px;
-  line-height: 1.5;
-  font-size: 14px;
-  list-style-type: none;
-  background: #f3f3f3;
-  max-height: 569px;
-  border-radius: 5px;
-`;
-
-const CategoriesItem = styled.li`
-  margin-bottom: 15px;
-  padding-top: 5px;
-  list-style-type: none;
-  background: #f3f3f3;
-  cursor: pointer;
-  overflow: hidden;
-`;
-
-const ServicesNavbar = () => {
+const ServicesNavbar: React.FC = () => {
   const Categories: { name: string }[] = [
     { name: 'Уникальные и коллекционные книги' },
     { name: 'Собрания сочинений и библиотеки' },
@@ -35,17 +15,11 @@ const ServicesNavbar = () => {
   ];
 
   return (
-    <>
-      <CategoriesDiv>
-        {Categories.map((item, index) => {
-          return (
-            <>
-              <CategoriesItem key={index}> {item.name}</CategoriesItem>
-            </>
-          );
-        })}
-      </CategoriesDiv>
-    </>
+    <ul className={styles.categoriesList}>
+      {Categories.map((item, index) => {
+        return <li key={index}>{item.name}</li>;
+      })}
+    </ul>
   );
 };
 

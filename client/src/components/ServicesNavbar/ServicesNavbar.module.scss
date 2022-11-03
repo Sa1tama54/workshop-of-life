@@ -1,0 +1,19 @@
+.categoriesList {
+	width: 300px;
+	max-height: 569px;
+	padding: 11px 15px;
+	list-style-type: none;
+	border-radius: 5px;
+	background: #F3F3F3;
+	font-size: 14px;
+	line-height: 1.5;
+
+	li {
+		overflow: hidden;
+		margin-bottom: 15px;
+		padding-top: 5px;
+		list-style-type: none;
+		cursor: pointer;
+		background: #F3F3F3;
+	}
+}
