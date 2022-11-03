@@ -1,19 +1,15 @@
 import React from 'react';
-import InformBanner from '../components/InformBanner/InformBanner';
 import ServicesNavbar from '../components/ServicesNavbar/ServicesNavbar';
 import Paginations from '../components/ui/Pagination';
 import Search from '../components/ui/Search';
-import BasicTabs from '../components/ui/Tabs';
 import MainLayout from '../layouts/MainLayout';
 import ServicesCard from '../components/ServicesCard/ServicesCard';
-import styles from '../styles/Pages.module.scss';
+import styles from '../styles/Services.module.scss';
+import InformBanner from '../components/InformBanner/InformBanner';
 
 const Services: React.FC = () => {
   return (
     <MainLayout>
-      <div>
-        <BasicTabs />
-      </div>
       <div className={styles.main}>
         <ServicesNavbar />
         <div className={styles.rightBlock}>
@@ -21,8 +17,7 @@ const Services: React.FC = () => {
           <InformBanner />
         </div>
       </div>
-      <div className={styles.center}>
-        {' '}
+      <div>
         <ServicesCard />
       </div>
       <Paginations />

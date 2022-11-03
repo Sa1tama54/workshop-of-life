@@ -5,11 +5,11 @@ import styles from './Search.module.scss';
 const Search = () => {
   return (
     <>
-      <div className={styles.mainBlock}>
-        <span className={styles.iconSearch}>
+      <div className={styles.search}>
+        <span>
           <SearchIcon />
         </span>
-        <input type="text" placeholder="Поиск по услугам" className={styles.searchBlock} />
+        <input type="text" placeholder="Поиск по услугам" />
       </div>
     </>
   );

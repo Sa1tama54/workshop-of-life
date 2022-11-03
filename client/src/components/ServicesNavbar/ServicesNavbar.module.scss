@@ -1,19 +1,19 @@
-.main {
-  width: 300px;
-  padding: 15px 7px;
-  line-height: 1.5;
-  font-size: 14px;
-  list-style-type: none;
-  background: #f3f3f3;
-  max-height: 569px;
-  border-radius: 5px;
+.categoriesList {
+	width: 300px;
+	max-height: 569px;
+	padding: 11px 15px;
+	list-style-type: none;
+	border-radius: 5px;
+	background: #F3F3F3;
+	font-size: 14px;
+	line-height: 1.5;
 
-  .categoriesList {
-    margin-bottom: 15px;
-    padding-top: 5px;
-    list-style-type: none;
-    background: #f3f3f3;
-    cursor: pointer;
-    overflow: hidden;
-  }
+	li {
+		overflow: hidden;
+		margin-bottom: 15px;
+		padding-top: 5px;
+		list-style-type: none;
+		cursor: pointer;
+		background: #F3F3F3;
+	}
 }

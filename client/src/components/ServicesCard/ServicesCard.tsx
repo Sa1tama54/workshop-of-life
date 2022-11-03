@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 import ButtonServices from '../ui/Button';
 import styles from './ServicesCard.module.scss';
@@ -37,10 +38,8 @@ const ServicesCard: React.FC = () => {
           return (
             <React.Fragment key={index}>
               <div className={styles.serviceCard}>
-                <div className={styles.imgContainer}>
-                  <img src={item.url} alt="workplan_human" className={styles.servicesImg} />
-                </div>
-                <div className={styles.itemDesc}>{item.desc}</div>
+                <Image src={item.url} alt="workplan_human" width={279} height={173} />
+                <p>{item.desc}</p>
                 <div className={styles.button}>
                   <ButtonServices />
                 </div>

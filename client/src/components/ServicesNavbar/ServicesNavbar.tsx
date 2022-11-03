@@ -15,15 +15,11 @@ const ServicesNavbar: React.FC = () => {
   ];
 
   return (
-    <div className={styles.main}>
+    <ul className={styles.categoriesList}>
       {Categories.map((item, index) => {
-        return (
-          <React.Fragment key={index}>
-            <li className={styles.categoriesList}>{item.name}</li>
-          </React.Fragment>
-        );
+        return <li key={index}>{item.name}</li>;
       })}
-    </div>
+    </ul>
   );
 };
 

@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 import styles from './InformBanner.module.scss';
 
@@ -10,16 +11,21 @@ const InformBanner: React.FC = () => {
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.imgContainer}>
-        {logo.map((item, index) => {
-          return <img src={item.url} key={index} alt="workplan_human" className={styles.img} />;
-        })}
-        <p>Lorem ipsum dolor sit amet.</p>
-      </div>
+      {logo.map((item, index) => {
+        return (
+          <Image
+            src={item.url}
+            key={index}
+            alt="workplan_human"
+            width={500}
+            height={500}
+            priority
+          />
+        );
+      })}
       <div className={styles.textContainer}>
-        <h2 className={styles.servicesName}>Установка бытовой техники</h2>
-        <p className={styles.servicesDescription}>
-          {' '}
+        <h2>Установка бытовой техники</h2>
+        <p>
           Установка и продажа кондиционеров. Ремонт чистка и продув. Гарантия на установку и продажу
           кондиционеров Без пыли аккуратно и максимально качественно
         </p>

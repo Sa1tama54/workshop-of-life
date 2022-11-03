@@ -1,9 +1,16 @@
+@import '../../../styles/variables';
+
 .sortWrapper {
 	display: flex;
 	align-items: center;
 
 	button:hover {
 		background: none;
+	}
+
+	@include tablets {
+		width: 100%;
+		margin-top: 30px;
 	}
 }
 
@@ -39,3 +46,5 @@
 	color: #AC0000;
 	background: rgb(255 0 0 / 5%);
 }
+
+
