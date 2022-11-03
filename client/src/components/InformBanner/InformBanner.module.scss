@@ -1,0 +1,42 @@
+.wrapper {
+  overflow: hidden;
+  min-height: 425px;
+  border-radius: 20px;
+  background: #f3f3f3;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 60px;
+
+  .imgContainer {
+    width: 50%;
+
+    .img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .textContainer {
+    padding: 15px;
+    width: 50%;
+
+    .servicesName {
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 900;
+      font-size: 25px;
+      line-height: 120%;
+      margin-top: 10px;
+    }
+    .servicesDescription {
+      padding: 5px;
+      margin-top: 25px;
+      font-family: 'Montserrat';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 23px;
+      line-height: 120%;
+      color: #9e9e9e;
+    }
+  }
+}
