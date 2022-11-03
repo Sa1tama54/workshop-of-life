@@ -1,23 +1,21 @@
 import React from 'react';
-import ServicesNavbar from '../components/ServicesNavbar/ServicesNavbar';
 import Paginations from '../components/ui/Pagination';
 import Search from '../components/ui/Search';
 import MainLayout from '../layouts/MainLayout';
 import ServicesCard from '../components/ServicesCard/ServicesCard';
 import styles from '../styles/Services.module.scss';
 import InformBanner from '../components/InformBanner/InformBanner';
+import Categories from '../components/Categories';
 
 const Services: React.FC = () => {
   return (
     <MainLayout>
       <div className={styles.main}>
-        <ServicesNavbar />
-        <div className={styles.rightBlock}>
-          <Search />
-          <InformBanner />
-        </div>
+        <Categories />
+        <InformBanner />
       </div>
-      <div>
+      <div className={styles.content}>
+        <Search />
         <ServicesCard />
       </div>
       <Paginations />

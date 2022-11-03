@@ -17,7 +17,7 @@ const InformBanner: React.FC = () => {
             src={item.url}
             key={index}
             alt="workplan_human"
-            width={500}
+            width={700}
             height={500}
             priority
           />
