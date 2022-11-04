@@ -1,7 +1,11 @@
 import * as React from 'react';
 import Button from '@mui/material/Button';
 
-export default function AppButton() {
+interface ButtonProps {
+  children?: string;
+}
+
+const AppButton: React.FC<ButtonProps> = ({ children }) => {
   return (
     <Button
       sx={{ width: 200, height: 50 }}
@@ -9,7 +13,9 @@ export default function AppButton() {
       color="primary"
       style={{ backgroundColor: '#AC0000' }}
     >
-      Оставить заявку
+      {children}
     </Button>
   );
-}
+};
+
+export default AppButton;
