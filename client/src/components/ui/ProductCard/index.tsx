@@ -1,5 +1,4 @@
 import {
-  Button,
   Card,
   CardActionArea,
   CardActions,
@@ -9,6 +8,7 @@ import {
   Typography,
 } from '@mui/material';
 import React from 'react';
+import AppButton from '../Button';
 import styles from './ProductCard.module.scss';
 
 const StyledCardActionArea = styled(CardActionArea)({
@@ -38,9 +38,7 @@ const ProductCard = () => {
         </CardContent>
       </StyledCardActionArea>
       <CardActions className={styles.cardActions}>
-        <Button size="small" color="primary" variant="contained">
-          Заказать
-        </Button>
+        <AppButton>Заказать</AppButton>
       </CardActions>
     </Card>
   );

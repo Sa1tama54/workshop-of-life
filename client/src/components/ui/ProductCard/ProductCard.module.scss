@@ -2,7 +2,7 @@
 
 .card {
 	max-width: 330px;
-	min-height: 550px;
+	min-height: 450px;
 	margin-right: 20px;
 	margin-bottom: 60px;
 	transition: 0.3s ease-in-out;
@@ -17,6 +17,10 @@
 		transform: scale(0.93);
 	}
 
+	img {
+		height: 144px;
+	}
+
 	@media screen and (max-width: 1055px) {
 		&:nth-child(2n) {
 			margin-right: 0;
@@ -27,7 +31,7 @@
 		}
 	}
 
-	@media screen and (max-width: 705px) {
+	@media screen and (max-width: 800px) {
 		margin-right: 20px !important;
 	}
 
@@ -35,10 +39,6 @@
 		max-width: 300px;
 		min-height: 300px;
 		margin-right: 0 !important;
-
-		img {
-			height: 180px;
-		}
 	}
 }
 

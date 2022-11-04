@@ -51,7 +51,7 @@ const ServicesCard: React.FC = () => {
                 <div className={styles.content}>
                   <Typography variant="h2">{item.desc}</Typography>
                   <div className={styles.button}>
-                    <AppButton />
+                    <AppButton>Оставить заявку</AppButton>
                   </div>
                 </div>
               </div>
