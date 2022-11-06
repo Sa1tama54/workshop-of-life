@@ -1,0 +1,36 @@
+.wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.generalRevs {
+	display: flex;
+	align-items: flex-start;
+	flex-direction: column;
+
+	p {
+		margin-bottom: 24px;
+		font-weight: 600;
+		font-style: 14px;
+		line-height: 20px;
+	}
+
+	span {
+		margin-top: 10px;
+		font-weight: 400;
+		font-style: 15px;
+		line-height: 20px;
+	}
+
+	button {
+		width: 150px;
+		height: 33px;
+		margin-top: 40px;
+		padding: 9px 21px;
+		color: #FFF;
+		border: none;
+		border-radius: 4px;
+		background: #AC0000;
+	}
+}
