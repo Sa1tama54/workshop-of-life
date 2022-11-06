@@ -1,5 +1,5 @@
 import ReviewsScore from 'components/Reviews/ReviewsScore';
-import styles from 'styles/pages/Review.module.scss';
+import styles from 'styles/pages/Reviews.module.scss';
 import MainLayout from 'layouts/MainLayout';
 
 const Reviews = () => {
