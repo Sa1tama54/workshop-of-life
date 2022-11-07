@@ -8,7 +8,7 @@ interface ButtonProps {
 const AppButton: React.FC<ButtonProps> = ({ children }) => {
   return (
     <Button
-      sx={{ width: 200, height: 50 }}
+      sx={{ minWidth: 150, height: 50 }}
       variant="contained"
       color="primary"
       style={{ backgroundColor: '#AC0000' }}
