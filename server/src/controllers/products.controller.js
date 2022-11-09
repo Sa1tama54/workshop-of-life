@@ -13,7 +13,7 @@ const create = async (req, res) => {
 
     res.json(product);
   } catch (error) {
-    res.status(500).json({ message: 'Не удалось добавить товар' + error });
+    res.status(500).json({ message: 'Не удалось добавить товар' });
   }
 };
 
@@ -33,14 +33,13 @@ const getAll = async (req, res) => {
       sortBy[sort[0]] = 'ASC';
     }
 
-    const products = await ProductModel.find({
+    const data = await ProductModel.find({
       title: { $regex: search, $options: 'i' },
     })
       .sort(sortBy)
       .skip(page * limit)
       .limit(limit);
 
-    console.log(products);
     const total = await ProductModel.countDocuments({
       title: { $regex: search, $options: 'i' },
     });
@@ -50,12 +49,22 @@ const getAll = async (req, res) => {
       total,
       page: page + 1,
       limit,
-      products,
+      data,
     };
 
     res.json(response);
   } catch (error) {
     res.status(500).json({ message: 'Не удалось найти товары' });
+  }
+};
+
+const getOne = async (req, res) => {
+  try {
+    const data = await ProductModel.findById(req.params.id);
+
+    res.json(data);
+  } catch (error) {
+    res.status(500).json({ message: 'Не удалось найти товар' });
   }
 };
 
@@ -65,19 +74,14 @@ const update = async (req, res) => {
 
     const productId = req.params.id;
 
-    await ProductModel.updateOne(
-      {
-        _id: productId,
-      },
-      {
-        preview,
-        title,
-        description,
-        price,
-      }
-    );
+    const product = await ProductModel.findByIdAndUpdate(productId, {
+      preview,
+      title,
+      description,
+      price,
+    });
 
-    res.json({ success: true });
+    res.json(product);
   } catch (error) {
     res.status(500).json({ message: 'Не удалось обновить товар' });
   }
@@ -103,4 +107,4 @@ const remove = async (req, res) => {
   }
 };
 
-export default { create, getAll, update, remove };
+export default { create, getAll, update, remove, getOne };
