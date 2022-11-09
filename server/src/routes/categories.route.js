@@ -1,8 +1,6 @@
 import { Router } from 'express';
-import handleValidationError from '../middlewares/handleValidationError';
 import categoriesController from '../controllers/categories.controller';
 import checkAuth from '../middlewares/checkAuth';
-import { categoryValidation } from '../validate';
 
 const router = Router();
 
@@ -66,7 +64,7 @@ const router = Router();
  *     security:
  *       - bearerAuth: []
  */
-router.post('/', categoryValidation, handleValidationError, checkAuth, categoriesController.create);
+router.post('/', checkAuth, categoriesController.create);
 
 /**
  * @swagger

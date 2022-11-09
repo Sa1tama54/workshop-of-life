@@ -1,8 +1,6 @@
 import { Router } from 'express';
-import handleValidationError from '../middlewares/handleValidationError';
 import servicesController from '../controllers/services.controller';
 import checkAuth from '../middlewares/checkAuth';
-import { serviceValidation } from '../validate';
 
 const router = Router();
 
@@ -66,7 +64,7 @@ const router = Router();
  *     security:
  *       - bearerAuth: []
  */
-router.post('/', checkAuth, serviceValidation, handleValidationError, servicesController.create);
+router.post('/', checkAuth, servicesController.create);
 
 /**
  * @swagger
@@ -132,13 +130,7 @@ router.get('/', servicesController.getAll);
  *     security:
  *       - bearerAuth: []
  */
-router.patch(
-  '/:id',
-  checkAuth,
-  serviceValidation,
-  handleValidationError,
-  servicesController.update
-);
+router.patch('/:id', checkAuth, servicesController.update);
 
 /**
  * @swagger
