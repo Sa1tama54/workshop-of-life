@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "start": "node -r esm src/server.js",
-    "start:dev": "nodemon -r esm src/server.js",
+    "start:dev": "env-cmd -f ./.env.development nodemon -r esm src/server.js",
+    "start:prod": "env-cmd -f ./.env.production nodemon -r esm src/server.js",
     "lint": "eslint . --report-unused-disable-directives --max-warnings 0 --ext .js",
     "prettier": "prettier --write .",
     "prettier:check": "prettier . --check",
@@ -27,6 +28,7 @@
     "swagger-ui-express": "^4.5.0"
   },
   "devDependencies": {
+    "env-cmd": "^10.1.0",
     "eslint": "^8.25.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.5.0",

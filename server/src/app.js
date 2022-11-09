@@ -1,6 +1,6 @@
 import * as dotenv from 'dotenv';
-import express from 'express';
 import cors from 'cors';
+import express from 'express';
 import morgan from 'morgan';
 import swaggerUi from 'swagger-ui-express';
 import swaggerJSDoc from 'swagger-jsdoc';
@@ -24,7 +24,7 @@ const options = {
     },
     servers: [
       {
-        url: `http://localhost:${process.env.PORT}}`,
+        url: `${process.env.API_HOST}/${process.env.PORT}`,
       },
     ],
   },

@@ -1,8 +1,7 @@
 import { Router } from 'express';
-import handleValidationError from '../middlewares/handleValidationError';
 import checkAuth from '../middlewares/checkAuth';
 import photosController from '../controllers/photos.controller';
-import { photoValidation } from '../validate';
+import {} from '../validate';
 
 const router = Router();
 
@@ -61,7 +60,7 @@ const router = Router();
  *     security:
  *       - bearerAuth: []
  */
-router.post('/', checkAuth, photoValidation, handleValidationError, photosController.create);
+router.post('/', checkAuth, photosController.create);
 
 /**
  * @swagger
@@ -117,7 +116,7 @@ router.get('/', photosController.getAll);
  *     security:
  *       - bearerAuth: []
  */
-router.patch('/:id', checkAuth, photoValidation, handleValidationError, photosController.update);
+router.patch('/:id', checkAuth, photosController.update);
 
 /**
  * @swagger
