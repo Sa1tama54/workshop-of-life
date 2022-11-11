@@ -1,3 +1,5 @@
+@import 'styles/variables.scss';
+
 .wrapper {
   display: flex;
   overflow: hidden;
@@ -30,12 +32,14 @@
     line-height: 120%;
   }
 }
-@media screen and (max-width: 800px) {
+@include tablets {
   .wrapper {
+    min-height: auto;
+    display: block;
+
     .textContainer {
       width: 95%;
       p {
-        font-family: 'Montserrat';
         font-style: normal;
         font-weight: 400;
         font-size: 23px;
@@ -46,12 +50,8 @@
   }
 }
 
-@media screen and (max-width: 480px) {
+@include phones {
   .wrapper {
-    min-height: auto;
-    height: 419px;
-    display: block;
-
     img {
       height: 30px;
     }

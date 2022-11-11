@@ -1,7 +1,7 @@
 import { Typography } from '@mui/material';
+import AppButton from 'components/ui/Button';
 import Image from 'next/image';
 import React from 'react';
-import AppButton from '../ui/Button';
 import styles from './ServicesCard.module.scss';
 
 const card: { desc: string; url: string }[] = [

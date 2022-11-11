@@ -1,3 +1,5 @@
+@import 'styles/variables.scss';
+
 .wrapp {
   display: flex;
   flex-wrap: wrap;
@@ -28,6 +30,26 @@
       margin-right: 20px;
     }
   }
+
+  @media screen and (max-width: 976px) {
+    &:nth-child(2n) {
+      margin-right: 0;
+    }
+
+    &:not(:nth-child(2n)) {
+      margin-right: 20px;
+    }
+  }
+
+  @include tablets {
+    margin-right: 20px !important;
+  }
+
+  @include phones {
+    margin-right: 0;
+    border-radius: 10px;
+    margin-right: 0 !important;
+  }
 }
 
 .content {
@@ -45,27 +67,4 @@
 
 .button {
   text-align: center;
-}
-@media only screen and (max-width: 480px) {
-  .wrapp {
-    .serviceCard {
-      width: 279px;
-      height: 337px;
-      margin-right: 0;
-      border-radius: 10px;
-      .content {
-        width: 200px;
-        margin: auto;
-        padding-top: 25px;
-      }
-    }
-  }
-}
-
-@media only screen and (max-width: 800px) {
-  .wrapp {
-    .serviceCard {
-      margin-right: 30px;
-    }
-  }
 }
