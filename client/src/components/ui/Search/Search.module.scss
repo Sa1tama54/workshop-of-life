@@ -1,22 +1,22 @@
 .search {
-	position: relative;
-	width: 100%;
+  position: relative;
+  width: 100%;
 
-	span {
-		position: absolute;
-		top: 3px;
-		left: 10px;
-		color: #AC0000;
-	}
-
-	input {
-		width: 100%;
-		height: 30px;
-		padding: 0 40px;
-		border: none;
-		border-left: 7px solid #AC0000;
-		border-radius: 0 5px 5px 0;
-		outline: 0;
-		background: #F1F1F1;
-	}
+  span {
+    position: absolute;
+    top: 3px;
+    left: 10px;
+    color: #ac0000;
+  }
+  
+  input {
+    width: 100%;
+    height: 30px;
+    padding: 0 40px;
+    border: none;
+    border-left: 7px solid #ac0000;
+    border-radius: 0 5px 5px 0;
+    outline: 0;
+    background: #f1f1f1;
+  }
 }

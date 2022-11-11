@@ -153,4 +153,6 @@ router.patch('/:id', checkAuth, servicesController.update);
  */
 router.delete('/:id', checkAuth, servicesController.remove);
 
+router.get('/:id', servicesController.getOne);
+
 export default router;

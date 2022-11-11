@@ -1,9 +1,9 @@
-import { fetchUtils } from 'react-admin';
+import { DataProvider, fetchUtils, Options, ResourceOptions } from 'react-admin';
 import { stringify } from 'query-string';
 
 const apiUrl = '/api';
 
-const httpClient = (url, options = {}) => {
+const httpClient = (url: string, options = {} as Options) => {
   if (!options.headers) {
     options.headers = new Headers({
       Accept: 'application/json',
@@ -11,13 +11,12 @@ const httpClient = (url, options = {}) => {
   }
 
   const token = JSON.parse(JSON.stringify(localStorage.getItem('adminToken')));
-  options.headers.set('Authorization', `Bearer ${token}`);
+  options.headers = new Headers({ Authorization: `Bearer ${token}` });
 
   return fetchUtils.fetchJson(url, options);
 };
 
-// eslint-disable-next-line import/no-anonymous-default-export
-export default {
+const dataProvider: DataProvider = {
   getList: async (resource, params) => {
     const { page, perPage } = params.pagination;
     const { field, order } = params.sort;
@@ -33,7 +32,7 @@ export default {
     const { json } = await httpClient(url);
 
     return {
-      data: json.data.map((resource) => ({ ...resource, id: resource._id })),
+      data: json.data.map((resource: ResourceOptions) => ({ ...resource, id: resource._id })),
       total: parseInt(json.total, 10),
     };
   },
@@ -46,11 +45,14 @@ export default {
 
   getMany: async (resource, params) => {
     const query = {
-      filter: JSON.stringify({ id: params.ids }),
+      filter: JSON.stringify({ id: params.ids.map((id) => id) }),
     };
     const url = `${apiUrl}/${resource}?${stringify(query)}`;
     const { json } = await httpClient(url);
-    return { data: json };
+
+    return {
+      data: json.data.map((resource: ResourceOptions) => ({ ...resource, id: resource._id })),
+    };
   },
 
   getManyReference: async (resource, params) => {
@@ -66,17 +68,17 @@ export default {
     };
     const url = `${apiUrl}/${resource}?${stringify(query)}`;
 
-    const { headers, json } = await httpClient(url);
+    const { json } = await httpClient(url);
     return {
       data: json,
-      total: parseInt(headers.get('content-range').split('/').pop(), 10),
+      total: parseInt(json.total, 10),
     };
   },
 
   update: async (resource, params) => {
     const { json } = await httpClient(`${apiUrl}/${resource}/${params.id}`, {
       method: 'PATCH',
-      body: JSON.stringify(params.data),
+      body: JSON.stringify({ ...params.data, preview: params.data.preview.src }),
     });
     return { data: { ...json, id: json._id } };
   },
@@ -118,3 +120,5 @@ export default {
     return { data: json };
   },
 };
+
+export default dataProvider;

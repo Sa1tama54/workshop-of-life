@@ -1,11 +1,11 @@
 import React from 'react';
-import Paginations from '../components/ui/Pagination';
-import ProductCard from '../components/ui/ProductCard';
-import Search from '../components/ui/Search';
-import Sort from '../components/ui/Sort';
-import MainLayout from '../layouts/MainLayout';
+import Paginations from 'components/ui/Pagination';
+import ProductCard from 'components/ProductCard';
+import Search from 'components/ui/Search';
+import Sort from 'components/ui/Sort';
+import MainLayout from 'layouts/MainLayout';
 
-import styles from '../styles/pages/Products.module.scss';
+import styles from 'pages/products/Products.module.scss';
 
 const Products = () => {
   return (

@@ -1,7 +1,8 @@
-import { Button, Fade, Menu, MenuItem } from '@mui/material';
 import React from 'react';
+import { Button, Fade, Menu, MenuItem } from '@mui/material';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
-import styles from './Sort.module.scss';
+
+import styles from 'components/ui/Sort/Sort.module.scss';
 
 const Sort = () => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);

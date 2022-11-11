@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
-import styles from './InformBanner.module.scss';
+import styles from './ServicesBanner.module.scss';
 
 const InformBanner: React.FC = () => {
   const logo: { url: string }[] = [

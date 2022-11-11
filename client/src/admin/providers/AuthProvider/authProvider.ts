@@ -1,8 +1,9 @@
 import axios from 'axios';
 import { AuthProvider } from 'react-admin';
-import { LoginShemaTypes, ResponseAdminTypes } from 'common/utils/types';
+import { LoginShemaTypes } from 'common/utils/validate';
+import { ResponseAdminTypes } from 'admin/providers/AuthProvider/authProvider.interfaces';
 
-export const authProvider: AuthProvider = {
+const authProvider: AuthProvider = {
   login: async (params: LoginShemaTypes) => {
     const { data } = await axios.post<LoginShemaTypes, { data: ResponseAdminTypes }>(
       '/api/admins/login',
@@ -29,3 +30,5 @@ export const authProvider: AuthProvider = {
   },
   getPermissions: () => Promise.resolve(/* ... */),
 };
+
+export default authProvider;

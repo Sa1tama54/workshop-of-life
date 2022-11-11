@@ -1,4 +1,8 @@
 import * as yup from 'yup';
+export interface LoginShemaTypes {
+  login: string;
+  password: string;
+}
 
 export const LoginSchema = yup.object().shape({
   login: yup.string().required('Логин обязательный'),

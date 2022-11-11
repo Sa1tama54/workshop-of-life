@@ -1,5 +1,13 @@
+@import 'styles/variables.scss';
+
 .wrapper {
-	width: 350px;
-	margin: auto;
-	color: #AC0000;
+  width: 350px;
+  margin: auto;
+  color: #ac0000;
+}
+@include phones {
+  .wrapper {
+    width: 250px;
+    margin: auto;
+  }
 }

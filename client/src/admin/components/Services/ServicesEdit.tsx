@@ -4,14 +4,15 @@ import {
   EditProps,
   ImageField,
   ImageInput,
-  NumberInput,
+  ReferenceInput,
   SaveButton,
+  SelectInput,
   SimpleForm,
   TextInput,
   Toolbar,
 } from 'react-admin';
 
-const ProductEditToolbar = () => {
+const ServiceEditToolbar = () => {
   return (
     <Toolbar>
       <SaveButton label="Изменить" />
@@ -19,13 +20,19 @@ const ProductEditToolbar = () => {
   );
 };
 
-const ProductEdit = (props: EditProps) => {
+const ServicesEdit = (props: EditProps) => {
   return (
-    <Edit title="Изменить" {...props}>
-      <SimpleForm toolbar={<ProductEditToolbar />}>
-        <TextInput source="title" label="Название продукта" />
-        <TextInput multiline source="description" label="Описание" />
-        <NumberInput source="price" label="Цена" options={{ style: 'currency', currency: '₽' }} />
+    <Edit title="Изменить услугу" {...props}>
+      <SimpleForm toolbar={<ServiceEditToolbar />}>
+        <ReferenceInput source="category" reference="categories">
+          <SelectInput
+            emptyText="Вид услуги не выбран"
+            sx={{ minWidth: 230 }}
+            label="Выберите вид услуги"
+            optionText="title"
+          />
+        </ReferenceInput>
+        <TextInput source="title" label="Название услуги" />
         <ImageInput
           source="preview"
           label="Выберите файл"
@@ -34,8 +41,8 @@ const ProductEdit = (props: EditProps) => {
           }
         >
           <ImageField
+            label="Изображение"
             source="src"
-            title="title"
             sx={{
               maxWidth: 500,
               maxHeight: 500,
@@ -48,4 +55,4 @@ const ProductEdit = (props: EditProps) => {
   );
 };
 
-export default ProductEdit;
+export default ServicesEdit;
