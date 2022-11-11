@@ -1,7 +1,7 @@
 import { Admin, Resource } from 'react-admin';
 import { MyLayout } from 'admin/components/MyLayout';
-import { authProvider } from 'admin/providers/authProvider';
 import dataProvider from 'admin/providers/dataProvider';
+import authProvider from 'admin/providers/AuthProvider/authProvider';
 import LoginPage from 'admin/LoginPage';
 import { lightTheme } from 'admin/theme';
 import { modules } from 'admin/MyComponents';
