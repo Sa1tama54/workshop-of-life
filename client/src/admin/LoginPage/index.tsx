@@ -2,7 +2,7 @@ import { Paper } from '@mui/material';
 import React from 'react';
 import LoginForm from 'components/LoginForm';
 
-import styles from 'admin/pages/LoginPage/Login.module.scss';
+import styles from 'admin/LoginPage/LoginPage.module.scss';
 
 const LoginPage = () => {
   return (

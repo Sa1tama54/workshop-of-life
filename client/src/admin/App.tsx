@@ -1,12 +1,10 @@
 import { Admin, Resource } from 'react-admin';
-import ProductCreate from 'admin/components/Product/ProductCreate';
-import ProductsList from 'admin/components/Product/ProductsList';
-import ProductEdit from 'admin/components/Product/ProductEdit';
 import { MyLayout } from 'admin/components/MyLayout';
-import dataProvider from 'admin/providers/dataProvider';
 import { authProvider } from 'admin/providers/authProvider';
-import LoginPage from 'admin/pages/LoginPage';
+import dataProvider from 'admin/providers/dataProvider';
+import LoginPage from 'admin/LoginPage';
 import { lightTheme } from 'admin/theme';
+import { modules } from 'admin/MyComponents';
 
 const ReactAdmin = () => {
   return (
@@ -17,7 +15,20 @@ const ReactAdmin = () => {
       authProvider={authProvider}
       dataProvider={dataProvider}
     >
-      <Resource name="products" list={ProductsList} create={ProductCreate} edit={ProductEdit} />
+      <Resource
+        name="services"
+        list={modules.ServicesList}
+        create={modules.ServicesCreate}
+        edit={modules.ServicesEdit}
+        show={modules.ServicesShow}
+      />
+      <Resource
+        name="products"
+        list={modules.ProductsList}
+        create={modules.ProductCreate}
+        edit={modules.ProductEdit}
+        show={modules.ProductShow}
+      />
     </Admin>
   );
 };
