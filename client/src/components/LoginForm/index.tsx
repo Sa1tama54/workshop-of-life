@@ -6,7 +6,7 @@ import { useLogin, useNotify } from 'react-admin';
 import FormField from 'components/ui/FormField';
 import styles from 'components/LoginForm/LoginForm.module.scss';
 import { LoginSchema } from 'common/utils/validate';
-import { LoginShemaTypes } from 'common/utils/types';
+import { LoginShemaTypes } from 'common/utils/validate';
 
 const LoginForm = () => {
   const form = useForm<LoginShemaTypes>({
