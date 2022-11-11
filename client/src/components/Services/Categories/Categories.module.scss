@@ -1,3 +1,5 @@
+@import 'styles/variables.scss';
+
 .categories {
   overflow: auto;
   width: 100%;
@@ -40,7 +42,7 @@
     }
   }
 }
-@media screen and (max-width: 480px) {
+@include phones {
   .categories {
     margin-bottom: 0;
 
@@ -54,7 +56,6 @@
       border-radius: 30px;
 
       li {
-        font-family: 'Montserrat';
         font-style: normal;
         font-weight: 700;
         font-size: 16px;
@@ -71,7 +72,4 @@
       }
     }
   }
-}
-
-@media screen and (max-width: 800px) {
 }
