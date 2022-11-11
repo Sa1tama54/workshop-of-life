@@ -1,8 +1,6 @@
 import { Router } from 'express';
-import handleValidationError from '../middlewares/handleValidationError';
 import productsController from '../controllers/products.controller';
 import checkAuth from '../middlewares/checkAuth';
-import { productValidation } from '../validate';
 
 const router = Router();
 
@@ -71,7 +69,7 @@ const router = Router();
  *     security:
  *       - bearerAuth: []
  */
-router.post('/', checkAuth, productValidation, handleValidationError, productsController.create);
+router.post('/', checkAuth, productsController.create);
 
 /**
  * @swagger
@@ -137,13 +135,7 @@ router.get('/', productsController.getAll);
  *     security:
  *       - bearerAuth: []
  */
-router.patch(
-  '/:id',
-  checkAuth,
-  productValidation,
-  handleValidationError,
-  productsController.update
-);
+router.patch('/:id', checkAuth, productsController.update);
 
 /**
  * @swagger
@@ -165,5 +157,7 @@ router.patch(
  *       - bearerAuth: []
  */
 router.delete('/:id', checkAuth, productsController.remove);
+
+router.get('/:id', productsController.getOne);
 
 export default router;

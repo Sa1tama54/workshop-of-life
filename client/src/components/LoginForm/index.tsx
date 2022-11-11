@@ -1,21 +1,26 @@
-import { Alert, Button } from '@mui/material';
+import { Button } from '@mui/material';
 import React from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { LoginSchema, ValidateShemaTypes } from '../../utils/validate';
-import FormField from '../ui/FormField';
-import styles from './LoginForm.module.scss';
+import { useLogin, useNotify } from 'react-admin';
+import FormField from 'components/ui/FormField';
+import styles from 'components/LoginForm/LoginForm.module.scss';
+import { LoginSchema } from 'common/utils/validate';
+import { LoginShemaTypes } from 'common/utils/types';
 
 const LoginForm = () => {
-  const [errorMessage, setErrorMessage] = React.useState('');
-
-  const form = useForm<ValidateShemaTypes>({
+  const form = useForm<LoginShemaTypes>({
     mode: 'onChange',
     resolver: yupResolver(LoginSchema),
   });
 
-  const onSubmit = async (data: ValidateShemaTypes) => {
-    console.log(data);
+  const auth = useLogin();
+  const notify = useNotify();
+
+  const onSubmit = (params: LoginShemaTypes) => {
+    const { login, password } = params;
+
+    auth({ login, password }).catch((err) => notify(err.response.data.message));
   };
 
   return (
@@ -23,7 +28,6 @@ const LoginForm = () => {
       <form onSubmit={form.handleSubmit(onSubmit)}>
         <FormField name="login" label="Логин" />
         <FormField name="password" label="Пароль" />
-        {errorMessage && <Alert severity="error">{errorMessage}</Alert>}
         <Button
           disabled={!form.formState.isValid}
           className={styles.loginBtn}
