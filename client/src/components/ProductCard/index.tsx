@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   Card,
   CardActionArea,
@@ -7,9 +8,9 @@ import {
   styled,
   Typography,
 } from '@mui/material';
-import React from 'react';
-import AppButton from '../Button';
-import styles from './ProductCard.module.scss';
+import AppButton from 'components/ui/Button';
+
+import styles from 'components/ProductCard/ProductCard.module.scss';
 
 const StyledCardActionArea = styled(CardActionArea)({
   '.MuiCardActionArea-focusHighlight': {

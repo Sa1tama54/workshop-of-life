@@ -1,9 +1,10 @@
+import React from 'react';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { IconButton, InputAdornment, InputLabel, styled, TextField } from '@mui/material';
-import React from 'react';
 import { useFormContext } from 'react-hook-form';
-import { FormFieldProps } from './FormField.interface';
-import styles from './FormField.module.scss';
+import { FormFieldProps } from 'components/ui/FormField/FormField.interface';
+
+import styles from 'components/ui/FormField/FormField.module.scss';
 
 const CssTextField = styled(TextField)({
   '& .MuiOutlinedInput-root': {
