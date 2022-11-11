@@ -1,48 +1,71 @@
 .wrapp {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	width: 100%;
-	margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  margin-top: 30px;
 }
 
 .serviceCard {
-	overflow: hidden;
-	width: 279px;
-	min-height: 370px;
-	margin-right: 20px;
-	margin-bottom: 50px;
-	border-radius: 10px;
-	background: #F3F3F3;
+  overflow: hidden;
+  width: 279px;
+  min-height: 370px;
+  margin-right: 20px;
+  margin-bottom: 50px;
+  border-radius: 10px;
+  background: #f3f3f3;
 
-	&:nth-child(4n) {
-		margin-right: 0;
-	}
+  &:nth-child(4n) {
+    margin-right: 0;
+  }
 
-	@media screen and (max-width: 1275px) {
-		&:nth-child(3n) {
-			margin-right: 0;
-		}
+  @media screen and (max-width: 1275px) {
+    &:nth-child(3n) {
+      margin-right: 0;
+    }
 
-		&:not(:nth-child(3n)) {
-			margin-right: 20px;
-		}
-	}
+    &:not(:nth-child(3n)) {
+      margin-right: 20px;
+    }
+  }
 }
 
 .content {
-	padding: 25px 15px;
+  padding: 25px 15px;
 
-	h2 {
-		margin-bottom: 20px;
-		color: #2E363E;
-		font-size: 24px;
-		font-weight: bold;
-		font-style: normal;
-		line-height: 143%;
-	}
+  h2 {
+    margin-bottom: 20px;
+    color: #2e363e;
+    font-size: 24px;
+    font-weight: bold;
+    font-style: normal;
+    line-height: 143%;
+  }
 }
 
 .button {
-	text-align: center;
+  text-align: center;
+}
+@media only screen and (max-width: 480px) {
+  .wrapp {
+    .serviceCard {
+      width: 279px;
+      height: 337px;
+      margin-right: 0;
+      border-radius: 10px;
+      .content {
+        width: 200px;
+        margin: auto;
+        padding-top: 25px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .wrapp {
+    .serviceCard {
+      margin-right: 30px;
+    }
+  }
 }

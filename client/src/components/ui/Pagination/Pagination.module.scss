@@ -1,5 +1,13 @@
 .wrapper {
-	width: 350px;
-	margin: auto;
-	color: #AC0000;
+  width: 350px;
+  margin: auto;
+  color: #ac0000;
+}
+@media screen and (max-width: 480px) {
+  .wrapper {
+    width: 250px;
+    padding: 0;
+    margin: 0;
+    font-size: 7px;
+  }
 }

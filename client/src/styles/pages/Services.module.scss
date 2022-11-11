@@ -1,9 +1,24 @@
 .main {
-	margin-bottom: 60px;
+  margin-bottom: 60px;
 }
 
 .content {
-	input {
-		width: 60%;
-	}
+  input {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .content {
+    input {
+      width: 100%;
+    }
+  }
+}
+@media screen and (max-width: 769px) {
+  .content {
+    input {
+      width: 100%;
+    }
+  }
 }
