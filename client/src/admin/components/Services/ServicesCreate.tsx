@@ -4,14 +4,15 @@ import {
   CreateProps,
   ImageField,
   ImageInput,
-  NumberInput,
+  ReferenceInput,
   SaveButton,
+  SelectInput,
   SimpleForm,
   TextInput,
   Toolbar,
 } from 'react-admin';
 
-const ProductCreateToolbar = () => {
+const ServiceCreateToolbar = () => {
   return (
     <Toolbar>
       <SaveButton label="Добавить" />
@@ -19,13 +20,19 @@ const ProductCreateToolbar = () => {
   );
 };
 
-const ProductCreate = (props: CreateProps) => {
+const ServicesCreate = (props: CreateProps) => {
   return (
-    <Create title="Добавить товар" {...props}>
-      <SimpleForm toolbar={<ProductCreateToolbar />}>
-        <TextInput source="title" label="Название продукта" />
-        <TextInput multiline source="description" label="Описание" />
-        <NumberInput source="price" label="Цена" />
+    <Create title="Добавить услугу" {...props}>
+      <SimpleForm toolbar={<ServiceCreateToolbar />}>
+        <ReferenceInput source="category" reference="categories">
+          <SelectInput
+            emptyText="Вид услуги не выбран"
+            sx={{ minWidth: 230 }}
+            label="Выберите вид услуги"
+            optionText="title"
+          />
+        </ReferenceInput>
+        <TextInput source="title" label="Название услуги" />
         <ImageInput
           source="preview"
           label="Выберите файл"
@@ -34,8 +41,8 @@ const ProductCreate = (props: CreateProps) => {
           }
         >
           <ImageField
+            label="Изображение"
             source="src"
-            title="title"
             sx={{
               maxWidth: 500,
               maxHeight: 500,
@@ -48,4 +55,4 @@ const ProductCreate = (props: CreateProps) => {
   );
 };
 
-export default ProductCreate;
+export default ServicesCreate;

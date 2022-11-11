@@ -23,6 +23,16 @@ const getAll = async (req, res) => {
     const limit = parseInt(req.query.limit) || 5;
     const search = req.query.search || '';
     const categoryName = req.query.category || '';
+    let sort = req.query.sort || 'DESC';
+
+    req.query.sort ? (sort = req.query.sort.split(',')) : (sort = [sort]);
+
+    let sortBy = {};
+    if (sort[1]) {
+      sortBy[sort[0]] = sort[1];
+    } else {
+      sortBy[sort[0]] = 'ASC';
+    }
 
     const singleCategory = await CategoryModel.findOne({ title: categoryName });
 
@@ -33,12 +43,14 @@ const getAll = async (req, res) => {
           category: singleCategory,
           title: { $regex: search, $options: 'i' },
         })
+          .sort(sortBy)
           .skip(page * limit)
           .limit(limit)
           .populate('category'))
       : (data = await ServiceModel.find({
           title: { $regex: search, $options: 'i' },
         })
+          .sort(sortBy)
           .skip(page * limit)
           .limit(limit)
           .populate('category'));
@@ -61,24 +73,29 @@ const getAll = async (req, res) => {
   }
 };
 
+const getOne = async (req, res) => {
+  try {
+    const data = await ServiceModel.findById(req.params.id);
+
+    res.json(data);
+  } catch (error) {
+    res.status(500).json({ message: 'Не удалось найти услугу' });
+  }
+};
+
 const update = async (req, res) => {
   try {
     const { title, preview, category } = req.body;
 
     const serviceId = req.params.id;
 
-    await ServiceModel.updateOne(
-      {
-        _id: serviceId,
-      },
-      {
-        title,
-        preview,
-        category,
-      }
-    );
+    const data = await ServiceModel.findByIdAndUpdate(serviceId, {
+      title,
+      preview,
+      category,
+    });
 
-    res.json({ success: true });
+    res.json(data);
   } catch (error) {
     res.status(500).json({ message: 'Не удалось обновить услугу' });
   }
@@ -104,4 +121,4 @@ const remove = async (req, res) => {
   }
 };
 
-export default { create, getAll, update, remove };
+export default { create, getAll, getOne, update, remove };

@@ -36,9 +36,13 @@ const remove = async (req, res) => {
 
 const getAll = async (req, res) => {
   try {
-    const categories = await CategoryModel.find();
+    const data = await CategoryModel.find();
 
-    res.json(categories);
+    const response = {
+      data,
+    };
+
+    res.json(response);
   } catch (error) {
     res.status(500).json({ message: 'Не удалось получить категории' });
   }
