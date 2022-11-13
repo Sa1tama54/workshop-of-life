@@ -1,70 +1,69 @@
-@import 'styles/variables.scss';
+@import 'styles/variables';
 
 .wrapp {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  width: 100%;
-  margin-top: 30px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	width: 100%;
+	margin-top: 30px;
 }
 
 .serviceCard {
-  overflow: hidden;
-  width: 279px;
-  min-height: 370px;
-  margin-right: 20px;
-  margin-bottom: 50px;
-  border-radius: 10px;
-  background: #f3f3f3;
+	overflow: hidden;
+	width: 279px;
+	min-height: 370px;
+	margin-right: 20px;
+	margin-bottom: 50px;
+	border-radius: 10px;
+	background: #F3F3F3;
 
-  &:nth-child(4n) {
-    margin-right: 0;
-  }
+	&:nth-child(4n) {
+		margin-right: 0;
+	}
 
-  @media screen and (max-width: 1275px) {
-    &:nth-child(3n) {
-      margin-right: 0;
-    }
+	@media screen and (max-width: 1275px) {
+		&:nth-child(3n) {
+			margin-right: 0;
+		}
 
-    &:not(:nth-child(3n)) {
-      margin-right: 20px;
-    }
-  }
+		&:not(:nth-child(3n)) {
+			margin-right: 20px;
+		}
+	}
 
-  @media screen and (max-width: 976px) {
-    &:nth-child(2n) {
-      margin-right: 0;
-    }
+	@media screen and (max-width: 976px) {
+		&:nth-child(2n) {
+			margin-right: 0;
+		}
 
-    &:not(:nth-child(2n)) {
-      margin-right: 20px;
-    }
-  }
+		&:not(:nth-child(2n)) {
+			margin-right: 20px;
+		}
+	}
 
-  @include tablets {
-    margin-right: 20px !important;
-  }
+	@include tablets {
+		margin-right: 20px !important;
+	}
 
-  @include phones {
-    margin-right: 0;
-    border-radius: 10px;
-    margin-right: 0 !important;
-  }
+	@include phones {
+		margin-right: 0 !important;
+		border-radius: 10px;
+	}
 }
 
 .content {
-  padding: 25px 15px;
+	padding: 25px 15px;
 
-  h2 {
-    margin-bottom: 20px;
-    color: #2e363e;
-    font-size: 24px;
-    font-weight: bold;
-    font-style: normal;
-    line-height: 143%;
-  }
+	h2 {
+		margin-bottom: 20px;
+		color: #2E363E;
+		font-size: 24px;
+		font-weight: bold;
+		font-style: normal;
+		line-height: 143%;
+	}
 }
 
 .button {
-  text-align: center;
+	text-align: center;
 }

@@ -9,13 +9,6 @@
 	align-items: flex-start;
 	flex-direction: column;
 
-	p {
-		margin-bottom: 24px;
-		font-weight: 600;
-		font-style: 14px;
-		line-height: 20px;
-	}
-
 	span {
 		margin-top: 10px;
 		font-weight: 400;
@@ -32,5 +25,18 @@
 		border: none;
 		border-radius: 4px;
 		background: #AC0000;
+	}
+}
+
+.countRevs {
+	margin-bottom: 24px;
+	font-size: 30px;
+	font-weight: 600;
+	line-height: 34px;
+
+	span {
+		font-size: 14px;
+		font-weight: 600;
+		line-height: 20px;
 	}
 }

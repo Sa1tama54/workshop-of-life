@@ -1,13 +1,15 @@
 import { FC } from 'react';
-import { Rating } from '@mui/material';
-import styles from './ReviewsScore.module.scss';
+import Rating from '@mui/material/Rating';
+import styles from './AvgScore.module.scss';
 
-const ReviewsScore: FC = () => {
+const AvgScore: FC = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.wrap}>
         <div className={styles.generalRevs}>
-          <p>123 Оценки клиентов</p>
+          <p className={styles.countRevs}>
+            123 <span>Оценки клиентов</span>
+          </p>
           <Rating
             sx={{ marginBottom: '10px', color: '#ac0000', padding: 0 }}
             size="large"
@@ -23,4 +25,4 @@ const ReviewsScore: FC = () => {
   );
 };
 
-export default ReviewsScore;
+export default AvgScore;
