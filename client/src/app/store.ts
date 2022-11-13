@@ -4,7 +4,7 @@ import { createWrapper } from 'next-redux-wrapper';
 const makeStore = () => {
   return configureStore({
     reducer: {
-    //   user: userReducer,
+      //   user: userReducer,
     },
   });
 };

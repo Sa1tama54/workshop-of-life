@@ -1,75 +1,75 @@
-@import 'styles/variables.scss';
+@import 'styles/variables';
 
 .categories {
-  overflow: auto;
-  width: 100%;
-  margin-bottom: 30px;
+	overflow: auto;
+	width: 100%;
+	margin-bottom: 30px;
 
-  &::-webkit-scrollbar {
-    display: none;
-  }
+	&::-webkit-scrollbar {
+		display: none;
+	}
 
-  ul {
-    display: flex;
-    height: 65px;
-    margin-bottom: 5px;
-    list-style: none;
+	ul {
+		display: flex;
+		height: 65px;
+		margin-bottom: 5px;
+		list-style: none;
 
-    li {
-      display: flex;
-      align-items: center;
-      min-width: max-content;
-      margin-right: 10px;
-      padding: 13px 30px;
-      cursor: pointer;
-      transition: background-color 0.1s ease-in-out;
-      border-radius: 30px;
-      background-color: #f9f9f9;
-      font-weight: bold;
+		li {
+			display: flex;
+			align-items: center;
+			min-width: max-content;
+			margin-right: 10px;
+			padding: 13px 30px;
+			cursor: pointer;
+			transition: background-color 0.1s ease-in-out;
+			border-radius: 30px;
+			background-color: #F9F9F9;
+			font-weight: bold;
 
-      &:hover {
-        background-color: #f9f9f9;
-      }
+			&:hover {
+				background-color: #F9F9F9;
+			}
 
-      &:active {
-        background-color: #f9f9f9;
-      }
+			&:active {
+				background-color: #F9F9F9;
+			}
 
-      &.active {
-        color: #fff;
-        background-color: #ac0000;
-      }
-    }
-  }
+			&.active {
+				color: #FFF;
+				background-color: #AC0000;
+			}
+		}
+	}
 }
 @include phones {
-  .categories {
-    margin-bottom: 0;
+	.categories {
+		margin-bottom: 0;
 
-    &::-webkit-scrollbar {
-      display: none;
-    }
+		&::-webkit-scrollbar {
+			display: none;
+		}
 
-    ul {
-      width: 131.26px;
-      height: 46px;
-      border-radius: 30px;
+		ul {
+			width: 131.26px;
+			height: 46px;
+			border-radius: 30px;
 
-      li {
-        font-style: normal;
-        font-weight: 700;
-        font-size: 16px;
-        line-height: 20px;
-        text-align: center;
-        letter-spacing: 0.015em;
-        color: #2c2c2c;
+			li {
+				text-align: center;
+				letter-spacing: 0.015em;
+				color: #2C2C2C;
+				font-size: 16px;
+				font-weight: 700;
+				font-style: normal;
+				line-height: 20px;
 
-        &.active {
-          color: #fff;
-          background-color: #ac0000;
-          font-size: 16px;
-        }
-      }
-    }
-  }
+				&.active {
+					color: #FFF;
+					background-color: #AC0000;
+					font-size: 16px;
+				}
+			}
+		}
+	}
 }
