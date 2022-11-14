@@ -1,5 +1,5 @@
 import { Typography } from '@mui/material';
-import AppButton from 'components/ui/Button';
+import FormDialog from 'components/ui/Modal';
 import Image from 'next/image';
 import React from 'react';
 import styles from './ServicesCard.module.scss';
@@ -51,7 +51,7 @@ const ServicesCard: React.FC = () => {
                 <div className={styles.content}>
                   <Typography variant="h2">{item.desc}</Typography>
                   <div className={styles.button}>
-                    <AppButton>Оставить заявку</AppButton>
+                    <FormDialog />
                   </div>
                 </div>
               </div>
