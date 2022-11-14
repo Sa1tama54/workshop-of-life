@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import Footer from '../components/Footer';
-import Header from '../components/Header';
-import BasicTabs from '../components/ui/Tabs';
+import Footer from 'components/Footer';
+import Header from 'components/Header';
+import BasicTabs from 'components/ui/Tabs';
 
 interface MainLayoutProps {
   hideTabs?: boolean;
