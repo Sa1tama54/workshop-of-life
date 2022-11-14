@@ -11,7 +11,7 @@ const InformBanner: React.FC = () => {
 
   return (
     <div className={styles.wrapper}>
-      {logo.map((item, index) => {
+      {logo.map((item, index: React.Key | null | undefined) => {
         return (
           <Image
             src={item.url}
