@@ -11,7 +11,7 @@ import arrowLeft from 'assets/arrowLeft.svg';
 import arrowRight from 'assets/arrowRight.svg';
 import search from 'assets/search.svg';
 
-const ClientsPics: React.FC = () => {
+const ClientsPics = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.title}>Фотографии наших клиентов</div>
