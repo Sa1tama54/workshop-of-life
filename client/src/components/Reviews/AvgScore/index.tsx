@@ -1,8 +1,8 @@
-import { FC } from 'react';
+import React from 'react';
 import Rating from '@mui/material/Rating';
 import styles from './AvgScore.module.scss';
 
-const AvgScore: FC = () => {
+const AvgScore = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.wrap}>
@@ -17,7 +17,7 @@ const AvgScore: FC = () => {
             value={5}
             readOnly
           />
-          <span>4,5 из 5 средняя оценка клиентов</span>
+          <span className={styles.avgScore}>4,5 из 5 средняя оценка клиентов</span>
           <button>Добавить отзыв</button>
         </div>
       </div>
