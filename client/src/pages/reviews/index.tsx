@@ -1,7 +1,7 @@
 import Heading from 'components/ui/Heading';
 import MainLayout from 'layouts/MainLayout';
 import styles from './Reviews.module.scss';
-import { AvgScore, WithProgressBar, ClientsPics } from 'components/Reviews';
+import { AverageRating, ProgressBarReview, PicsReview } from 'components/Reviews';
 import Sort from 'components/ui/Sort';
 
 const Reviews = () => {
@@ -9,12 +9,12 @@ const Reviews = () => {
     <MainLayout hideTabs={true}>
       <Heading>Отзывы</Heading>
       <section className={styles.scoreBar}>
-        <AvgScore />
-        <WithProgressBar />
+        <AverageRating />
+        <ProgressBarReview />
       </section>
       <section className={styles.picsClients}>
         <div className={styles.picsTitle}>Фотографии наших клиентов</div>
-        <ClientsPics />
+        <PicsReview />
       </section>
       <div className={styles.sortUI}>
         <Sort />

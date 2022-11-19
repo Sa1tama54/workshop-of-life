@@ -1,5 +1,5 @@
-export { default as AvgScore } from './AvgScore';
+export { default as AverageRating } from './AverageRating';
 
-export { default as WithProgressBar } from './WithProgressBar';
+export { default as ProgressBarReview } from './ProgressBarReview';
 
-export { default as ClientsPics } from './ClientsPics';
+export { default as PicsReview } from './PicsReview';

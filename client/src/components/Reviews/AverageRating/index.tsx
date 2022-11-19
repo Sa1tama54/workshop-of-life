@@ -1,8 +1,8 @@
 import React from 'react';
 import Rating from '@mui/material/Rating';
-import styles from './AvgScore.module.scss';
+import styles from './AverageRating.module.scss';
 
-const AvgScore = () => {
+const AverageRating = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.wrap}>
@@ -25,4 +25,4 @@ const AvgScore = () => {
   );
 };
 
-export default AvgScore;
+export default AverageRating;
