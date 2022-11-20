@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './ClientsPics.module.scss';
+import styles from './PicsReview.module.scss';
 import Image from 'next/image';
 
 import pic1 from 'assets/images/pic1.png';
@@ -11,7 +11,7 @@ import arrowLeft from 'assets/arrowLeft.svg';
 import arrowRight from 'assets/arrowRight.svg';
 import search from 'assets/search.svg';
 
-const ClientsPics = () => {
+const PicsReview = () => {
   return (
     <React.Fragment>
       <div className={styles.pics}>
@@ -37,4 +37,4 @@ const ClientsPics = () => {
   );
 };
 
-export default ClientsPics;
+export default PicsReview;

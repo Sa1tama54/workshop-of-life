@@ -1,10 +1,10 @@
 import React from 'react';
 import Image from 'next/image';
 import StarSvg from 'assets/star.svg';
-import styles from './WithProgressBar.module.scss';
+import styles from './ProgressBarReview.module.scss';
 import AppLinearProgress from 'components/ui/AppLinearProgress';
 
-const WithProgressBar = () => {
+const ProgressBarReview = () => {
   return (
     <div className={styles.revsProgBar}>
       <p>Общие оценки</p>
@@ -54,4 +54,4 @@ const WithProgressBar = () => {
   );
 };
 
-export default WithProgressBar;
+export default ProgressBarReview;
