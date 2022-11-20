@@ -13,8 +13,7 @@ import search from 'assets/search.svg';
 
 const ClientsPics = () => {
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.title}>Фотографии наших клиентов</div>
+    <React.Fragment>
       <div className={styles.pics}>
         <div className={styles.arrow}>
           <Image src={arrowLeft} alt="arrow" />
@@ -27,13 +26,14 @@ const ClientsPics = () => {
           <Image src={arrowRight} alt="arrow" />
         </div>
       </div>
+
       <div className={styles.help}>
         <div className={styles.searchSvg}>
           <Image src={search} alt="search" />
         </div>
         <p>Для увеличения картинки нажмите на изображение</p>
       </div>
-    </div>
+    </React.Fragment>
   );
 };
 

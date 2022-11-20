@@ -13,6 +13,7 @@ const Reviews = () => {
         <WithProgressBar />
       </section>
       <section className={styles.picsClients}>
+        <div className={styles.picsTitle}>Фотографии наших клиентов</div>
         <ClientsPics />
       </section>
       <div className={styles.sortUI}>
