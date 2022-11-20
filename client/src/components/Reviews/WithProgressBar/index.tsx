@@ -4,7 +4,7 @@ import StarSvg from 'assets/star.svg';
 import styles from './WithProgressBar.module.scss';
 import AppLinearProgress from 'components/ui/AppLinearProgress';
 
-const WithProgressBar: React.FC = () => {
+const WithProgressBar = () => {
   return (
     <div className={styles.revsProgBar}>
       <p>Общие оценки</p>

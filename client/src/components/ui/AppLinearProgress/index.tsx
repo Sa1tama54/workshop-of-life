@@ -5,7 +5,7 @@ interface LinearProgressProps {
   value: number;
 }
 
-const AppLinearProgress: React.FC<LinearProgressProps> = ({ value }) => {
+const AppLinearProgress = ({ value }: LinearProgressProps) => {
   return (
     <LinearProgress
       value={value}
