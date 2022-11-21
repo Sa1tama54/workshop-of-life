@@ -5,7 +5,7 @@ const makeStore = () => {
   return configureStore({
     reducer: {
       // user: userReducer,
-      services,
+      service: services,
     },
   });
 };

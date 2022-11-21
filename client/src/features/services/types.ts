@@ -1,21 +1,15 @@
 export type Services = {
   id: string;
-  price: number;
+  review: string;
   title: string;
-  imageUrl: string;
+  category: string;
 };
 
 export enum Status {
-  LOADING = 'loadung',
+  LOADING = 'loading',
   SUCCESS = 'completed',
   ERROR = 'error',
 }
-
-export type SearchServiceParams = {
-  category: string;
-  search: string;
-  currentPage: string;
-};
 
 export interface ServicesSLiceState {
   items: Services[];
