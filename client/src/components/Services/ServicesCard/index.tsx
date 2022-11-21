@@ -46,7 +46,6 @@ const ServicesCard: React.FC = () => {
   const dispatch = useAppDispatch();
 
   const services = useAppSelector((state) => state.service.items);
-  console.log(services);
   React.useEffect(() => {
     dispatch(fetchServices());
   }, [dispatch]);
