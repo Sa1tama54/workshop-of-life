@@ -3,6 +3,9 @@ import FormDialog from 'components/ui/Modal';
 import Image from 'next/image';
 import React from 'react';
 import styles from './ServicesCard.module.scss';
+import { useAppSelector } from 'common/hooks/useAppSelector';
+import { fetchServices } from 'features/services/asyncActions';
+import { useAppDispatch } from 'common/hooks/useAppDispatch';
 
 const card: { desc: string; url: string }[] = [
   {
@@ -40,16 +43,23 @@ const card: { desc: string; url: string }[] = [
 ];
 
 const ServicesCard: React.FC = () => {
+  const dispatch = useAppDispatch();
+
+  const services = useAppSelector((state) => state.service.items);
+  React.useEffect(() => {
+    dispatch(fetchServices());
+  }, [dispatch]);
+
   return (
     <>
       <div className={styles.wrapp}>
-        {card.map((item, index) => {
+        {services.map((item, index) => {
           return (
             <React.Fragment key={index}>
               <div className={styles.serviceCard}>
-                <Image src={item.url} alt="workplan_human" width={279} height={173} />
+                <Image src={item.review} alt="workplan_human" width={279} height={173} />
                 <div className={styles.content}>
-                  <Typography variant="h2">{item.desc}</Typography>
+                  <Typography variant="h2">{item.title}</Typography>
                   <div className={styles.button}>
                     <FormDialog />
                   </div>

@@ -23,9 +23,9 @@ const servicesSlice = createSlice({
       state.items = action.payload;
       state.status = Status.SUCCESS;
     });
-    // builder.addCase(fetchServices.rejected, (state, action) => {
-    //   (state.status = Status.ERROR), (state.items = []);
-    // });
+    builder.addCase(fetchServices.rejected, (state, action) => {
+      (state.status = Status.ERROR), (state.items = []);
+    });
   },
 });
 

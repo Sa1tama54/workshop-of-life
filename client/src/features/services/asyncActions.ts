@@ -1,19 +1,19 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { SearchServiceParams, Services } from './types';
+import { Services } from './types';
 
-export const fetchServices = createAsyncThunk<Services[], SearchServiceParams>(
-  'service/fetchServiceStatus',
-  async (params) => {
-    const { category, search, currentPage } = params;
-    const { data } = await axios.get<Services[]>('/services', {
-      params: {
-        page: currentPage,
-        limit: 4,
-        category,
-        search,
-      },
-    });
-    return data;
+export const fetchServices = createAsyncThunk<Services[]>(
+  'services/getServices',
+  async (_: void, thunkAPI) => {
+    try {
+      const res = await axios.get('http://127.0.0.1:3001/services/', {
+        params: {
+          limit: 999,
+        },
+      });
+      return res.data.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error);
+    }
   }
 );

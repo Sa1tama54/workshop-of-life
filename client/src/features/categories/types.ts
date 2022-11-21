@@ -1,8 +1,8 @@
-export type Services = {
+export type Categories = {
   id: string;
-  review: string;
   title: string;
-  category: string;
+  preview: string;
+  description: string;
 };
 
 export enum Status {
@@ -11,7 +11,7 @@ export enum Status {
   ERROR = 'error',
 }
 
-export interface ServicesSLiceState {
-  items: Services[];
+export interface CategoriesSLiceState {
+  items: Categories[];
   status: Status;
 }

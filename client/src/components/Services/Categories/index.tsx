@@ -1,22 +1,18 @@
+import { useAppDispatch } from 'common/hooks/useAppDispatch';
+import { useAppSelector } from 'common/hooks/useAppSelector';
+import { fetchCategories } from 'features/categories/asyncActions';
 import React from 'react';
 import styles from './Categories.module.scss';
 
-const categories = [
-  'Все',
-  'Сантехника',
-  'Грузоперевозки',
-  'Ремонт и установка бытовой техники',
-  'Электрика',
-  'Ремонт электро-приборов',
-  'Прочее',
-  'Прочее',
-  'Прочее',
-  'Прочее',
-  'Прочее',
-];
-
 const Categories: React.FC = () => {
   const [activeIndex, setActiveIndex] = React.useState(0);
+
+  const dispatch = useAppDispatch();
+  const categories = useAppSelector((state) => state.category.items);
+  console.log(categories);
+  React.useEffect(() => {
+    dispatch(fetchCategories());
+  }, [dispatch]);
 
   const onChangeCategory = (i: number) => {
     setActiveIndex(i);
@@ -25,14 +21,14 @@ const Categories: React.FC = () => {
   return (
     <div className={styles.categories}>
       <ul>
-        {categories.map((name, i) => {
+        {categories.map((item, i) => {
           return (
             <li
               onClick={() => onChangeCategory(i)}
               className={activeIndex === i ? styles.active : ''}
-              key={i}
+              key={item.id}
             >
-              {name}
+              {item.title}
             </li>
           );
         })}
