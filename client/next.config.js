@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ['tehpanda.ru'],
+    domains: ['tehpanda.ru', process.env.IMAGE_DOMAIN],
   },
   async rewrites() {
     return [
