@@ -36,10 +36,10 @@ const getAll = async (req, res) => {
 
     const singleCategory = await CategoryModel.findOne({ title: categoryName });
 
-    let data = null;
+    let services = null;
 
     req.query.category
-      ? (data = await ServiceModel.find({
+      ? (services = await ServiceModel.find({
           category: singleCategory,
           title: { $regex: search, $options: 'i' },
         })
@@ -47,7 +47,7 @@ const getAll = async (req, res) => {
           .skip(page * limit)
           .limit(limit)
           .populate('category'))
-      : (data = await ServiceModel.find({
+      : (services = await ServiceModel.find({
           title: { $regex: search, $options: 'i' },
         })
           .sort(sortBy)
@@ -64,7 +64,7 @@ const getAll = async (req, res) => {
       total,
       page: page + 1,
       limit,
-      data,
+      services,
     };
 
     res.json(response);
