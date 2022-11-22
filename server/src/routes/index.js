@@ -10,7 +10,7 @@ import requestsRoute from './request.route';
 
 const router = Router();
 
-router.use('/admins', adminsRoute);
+router.use('/admin', adminsRoute);
 router.use('/categories', categoriesRoute);
 router.use('/services', servicesRoute);
 router.use('/products', productsRoute);
