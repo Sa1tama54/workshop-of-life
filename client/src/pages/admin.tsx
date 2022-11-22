@@ -1,16 +1,12 @@
-import dynamic from 'next/dynamic';
+// import dynamic from 'next/dynamic';
 import React from 'react';
 
-const ReactAdmin = dynamic(() => import('../admin/App'), {
-  ssr: false,
-});
+// const ReactAdmin = dynamic(() => import('../admin/App'), {
+//   ssr: false,
+// });
 
 const Admin = () => {
-  return (
-    <div>
-      <ReactAdmin />
-    </div>
-  );
+  return <div>привет!</div>;
 };
 
 export default Admin;

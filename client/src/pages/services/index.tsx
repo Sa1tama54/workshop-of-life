@@ -6,6 +6,7 @@ import Categories from 'components/Services/Categories';
 import MainLayout from 'layouts/MainLayout';
 import Paginations from 'components/ui/Pagination';
 import Search from 'components/ui/Search';
+import FormDialog from 'components/ui/Modal';
 
 const Services: React.FC = () => {
   return (
@@ -13,6 +14,7 @@ const Services: React.FC = () => {
       <div className={styles.main}>
         <Categories />
         <InformBanner />
+        <FormDialog />
       </div>
       <div className={styles.content}>
         <Search />
