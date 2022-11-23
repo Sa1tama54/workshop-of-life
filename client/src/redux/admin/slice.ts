@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Status, AdminSliceState, ResponseAuthAdmin } from 'features/admin/interfaces';
-import { login } from 'features/admin/asyncActions';
+
+import { Status, AdminSliceState, ResponseAuthAdmin } from 'redux/admin/interfaces';
+import { login } from 'redux/admin/asyncActions';
 
 const token = typeof window !== 'undefined' ? localStorage.getItem('workshop_token') : null;
 

@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 
 import { useAppSelector } from 'common/hooks/useAppSelector';
-import { selectAdmin } from 'features/admin/selector';
+import { selectAdmin } from 'redux/admin/selector';
 
 export const useAuthRedirect = () => {
   const { adminData } = useAppSelector(selectAdmin);

@@ -10,8 +10,8 @@ import { useAppDispatch } from 'common/hooks/useAppDispatch';
 import { useAppSelector } from 'common/hooks/useAppSelector';
 import { useAuthRedirect } from 'common/hooks/useAuthRedirect';
 
-import { selectAdmin } from 'features/admin/selector';
-import { login } from 'features/admin/asyncActions';
+import { selectAdmin } from 'redux/admin/selector';
+import { login } from 'redux/admin/asyncActions';
 
 import FormField from 'components/ui/FormField';
 

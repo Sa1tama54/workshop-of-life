@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { fetchCategories } from './asyncActions';
-import { Categories, CategoriesSLiceState, Status } from './types';
+
+import { fetchCategories } from 'redux/categories/asyncActions';
+import { Categories, CategoriesSLiceState, Status } from 'redux/categories/types';
 
 const initialState: CategoriesSLiceState = {
   items: [],

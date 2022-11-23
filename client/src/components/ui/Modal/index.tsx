@@ -7,7 +7,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
 import styles from './Modal.module.scss';
 
-export default function FormDialog() {
+const FormDialog = () => {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -65,4 +65,6 @@ export default function FormDialog() {
       </Dialog>
     </div>
   );
-}
+};
+
+export default FormDialog;

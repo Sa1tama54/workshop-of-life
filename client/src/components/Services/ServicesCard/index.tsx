@@ -4,7 +4,7 @@ import Image from 'next/image';
 import React from 'react';
 import styles from './ServicesCard.module.scss';
 import { useAppSelector } from 'common/hooks/useAppSelector';
-import { fetchServices } from 'features/services/asyncActions';
+import { fetchServices } from 'redux/services/asyncActions';
 import { useAppDispatch } from 'common/hooks/useAppDispatch';
 
 const card: { desc: string; url: string }[] = [
