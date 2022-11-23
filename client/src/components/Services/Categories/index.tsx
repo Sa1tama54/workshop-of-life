@@ -1,6 +1,6 @@
 import { useAppDispatch } from 'common/hooks/useAppDispatch';
 import { useAppSelector } from 'common/hooks/useAppSelector';
-import { fetchCategories } from 'features/categories/asyncActions';
+import { fetchCategories } from 'redux/categories/asyncActions';
 import React from 'react';
 import styles from './Categories.module.scss';
 

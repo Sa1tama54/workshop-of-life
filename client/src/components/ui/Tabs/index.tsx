@@ -3,7 +3,6 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import styles from './Tabs.module.scss';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 const routes = [
@@ -17,7 +16,7 @@ const routes = [
   },
 ];
 
-export default function BasicTabs() {
+const BasicTabs = () => {
   const router = useRouter();
 
   const [value, setValue] = React.useState(0);
@@ -40,16 +39,17 @@ export default function BasicTabs() {
             }}
           >
             {routes.map((obj) => (
-              <Link key={obj.path} href={obj.path}>
-                <Tab
-                  label={obj.name}
-                  style={{ color: router.asPath === obj.path ? '#AC0000' : 'black' }}
-                />
-              </Link>
+              <Tab
+                key={obj.path}
+                label={obj.name}
+                style={{ color: router.asPath === obj.path ? '#AC0000' : 'black' }}
+              />
             ))}
           </Tabs>
         </Box>
       </div>
     </>
   );
-}
+};
+
+export default BasicTabs;

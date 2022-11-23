@@ -3,7 +3,7 @@ import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 import styles from './Pagination.module.scss';
 
-export default function Paginations() {
+const Paginations = () => {
   const [page, setPage] = React.useState(1);
   const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
     setPage(value);
@@ -16,4 +16,6 @@ export default function Paginations() {
       </Stack>
     </div>
   );
-}
+};
+
+export default Paginations;

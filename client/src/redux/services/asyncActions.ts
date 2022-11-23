@@ -1,6 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { Services } from './types';
+
+import { Services } from 'redux/services/types';
 
 export const fetchServices = createAsyncThunk<Services[]>(
   'services/getServices',
@@ -11,7 +12,7 @@ export const fetchServices = createAsyncThunk<Services[]>(
           limit: 999,
         },
       });
-      return res.data.data;
+      return res.data.services;
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }

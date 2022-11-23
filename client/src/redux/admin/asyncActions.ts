@@ -1,7 +1,8 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { LoginAdminTypes, ResponseAuthAdmin } from 'features/admin/interfaces';
-import { setMessage, clearMessage } from 'features/admin/slice';
+
+import { LoginAdminTypes, ResponseAuthAdmin } from 'redux/admin/interfaces';
+import { setMessage, clearMessage } from 'redux/admin/slice';
 
 export const login = createAsyncThunk<ResponseAuthAdmin, LoginAdminTypes>(
   'admin/login',

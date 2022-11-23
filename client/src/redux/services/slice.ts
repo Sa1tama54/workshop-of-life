@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { fetchServices } from './asyncActions';
-import { Services, ServicesSLiceState, Status } from './types';
+
+import { fetchServices } from 'redux/services/asyncActions';
+import { Services, ServicesSLiceState, Status } from 'redux/services/types';
 
 const initialState: ServicesSLiceState = {
   items: [],
