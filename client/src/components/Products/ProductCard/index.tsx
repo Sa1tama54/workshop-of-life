@@ -10,14 +10,17 @@ import styles from 'components/Products/ProductCard/ProductCard.module.scss';
 
 const ProductCard = ({ product }: { product: ProductItem }) => {
   return (
-    <div className={styles.card}>
-      <Image
-        width={279}
-        height={173}
-        src={`/api${product.preview}`}
-        alt="product_img"
-        loading="lazy"
-      />
+    <div className={styles.card} data-aos="fade-left">
+      <div style={{ width: '100%' }}>
+        <Image
+          width={280}
+          height={173}
+          src={`/api${product.preview}`}
+          alt="product_img"
+          loading="lazy"
+          layout="responsive"
+        />
+      </div>
       <div className={styles.cardContent}>
         <Typography gutterBottom variant="h5">
           {product.title}
