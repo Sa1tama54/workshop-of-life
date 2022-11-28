@@ -1,9 +1,11 @@
 import React from 'react';
+import { animateScroll as scroll } from 'react-scroll';
 
 import ProductCard from 'components/Products/ProductCard';
 import Paginations from 'components/ui/Pagination';
 import Search from 'components/ui/Search';
 import Sort from 'components/ui/Sort';
+import CardSkeleton from 'components/ui/CardSkeleton';
 
 import MainLayout from 'layouts/MainLayout';
 
@@ -11,11 +13,13 @@ import { getAllProducts } from 'redux/products/asyncActions';
 import { SortItem, SortPropertyEnum } from 'redux/filter/interfaces';
 import { filterSelector } from 'redux/filter/selector';
 import { productSelector } from 'redux/products/selector';
+import { ProductItem } from 'redux/products/interfaces';
 
 import { useAppDispatch } from 'common/hooks/useAppDispatch';
 import { useAppSelector } from 'common/hooks/useAppSelector';
 
 import styles from 'pages/products/Products.module.scss';
+import NotFoundItems from 'components/NotFoundItems';
 
 const sortList: SortItem[] = [
   { name: 'По умолчанию', sortProperty: '' },
@@ -26,7 +30,7 @@ const sortList: SortItem[] = [
 const Products = () => {
   const dispatch = useAppDispatch();
   const { sort, categoryName, searchValue, currentPage } = useAppSelector(filterSelector);
-  const { allProducts, total } = useAppSelector(productSelector);
+  const { allProducts, total, status } = useAppSelector(productSelector);
 
   React.useEffect(() => {
     dispatch(
@@ -36,20 +40,29 @@ const Products = () => {
         currentPage: String(currentPage),
       })
     );
+    scroll.scrollToTop();
   }, [dispatch, sort, categoryName, searchValue, currentPage]);
+
+  const products = allProducts.map((product: ProductItem) => (
+    <ProductCard key={product._id} product={product} />
+  ));
+
+  const skeletons = [...new Array(6)].map((_, index) => <CardSkeleton key={index} />);
 
   return (
     <MainLayout>
-      <div className={styles.filterFeatures}>
+      <div className={styles.filterFeatures} data-aos="fade-right">
         <Search />
         <Sort sortList={sortList} />
       </div>
-      <div className={styles.cards}>
-        {allProducts.map((product) => (
-          <ProductCard key={product._id} product={product} />
-        ))}
-      </div>
-      <Paginations currentPage={currentPage} productsCount={total} />
+      {status === 'success' && !total ? (
+        <NotFoundItems />
+      ) : (
+        <>
+          <div className={styles.cards}>{status === 'loading' ? skeletons : products}</div>
+          <Paginations currentPage={currentPage} productsCount={total} />
+        </>
+      )}
     </MainLayout>
   );
 };

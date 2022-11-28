@@ -1,7 +1,10 @@
+import React from 'react';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import type { AppProps } from 'next/app';
 import { Provider } from 'react-redux';
 import localFont from '@next/font/local';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 import { theme } from 'common/theme';
 import { store } from 'redux/store';
@@ -34,15 +37,21 @@ const montserrat = localFont({
 });
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
+  React.useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
-    <div className={montserrat.className}>
-      <Provider store={store}>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-          <Component {...pageProps} />
-        </ThemeProvider>
-      </Provider>
-    </div>
+    <>
+      <div className={montserrat.className}>
+        <Provider store={store}>
+          <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <Component {...pageProps} />
+          </ThemeProvider>
+        </Provider>
+      </div>
+    </>
   );
 };
 
