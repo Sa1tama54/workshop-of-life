@@ -2,7 +2,6 @@ import ProductModel from '../models/Product.model';
 
 const create = async (req, res) => {
   try {
-    req.body.preview = req.file.path;
     const { title, description, price, preview } = req.body;
 
     const product = await ProductModel.create({
@@ -14,7 +13,7 @@ const create = async (req, res) => {
 
     res.json(product);
   } catch (error) {
-    res.status(500).json({ message: 'Не удалось добавить товар' });
+    res.status(500).json({ message: 'Не удалось добавить товар' + error });
   }
 };
 

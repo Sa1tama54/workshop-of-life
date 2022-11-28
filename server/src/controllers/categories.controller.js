@@ -2,8 +2,6 @@ import CategoryModel from '../models/Category.model';
 
 const create = async (req, res) => {
   try {
-    req.body.preview = req.file.path;
-
     const category = await CategoryModel.create({
       title: req.body.title,
       preview: req.body.preview,
