@@ -1,27 +1,35 @@
 @import 'styles/variables';
 
 .card {
-	max-width: 330px;
-	min-height: 450px;
+	display: flex;
+	flex-direction: column;
+	width: 279px;
+	min-height: 337px;
 	margin-right: 20px;
 	margin-bottom: 60px;
 	transition: 0.3s ease-in-out;
 	border-radius: 10px;
 	background: #F3F3F3;
 
-	&:nth-child(3n) {
+	&:nth-child(4n) {
 		margin-right: 0;
-	}
-
-	&:hover {
-		transform: scale(0.93);
 	}
 
 	img {
 		height: 144px;
 	}
 
-	@media screen and (max-width: 1055px) {
+	@media screen and (max-width: 1275px) {
+		&:nth-child(3n) {
+			margin-right: 0;
+		}
+
+		&:not(:nth-child(3n)) {
+			margin-right: 20px;
+		}
+	}
+
+	@media screen and (max-width: 976px) {
 		&:nth-child(2n) {
 			margin-right: 0;
 		}
@@ -31,20 +39,21 @@
 		}
 	}
 
-	@media screen and (max-width: 800px) {
+	@include tablets {
 		margin-right: 20px !important;
 	}
 
 	@include phones {
-		max-width: 300px;
-		min-height: 300px;
 		margin-right: 0 !important;
+		border-radius: 10px;
 	}
 }
 
 .cardContent {
-	padding: 44px;
-	padding-bottom: 0;
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	padding: 25px 15px;
 
 	h5 {
 		margin-bottom: 15px;
@@ -57,7 +66,7 @@
 	}
 
 	p {
-		margin-bottom: 24px;
+		flex: 1;
 		font-weight: bold;
 
 		@include phones {
@@ -66,6 +75,7 @@
 	}
 
 	span {
+		margin-top: 20px;
 		font-size: 24px;
 		font-weight: 500;
 
@@ -73,28 +83,10 @@
 			font-size: 18px;
 		}
 	}
-
-	@include phones {
-		padding: 25px;
-		padding-bottom: 0;
-	}
 }
 
 .cardActions {
+	display: flex;
+	justify-content: center;
 	margin-top: 15px;
-	padding-left: 44px;
-
-	button {
-		padding: 15px 40px;
-		font-size: 18px;
-
-		@include phones {
-			margin-bottom: 25px;
-			padding: 10px 25px;
-		}
-	}
-
-	@include phones {
-		padding-left: 25px;
-	}
 }

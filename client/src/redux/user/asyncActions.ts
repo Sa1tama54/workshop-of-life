@@ -1,14 +1,15 @@
-import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import { LoginAdminTypes, ResponseAuthAdmin } from 'redux/admin/interfaces';
-import { setMessage, clearMessage } from 'redux/admin/slice';
+import { axiosClassic as axios } from 'api/instance';
 
-export const login = createAsyncThunk<ResponseAuthAdmin, LoginAdminTypes>(
-  'admin/login',
+import { LoginUserTypes, ResponseAuthUser } from 'redux/user/interfaces';
+import { setMessage, clearMessage } from 'redux/user/slice';
+
+export const login = createAsyncThunk<ResponseAuthUser, LoginUserTypes>(
+  'user/login',
   async (loginData, thunkAPI) => {
     try {
-      const { data } = await axios.post<ResponseAuthAdmin>('/api/admin/login', loginData);
+      const { data } = await axios.post<ResponseAuthUser>('/admin/login', loginData);
 
       localStorage.setItem('workshop_token', data.token);
 

@@ -10,8 +10,8 @@ import { useAppDispatch } from 'common/hooks/useAppDispatch';
 import { useAppSelector } from 'common/hooks/useAppSelector';
 import { useAuthRedirect } from 'common/hooks/useAuthRedirect';
 
-import { selectAdmin } from 'redux/admin/selector';
-import { login } from 'redux/admin/asyncActions';
+import { userSelector } from 'redux/user/selector';
+import { login } from 'redux/user/asyncActions';
 
 import FormField from 'components/ui/FormField';
 
@@ -20,7 +20,7 @@ import styles from 'components/LoginForm/LoginForm.module.scss';
 const LoginForm = () => {
   useAuthRedirect();
   const dispatch = useAppDispatch();
-  const { status, message } = useAppSelector(selectAdmin);
+  const { status, message } = useAppSelector(userSelector);
 
   const form = useForm<LoginShemaTypes>({
     mode: 'onChange',

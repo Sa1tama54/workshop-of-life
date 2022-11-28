@@ -5,10 +5,25 @@
 	span {
 		position: absolute;
 		top: 3px;
-		left: 10px;
 		color: #AC0000;
+
+		&:first-child {
+			left: 10px;
+		}
+
+		&:last-child {
+			right: 15px;
+			width: 18px;
+			height: 18px;
+			cursor: pointer;
+			color: #CCC;
+
+			&:hover {
+				color: #AC0000;
+			}
+		}
 	}
-  
+
 	input {
 		width: 100%;
 		height: 30px;

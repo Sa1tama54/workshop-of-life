@@ -1,16 +1,20 @@
 import { Action, configureStore, ThunkAction } from '@reduxjs/toolkit';
 import { createWrapper } from 'next-redux-wrapper';
 
-import adminReducer from 'redux/admin/slice';
+import userReducer from 'redux/user/slice';
+import filterReducer from 'redux/filter/slice';
 import servicesReducer from 'redux/services/slice';
 import categoriesReducer from 'redux/categories/slice';
+import productsReducer from 'redux/products/slice';
 
 const makeStore = () => {
   return configureStore({
     reducer: {
-      admin: adminReducer,
+      user: userReducer,
+      filter: filterReducer,
       service: servicesReducer,
       category: categoriesReducer,
+      products: productsReducer,
     },
   });
 };

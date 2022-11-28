@@ -1,10 +1,13 @@
 @import 'styles/variables';
 
 .wrapper {
+	display: flex;
+	justify-content: center;
 	width: 350px;
 	margin: auto;
 	color: #AC0000;
 }
+
 @include phones {
 	.wrapper {
 		width: 250px;
