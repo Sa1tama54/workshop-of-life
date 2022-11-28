@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import productsController from '../controllers/products.controller';
 import checkAuth from '../middlewares/checkAuth';
+import uploadFile from '../middlewares/uploadFile';
 
 const router = Router();
 
@@ -69,7 +70,7 @@ const router = Router();
  *     security:
  *       - bearerAuth: []
  */
-router.post('/', checkAuth, productsController.create);
+router.post('/', checkAuth, uploadFile.single('preview'), productsController.create);
 
 /**
  * @swagger

@@ -1,10 +1,7 @@
 import mongoose from 'mongoose';
 
 const productShema = mongoose.Schema({
-  preview: {
-    type: String,
-    required: true,
-  },
+  preview: String,
   title: {
     type: String,
     required: true,

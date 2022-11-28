@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import categoriesController from '../controllers/categories.controller';
 import checkAuth from '../middlewares/checkAuth';
+import uploadFile from '../middlewares/uploadFile';
 
 const router = Router();
 
@@ -64,7 +65,7 @@ const router = Router();
  *     security:
  *       - bearerAuth: []
  */
-router.post('/', checkAuth, categoriesController.create);
+router.post('/', checkAuth, uploadFile.single('preview'), categoriesController.create);
 
 /**
  * @swagger
@@ -104,5 +105,7 @@ router.delete('/:id', checkAuth, categoriesController.remove);
  *                  $ref: '#/components/schemas/Category'
  */
 router.get('/', categoriesController.getAll);
+
+router.get('/:id', categoriesController.getOne);
 
 export default router;

@@ -2,6 +2,8 @@ import CategoryModel from '../models/Category.model';
 
 const create = async (req, res) => {
   try {
+    req.body.preview = req.file.path;
+
     const category = await CategoryModel.create({
       title: req.body.title,
       preview: req.body.preview,
@@ -36,10 +38,32 @@ const remove = async (req, res) => {
 
 const getAll = async (req, res) => {
   try {
-    const data = await CategoryModel.find();
+    const page = parseInt(req.query.page) - 1 || 0;
+    const limit = parseInt(req.query.limit) || 5;
+    let sort = req.query.sort || 'DESC';
+
+    req.query.sort ? (sort = req.query.sort.split(',')) : (sort = [sort]);
+
+    let sortBy = {};
+    if (sort[1]) {
+      sortBy[sort[0]] = sort[1];
+    } else {
+      sortBy[sort[0]] = 'ASC';
+    }
+
+    const categories = await CategoryModel.find()
+      .sort(sortBy)
+      .skip(page * limit)
+      .limit(limit);
+
+    const total = await CategoryModel.countDocuments();
 
     const response = {
-      data,
+      error: false,
+      total,
+      page: page + 1,
+      limit,
+      categories,
     };
 
     res.json(response);
@@ -48,4 +72,14 @@ const getAll = async (req, res) => {
   }
 };
 
-export default { create, getAll, remove };
+const getOne = async (req, res) => {
+  try {
+    const data = await CategoryModel.findById(req.params.id);
+
+    res.json(data);
+  } catch (error) {
+    res.status(500).json({ message: 'Не удалось получить категорию' });
+  }
+};
+
+export default { create, getAll, remove, getOne };
