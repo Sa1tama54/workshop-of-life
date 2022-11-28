@@ -13,7 +13,7 @@ const create = async (req, res) => {
 
     res.json(product);
   } catch (error) {
-    res.status(500).json({ message: 'Не удалось добавить товар' + error });
+    res.status(500).json({ message: 'Не удалось добавить товар' });
   }
 };
 
