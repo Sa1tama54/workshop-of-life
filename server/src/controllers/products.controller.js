@@ -2,7 +2,8 @@ import ProductModel from '../models/Product.model';
 
 const create = async (req, res) => {
   try {
-    const { preview, title, description, price } = req.body;
+    req.body.preview = req.file.path;
+    const { title, description, price, preview } = req.body;
 
     const product = await ProductModel.create({
       preview,
@@ -33,7 +34,7 @@ const getAll = async (req, res) => {
       sortBy[sort[0]] = 'ASC';
     }
 
-    const data = await ProductModel.find({
+    const products = await ProductModel.find({
       title: { $regex: search, $options: 'i' },
     })
       .sort(sortBy)
@@ -49,7 +50,7 @@ const getAll = async (req, res) => {
       total,
       page: page + 1,
       limit,
-      data,
+      products,
     };
 
     res.json(response);
