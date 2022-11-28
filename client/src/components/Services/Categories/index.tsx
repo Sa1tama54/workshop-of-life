@@ -8,8 +8,7 @@ const Categories: React.FC = () => {
   const [activeIndex, setActiveIndex] = React.useState(0);
 
   const dispatch = useAppDispatch();
-  const categories = useAppSelector((state) => state.category.items);
-  console.log(categories);
+  const categories = useAppSelector((state) => state.categories.items);
   React.useEffect(() => {
     dispatch(fetchCategories());
   }, [dispatch]);

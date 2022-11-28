@@ -1,5 +1,6 @@
 import Image from 'next/image';
-import React from 'react';
+import React, { useEffect } from 'react';
+
 import styles from './ServicesBanner.module.scss';
 
 const InformBanner: React.FC = () => {

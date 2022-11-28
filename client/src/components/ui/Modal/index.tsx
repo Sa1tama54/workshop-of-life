@@ -5,25 +5,18 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogTitle from '@mui/material/DialogTitle';
+
 import styles from './Modal.module.scss';
 
-const FormDialog = () => {
-  const [open, setOpen] = React.useState(false);
+interface FormDialogProps {
+  handleClose: () => void;
+  visible: boolean;
+}
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
+const FormDialog = ({ handleClose, visible }: FormDialogProps) => {
   return (
     <div>
-      <Button variant="outlined" onClick={handleClickOpen} className={styles.buttonModal}>
-        Оставить заявку
-      </Button>
-      <Dialog open={open} onClose={handleClose} className={styles.from}>
+      <Dialog open={visible} onClose={handleClose} className={styles.from}>
         <p className={styles.closeWindow} onClick={handleClose}>
           ❌
         </p>
@@ -53,7 +46,6 @@ const FormDialog = () => {
             label="Опишите вашу проблему"
             type="text"
             fullWidth
-            // variant="standard"
           />
           <DialogTitle className={styles.servicesName}>
             Услуга: Название выбранной услуги

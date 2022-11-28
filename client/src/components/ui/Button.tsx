@@ -1,13 +1,15 @@
 import * as React from 'react';
 import Button from '@mui/material/Button';
 
-interface ButtonProps {
+interface AppButtonProps {
   children?: string;
+  handleOpen: () => void;
 }
 
-const AppButton: React.FC<ButtonProps> = ({ children }) => {
+const AppButton = ({ children, handleOpen }: AppButtonProps) => {
   return (
     <Button
+      onClick={handleOpen}
       sx={{ minWidth: 150, height: 50 }}
       variant="contained"
       color="primary"

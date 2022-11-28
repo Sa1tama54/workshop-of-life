@@ -1,75 +1,42 @@
-import { Typography } from '@mui/material';
-import FormDialog from 'components/ui/Modal';
-import Image from 'next/image';
 import React from 'react';
+import { Typography } from '@mui/material';
+import Image from 'next/image';
+
+import FormDialog from 'components/ui/Modal';
+import AppButton from 'components/ui/Button';
+
+import { ServicesItem } from 'redux/services/types';
+
 import styles from './ServicesCard.module.scss';
-import { useAppSelector } from 'common/hooks/useAppSelector';
-import { fetchServices } from 'redux/services/asyncActions';
-import { useAppDispatch } from 'common/hooks/useAppDispatch';
 
-const card: { desc: string; url: string }[] = [
-  {
-    desc: 'hello world',
-    url: 'https://tehpanda.ru/wa-data/public/shop/products/82/13/1382/images/1495/1495.970.JPG',
-  },
-  {
-    desc: 'hello world',
-    url: 'https://tehpanda.ru/wa-data/public/shop/products/82/13/1382/images/1495/1495.970.JPG',
-  },
-  {
-    desc: 'hello world',
-    url: 'https://tehpanda.ru/wa-data/public/shop/products/82/13/1382/images/1495/1495.970.JPG',
-  },
-  {
-    desc: 'hello world',
-    url: 'https://tehpanda.ru/wa-data/public/shop/products/82/13/1382/images/1495/1495.970.JPG',
-  },
-  {
-    desc: 'hello world',
-    url: 'https://tehpanda.ru/wa-data/public/shop/products/82/13/1382/images/1495/1495.970.JPG',
-  },
-  {
-    desc: 'hello world',
-    url: 'https://tehpanda.ru/wa-data/public/shop/products/82/13/1382/images/1495/1495.970.JPG',
-  },
-  {
-    desc: 'hello world',
-    url: 'https://tehpanda.ru/wa-data/public/shop/products/82/13/1382/images/1495/1495.970.JPG',
-  },
-  {
-    desc: 'hello world',
-    url: 'https://tehpanda.ru/wa-data/public/shop/products/82/13/1382/images/1495/1495.970.JPG',
-  },
-];
+const ServicesCard = ({ service }: { service: ServicesItem }) => {
+  const [open, setOpen] = React.useState(false);
 
-const ServicesCard: React.FC = () => {
-  const dispatch = useAppDispatch();
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
 
-  const services = useAppSelector((state) => state.service.items);
-  React.useEffect(() => {
-    dispatch(fetchServices());
-  }, [dispatch]);
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
-    <>
-      <div className={styles.wrapp}>
-        {services.map((item, index) => {
-          return (
-            <React.Fragment key={index}>
-              <div className={styles.serviceCard}>
-                <Image src={item.review} alt="workplan_human" width={279} height={173} />
-                <div className={styles.content}>
-                  <Typography variant="h2">{item.title}</Typography>
-                  <div className={styles.button}>
-                    <FormDialog />
-                  </div>
-                </div>
-              </div>
-            </React.Fragment>
-          );
-        })}
+    <div className={styles.serviceCard}>
+      <Image
+        src={`/api/${service.preview}`}
+        alt="service_preview"
+        width={279}
+        height={130}
+        loading="lazy"
+      />
+      <div className={styles.content}>
+        <Typography variant="h2">{service.title}</Typography>
+        <div className={styles.button}>
+          <AppButton handleOpen={handleClickOpen}>Оставить заявку</AppButton>
+          <FormDialog handleClose={handleClose} visible={open} />
+        </div>
       </div>
-    </>
+    </div>
   );
 };
 

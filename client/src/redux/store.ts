@@ -12,8 +12,8 @@ const makeStore = () => {
     reducer: {
       user: userReducer,
       filter: filterReducer,
-      service: servicesReducer,
-      category: categoriesReducer,
+      services: servicesReducer,
+      categories: categoriesReducer,
       products: productsReducer,
     },
   });

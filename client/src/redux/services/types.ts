@@ -1,6 +1,6 @@
-export type Services = {
-  id: string;
-  review: string;
+export type ServicesItem = {
+  _id: string;
+  preview: string;
   title: string;
   category: string;
 };
@@ -12,6 +12,6 @@ export enum Status {
 }
 
 export interface ServicesSLiceState {
-  items: Services[];
+  items: ServicesItem[];
   status: Status;
 }
