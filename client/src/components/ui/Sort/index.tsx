@@ -2,12 +2,20 @@ import React from 'react';
 import { Button, Fade, Menu, MenuItem } from '@mui/material';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 
+import { useAppDispatch } from 'common/hooks/useAppDispatch';
+import { useAppSelector } from 'common/hooks/useAppSelector';
+
+import { SortItem } from 'redux/filter/interfaces';
+import { filterSelector } from 'redux/filter/selector';
+import { setSort } from 'redux/filter/slice';
+
 import styles from 'components/ui/Sort/Sort.module.scss';
 
-const Sort = () => {
+const Sort = ({ sortList }: { sortList: SortItem[] }) => {
+  const dispatch = useAppDispatch();
+  const { sort } = useAppSelector(filterSelector);
+
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  const [selected, setSelected] = React.useState(0);
-  const sortList = ['Сначала недорогие', 'Сначала дорогие'];
 
   const open = Boolean(anchorEl);
 
@@ -19,8 +27,8 @@ const Sort = () => {
     setAnchorEl(null);
   };
 
-  const onClickListItem = (i: number) => {
-    setSelected(i);
+  const onClickListItem = (obj: SortItem) => {
+    dispatch(setSort(obj));
     handleClose();
   };
 
@@ -38,7 +46,7 @@ const Sort = () => {
         onClick={handleClick}
       >
         <MenuItem className={styles.sortActiveItem} onClick={handleClose}>
-          {sortList[selected]}
+          {sort?.name}
         </MenuItem>
       </Button>
       <Menu
@@ -51,13 +59,15 @@ const Sort = () => {
         onClose={handleClose}
         TransitionComponent={Fade}
       >
-        {sortList.map((name, i) => (
+        {sortList.map((obj) => (
           <MenuItem
-            className={`${styles.sortItem} ${selected === i ? styles.active : ''}`}
-            key={i}
-            onClick={() => onClickListItem(i)}
+            className={`${styles.sortItem} ${
+              sort.sortProperty === obj.sortProperty ? styles.active : ''
+            }`}
+            key={obj.sortProperty}
+            onClick={() => onClickListItem(obj)}
           >
-            {name}
+            {obj.name}
           </MenuItem>
         ))}
       </Menu>

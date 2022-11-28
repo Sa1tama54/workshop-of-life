@@ -4,19 +4,19 @@ export enum Status {
   ERROR = 'error',
 }
 
-export interface LoginAdminTypes {
+export interface LoginUserTypes {
   login: string;
   password: string;
 }
 
-export interface ResponseAuthAdmin {
+export interface ResponseAuthUser {
   id: number;
   login: string;
   token: string;
 }
 
-export interface AdminSliceState {
-  adminData: ResponseAuthAdmin | null;
+export interface UserSliceState {
+  user: ResponseAuthUser | null;
   token: string | null;
   message: string;
   status: Status;

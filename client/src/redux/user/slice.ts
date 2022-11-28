@@ -1,19 +1,19 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { Status, AdminSliceState, ResponseAuthAdmin } from 'redux/admin/interfaces';
-import { login } from 'redux/admin/asyncActions';
+import { Status, UserSliceState, ResponseAuthUser } from 'redux/user/interfaces';
+import { login } from 'redux/user/asyncActions';
 
 const token = typeof window !== 'undefined' ? localStorage.getItem('workshop_token') : null;
 
-const initialState: AdminSliceState = {
-  adminData: null,
+const initialState: UserSliceState = {
+  user: null,
   token,
   message: '',
   status: Status.LOADING,
 };
 
-export const adminSlice = createSlice({
-  name: 'admin',
+export const userSlice = createSlice({
+  name: 'user',
   initialState,
   reducers: {
     setMessage: (state, action) => {
@@ -28,8 +28,8 @@ export const adminSlice = createSlice({
       .addCase(login.pending, (state) => {
         state.status = Status.LOADING;
       })
-      .addCase(login.fulfilled, (state, action: PayloadAction<ResponseAuthAdmin>) => {
-        state.adminData = action.payload;
+      .addCase(login.fulfilled, (state, action: PayloadAction<ResponseAuthUser>) => {
+        state.user = action.payload;
         state.status = Status.SUCCESS;
       })
       .addCase(login.rejected, (state) => {
@@ -38,6 +38,6 @@ export const adminSlice = createSlice({
   },
 });
 
-export const { setMessage, clearMessage } = adminSlice.actions;
+export const { setMessage, clearMessage } = userSlice.actions;
 
-export default adminSlice.reducer;
+export default userSlice.reducer;

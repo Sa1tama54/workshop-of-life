@@ -4,6 +4,11 @@ export const theme = createTheme({
   typography: {
     fontFamily: 'Montserrat, sans-serif',
   },
+  palette: {
+    primary: {
+      main: '#AC0000',
+    },
+  },
   components: {
     MuiButton: {
       styleOverrides: {
