@@ -2,7 +2,6 @@ import ProductModel from '../models/Product.model';
 
 const create = async (req, res) => {
   try {
-    req.body.preview = req.file.path;
     const { title, description, price, preview } = req.body;
 
     const product = await ProductModel.create({
