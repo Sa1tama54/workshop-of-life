@@ -1,9 +1,39 @@
+@import 'styles/variables';
+
+.wrapper {
+	min-height: 300px;
+	margin-bottom: 30px;
+	background: url('../../../assets/images/heading-banner.jpg') center bottom;
+}
+
+.headingBanner {
+	width: calc(100vw - 100px);
+	max-width: 1180px;
+	height: 100%;
+	margin: 0 auto;
+	padding-top: 130px;
+	color: #FFF;
+}
+
 .headTitle {
-	margin: 100px auto;
-	margin-bottom: 28px;
 	font-size: 36px;
 	font-weight: 700;
-	line-height: 26px;
+
+	@include phones {
+		font-size: 30px;
+	}
+}
+
+.breadcrumbs {
+	padding-top: 70px;
+
+	a:last-child {
+		color: #FED84C;
+	}
+
+	@include phones {
+		font-size: 12px;
+	}
 }
 
 .hr {
