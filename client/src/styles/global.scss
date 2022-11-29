@@ -6,6 +6,11 @@
 	padding: 0;
 }
 
+html,
+body {
+	overflow-x: hidden;
+}
+
 a,
 a:visited {
 	text-decoration: none;
