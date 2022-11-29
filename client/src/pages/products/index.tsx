@@ -1,4 +1,5 @@
 import React from 'react';
+import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { animateScroll as scroll } from 'react-scroll';
 
@@ -6,7 +7,6 @@ import ProductCard from 'components/Products/ProductCard';
 import Paginations from 'components/ui/Pagination';
 import Search from 'components/ui/Search';
 import Sort from 'components/ui/Sort';
-import CardSkeleton from 'components/ui/CardSkeleton';
 import NotFoundItems from 'components/NotFoundItems';
 
 import MainLayout from 'layouts/MainLayout';
@@ -21,6 +21,8 @@ import { useAppDispatch } from 'common/hooks/useAppDispatch';
 import { useAppSelector } from 'common/hooks/useAppSelector';
 
 import styles from 'pages/products/Products.module.scss';
+
+const CardSkeleton = dynamic(import('components/ui/CardSkeleton'), { ssr: false });
 
 const sortList: SortItem[] = [
   { name: 'По умолчанию', sortProperty: '' },
