@@ -1,4 +1,5 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 import { animateScroll as scroll } from 'react-scroll';
 
 import ProductCard from 'components/Products/ProductCard';
@@ -6,6 +7,7 @@ import Paginations from 'components/ui/Pagination';
 import Search from 'components/ui/Search';
 import Sort from 'components/ui/Sort';
 import CardSkeleton from 'components/ui/CardSkeleton';
+import NotFoundItems from 'components/NotFoundItems';
 
 import MainLayout from 'layouts/MainLayout';
 
@@ -19,7 +21,6 @@ import { useAppDispatch } from 'common/hooks/useAppDispatch';
 import { useAppSelector } from 'common/hooks/useAppSelector';
 
 import styles from 'pages/products/Products.module.scss';
-import NotFoundItems from 'components/NotFoundItems';
 
 const sortList: SortItem[] = [
   { name: 'По умолчанию', sortProperty: '' },
@@ -31,6 +32,8 @@ const Products = () => {
   const dispatch = useAppDispatch();
   const { sort, categoryName, searchValue, currentPage } = useAppSelector(filterSelector);
   const { allProducts, total, status } = useAppSelector(productSelector);
+
+  const router = useRouter();
 
   React.useEffect(() => {
     dispatch(
@@ -50,7 +53,7 @@ const Products = () => {
   const skeletons = [...new Array(6)].map((_, index) => <CardSkeleton key={index} />);
 
   return (
-    <MainLayout>
+    <MainLayout path={router.asPath} headingTitle="Каталог товаров">
       <div className={styles.filterFeatures} data-aos="fade-right">
         <Search />
         <Sort sortList={sortList} />

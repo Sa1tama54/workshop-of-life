@@ -8,6 +8,7 @@
   "rules": {
     "indentation": "tab",
     "color-hex-case": "upper",
-    "selector-class-pattern": "^.*$"
+    "selector-class-pattern": "^.*$",
+    "no-descending-specificity": null
   }
 }

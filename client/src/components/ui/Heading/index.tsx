@@ -1,15 +1,26 @@
-import React, { FC } from 'react';
+import React from 'react';
+import Link from 'next/link';
+
 import styles from './Heading.module.scss';
 interface HeadingProps {
   children?: React.ReactNode;
+  linkPath: string;
 }
 
-const Heading: FC<HeadingProps> = ({ children }) => {
+const Heading = ({ children, linkPath }: HeadingProps) => {
   return (
-    <React.Fragment>
-      <h1 className={styles.headTitle}>{children}</h1>
-      <hr className={styles.hr} />
-    </React.Fragment>
+    <div className={styles.wrapper}>
+      <section className={styles.headingBanner}>
+        <h1 className={styles.headTitle} data-aos="fade-right">
+          {children}
+        </h1>
+        <nav className={styles.breadcrumbs} data-aos="fade-left">
+          <Link href="/">Главная</Link>
+          <span> / </span>
+          <Link href={linkPath}>{children}</Link>
+        </nav>
+      </section>
+    </div>
   );
 };
 

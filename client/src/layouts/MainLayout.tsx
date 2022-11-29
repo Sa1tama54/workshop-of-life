@@ -1,21 +1,19 @@
-import { FC } from 'react';
 import Footer from 'components/Footer';
 import Header from 'components/Header';
-import BasicTabs from 'components/ui/Tabs';
+import Heading from 'components/ui/Heading';
 
 interface MainLayoutProps {
-  hideTabs?: boolean;
   children?: React.ReactNode;
+  headingTitle?: string;
+  path: string;
 }
 
-const MainLayout: FC<MainLayoutProps> = ({ children, hideTabs }) => {
+const MainLayout = ({ children, headingTitle, path }: MainLayoutProps) => {
   return (
     <>
       <Header />
-      <div className="content">
-        {!hideTabs && <BasicTabs />}
-        {children}
-      </div>
+      <Heading linkPath={path}>{headingTitle}</Heading>
+      <div className="content">{children}</div>
       <Footer />
     </>
   );
