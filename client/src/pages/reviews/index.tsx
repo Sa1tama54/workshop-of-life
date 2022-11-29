@@ -1,13 +1,12 @@
-import Heading from 'components/ui/Heading';
 import MainLayout from 'layouts/MainLayout';
 import styles from './Reviews.module.scss';
-import { AverageRating, ProgressBarReview, PicsReview } from 'components/Reviews';
-import Sort from 'components/ui/Sort';
+import { AverageRating, ProgressBarReview, PicsReview, ClientReview } from 'components/Reviews';
+import { useRouter } from 'next/router';
 
 const Reviews = () => {
+  const router = useRouter();
   return (
-    <MainLayout hideTabs={true}>
-      <Heading>Отзывы</Heading>
+    <MainLayout headingTitle="Отзывы" path={router.asPath}>
       <section className={styles.scoreBar}>
         <AverageRating />
         <ProgressBarReview />
@@ -16,8 +15,8 @@ const Reviews = () => {
         <div className={styles.picsTitle}>Фотографии наших клиентов</div>
         <PicsReview />
       </section>
-      <div className={styles.sortUI}>
-        <Sort />
+      <div className="clientReview">
+        <ClientReview />
       </div>
     </MainLayout>
   );

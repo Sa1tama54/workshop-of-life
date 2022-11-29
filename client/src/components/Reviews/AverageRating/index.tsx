@@ -1,5 +1,5 @@
 import React from 'react';
-import Rating from '@mui/material/Rating';
+import Rating from 'components/ui/Rating';
 import styles from './AverageRating.module.scss';
 
 const AverageRating = () => {
@@ -10,13 +10,7 @@ const AverageRating = () => {
           <p className={styles.countRevs}>
             123 <span>Оценки клиентов</span>
           </p>
-          <Rating
-            sx={{ marginBottom: '10px', color: '#ac0000', padding: 0 }}
-            size="large"
-            name="read-only"
-            value={5}
-            readOnly
-          />
+          <Rating value={5} />
           <span className={styles.avgScore}>4,5 из 5 средняя оценка клиентов</span>
           <button>Добавить отзыв</button>
         </div>
