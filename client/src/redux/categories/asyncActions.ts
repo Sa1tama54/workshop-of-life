@@ -7,8 +7,8 @@ export const fetchCategories = createAsyncThunk<Categories[]>(
   'categories/getCategories',
   async (_: void, thunkAPI) => {
     try {
-      const res = await axios.get('http://127.0.0.1:3001/categories/');
-      return res.data.data;
+      const { data } = await axios.get('http://127.0.0.1:3001/categories/');
+      return data.categories;
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }

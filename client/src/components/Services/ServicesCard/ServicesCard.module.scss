@@ -1,69 +1,66 @@
 @import 'styles/variables';
 
-.wrapp {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  width: 100%;
-  margin-top: 30px;
-}
-
 .serviceCard {
-  overflow: hidden;
-  width: 279px;
-  min-height: 337px;
-  margin-right: 20px;
-  margin-bottom: 50px;
-  border-radius: 10px;
-  background: #f3f3f3;
+	display: flex;
+	overflow: hidden;
+	flex-direction: column;
+	width: 279px;
+	min-height: 337px;
+	margin-right: 20px;
+	margin-bottom: 50px;
+	border-radius: 10px;
+	background: #F3F3F3;
 
-  &:nth-child(4n) {
-    margin-right: 0;
-  }
+	&:nth-child(4n) {
+		margin-right: 0;
+	}
 
-  @media screen and (max-width: 1275px) {
-    &:nth-child(3n) {
-      margin-right: 0;
-    }
+	@media screen and (max-width: 1275px) {
+		&:nth-child(3n) {
+			margin-right: 0;
+		}
 
-    &:not(:nth-child(3n)) {
-      margin-right: 20px;
-    }
-  }
+		&:not(:nth-child(3n)) {
+			margin-right: 20px;
+		}
+	}
 
-  @media screen and (max-width: 976px) {
-    &:nth-child(2n) {
-      margin-right: 0;
-    }
+	@media screen and (max-width: 976px) {
+		&:nth-child(2n) {
+			margin-right: 0;
+		}
 
-    &:not(:nth-child(2n)) {
-      margin-right: 20px;
-    }
-  }
+		&:not(:nth-child(2n)) {
+			margin-right: 20px;
+		}
+	}
 
-  @include tablets {
-    margin-right: 20px !important;
-  }
+	@include tablets {
+		margin-right: 20px !important;
+	}
 
-  @include phones {
-    margin-right: 0 !important;
-    border-radius: 10px;
-  }
+	@include phones {
+		margin-right: 0 !important;
+		border-radius: 10px;
+	}
 }
 
 .content {
-  padding: 25px 15px;
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	padding: 25px 15px;
 
-  h2 {
-    margin-bottom: 20px;
-    color: #2e363e;
-    font-size: 24px;
-    font-weight: bold;
-    font-style: normal;
-    line-height: 143%;
-  }
+	h2 {
+		flex: 1;
+		color: #2E363E;
+		font-size: 24px;
+		font-weight: bold;
+		font-style: normal;
+	}
 }
 
 .button {
-  text-align: center;
+	margin-top: 20px;
+	text-align: center;
 }

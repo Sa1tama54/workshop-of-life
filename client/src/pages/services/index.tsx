@@ -1,28 +1,47 @@
 import React from 'react';
-import styles from './Services.module.scss';
+
+import MainLayout from 'layouts/MainLayout';
+
 import ServicesCard from 'components/Services/ServicesCard';
 import InformBanner from 'components/Services/ServicesBanner';
 import Categories from 'components/Services/Categories';
-import MainLayout from 'layouts/MainLayout';
-import Paginations from 'components/ui/Pagination';
 import Search from 'components/ui/Search';
-import FormDialog from 'components/ui/Modal';
 
-const Services: React.FC = () => {
+import { fetchServices } from 'redux/services/asyncActions';
+import { ServicesItem } from 'redux/services/types';
+import { store } from 'redux/store';
+
+import styles from './Services.module.scss';
+import Paginations from 'components/ui/Pagination';
+
+const ServicesPage = ({ services }: { services: ServicesItem[] }) => {
   return (
     <MainLayout>
       <div className={styles.main}>
         <Categories />
         <InformBanner />
-        <FormDialog />
       </div>
       <div className={styles.content}>
         <Search />
-        <ServicesCard />
+        <div className={styles.cards}>
+          {services.map((item) => (
+            <ServicesCard service={item} key={item._id} />
+          ))}
+        </div>
       </div>
       <Paginations />
     </MainLayout>
   );
 };
 
-export default Services;
+export const getServerSideProps = async () => {
+  await store.dispatch(fetchServices());
+
+  return {
+    props: {
+      services: store.getState().services.items,
+    },
+  };
+};
+
+export default ServicesPage;
