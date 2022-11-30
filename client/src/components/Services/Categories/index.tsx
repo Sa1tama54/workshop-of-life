@@ -14,8 +14,8 @@ const Categories: React.FC = () => {
     dispatch(fetchCategories());
   }, [dispatch]);
 
-  const onChangeCategory = (i: string) => {
-    dispatch(setCategoryName(i));
+  const onChangeCategory = (title: string) => {
+    dispatch(setCategoryName(title));
   };
 
   return (
