@@ -76,8 +76,8 @@ const ClintReview = () => {
               </div>
             </div>
             <div className={styles.content}>
-              <PicsReview />
-              <p className={styles.text}>
+              {review.fullName !== 'Gojo' && <PicsReview />}
+              <p className={`${review.images?.length ? styles.textNPics : styles.text}`}>
                 {review.text.length > 359 ? review.text.slice(0, 359) + '...' : review.text}
                 {false && <span>{review.text.slice(359)}</span>}
               </p>
