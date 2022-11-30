@@ -13,5 +13,12 @@ export enum Status {
 
 export interface ServicesSLiceState {
   items: ServicesItem[];
+  total: number;
   status: Status;
+}
+
+export interface SearchServicesParams {
+  sortBy: string;
+  searchValue: string;
+  currentPage: string;
 }

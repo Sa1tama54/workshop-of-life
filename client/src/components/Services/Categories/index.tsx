@@ -3,9 +3,10 @@ import { useAppSelector } from 'common/hooks/useAppSelector';
 import { fetchCategories } from 'redux/categories/asyncActions';
 import React from 'react';
 import styles from './Categories.module.scss';
+import { setCategoryName } from 'redux/filter/slice';
 
 const Categories: React.FC = () => {
-  const [activeIndex, setActiveIndex] = React.useState(0);
+  const categoryName = useAppSelector((state) => state.filter.categoryName);
 
   const dispatch = useAppDispatch();
   const categories = useAppSelector((state) => state.categories.items);
@@ -13,8 +14,8 @@ const Categories: React.FC = () => {
     dispatch(fetchCategories());
   }, [dispatch]);
 
-  const onChangeCategory = (i: number) => {
-    setActiveIndex(i);
+  const onChangeCategory = (title: string) => {
+    dispatch(setCategoryName(title));
   };
 
   return (
@@ -23,8 +24,8 @@ const Categories: React.FC = () => {
         {categories.map((item, i) => {
           return (
             <li
-              onClick={() => onChangeCategory(i)}
-              className={activeIndex === i ? styles.active : ''}
+              onClick={() => onChangeCategory(item.title)}
+              className={item.title === categoryName ? styles.active : ''}
               key={item.id}
             >
               {item.title}
