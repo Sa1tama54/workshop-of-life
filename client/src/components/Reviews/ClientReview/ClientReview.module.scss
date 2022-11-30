@@ -41,6 +41,13 @@
 }
 
 .text {
+	color: #000;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 22px;
+}
+
+.textNPics {
 	margin-top: 28px;
 	color: #000;
 	font-size: 14px;
@@ -61,4 +68,5 @@
 	display: flex;
 	justify-content: flex-end;
 	margin-top: 60px;
+	margin-bottom: 80px;
 }
