@@ -13,10 +13,13 @@ import { store } from 'redux/store';
 
 import styles from './Services.module.scss';
 import Paginations from 'components/ui/Pagination';
+import { useRouter } from 'next/router';
 
 const ServicesPage = ({ services }: { services: ServicesItem[] }) => {
+  const router = useRouter();
+
   return (
-    <MainLayout>
+    <MainLayout path={router.asPath} headingTitle="Услуги">
       <div className={styles.main}>
         <Categories />
         <InformBanner />
