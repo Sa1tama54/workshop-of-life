@@ -9,7 +9,7 @@ import { useDebounce } from 'common/hooks/useDebounce';
 
 import styles from 'components/ui/Search/Search.module.scss';
 
-const Search = () => {
+const Search = ({ path }: { path?: string }) => {
   const dispatch = useAppDispatch();
 
   const inputRef = React.useRef<HTMLInputElement>(null);
@@ -32,7 +32,7 @@ const Search = () => {
 
   return (
     <>
-      <div className={styles.search}>
+      <div className={`${styles.search} ${path ? styles.productsSearch : ''}`}>
         <span>
           <SearchIcon />
         </span>

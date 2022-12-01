@@ -3,15 +3,9 @@
 .filterFeatures {
 	display: flex;
 	align-items: center;
+	flex-wrap: wrap;
+	justify-content: space-between;
 	margin-bottom: 60px;
-
-	@include tablets {
-		flex-wrap: wrap;
-
-		input {
-			width: 100%;
-		}
-	}
 }
 
 .cards {

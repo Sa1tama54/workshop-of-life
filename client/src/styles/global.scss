@@ -8,7 +8,8 @@
 
 html,
 body {
-	overflow-x: hidden;
+	overflow-x: hidden !important;
+	padding-right: 0 !important;
 }
 
 a,
@@ -23,4 +24,16 @@ a:visited {
 	height: 100%;
 	margin: 0 auto;
 	margin-bottom: 100px;
+}
+
+[data-aos] {
+	pointer-events: none;
+}
+
+.aos-animate {
+	pointer-events: auto;
+}
+
+.aos-init[data-aos][data-aos].aos-animate {
+	transform: unset;
 }
