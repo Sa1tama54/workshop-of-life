@@ -35,3 +35,16 @@
 		background: #F1F1F1;
 	}
 }
+
+.productsSearch {
+	width: 70% !important;
+
+	@media screen and (max-width: 1095px) {
+		width: 60% !important;
+	}
+
+	@media screen and (max-width: 865px) {
+		width: 100% !important;
+		margin-bottom: 30px;
+	}
+}

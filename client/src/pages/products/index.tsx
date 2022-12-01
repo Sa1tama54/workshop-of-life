@@ -57,7 +57,7 @@ const Products = () => {
   return (
     <MainLayout path={router.asPath} headingTitle="Каталог товаров">
       <div className={styles.filterFeatures} data-aos="fade-right">
-        <Search />
+        <Search path="products" />
         <Sort sortList={sortList} />
       </div>
       {status === 'success' && !total ? (

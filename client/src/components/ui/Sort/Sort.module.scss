@@ -1,44 +1,48 @@
-@import '../../../styles/variables';
+@import 'styles/variables';
 
 .sortWrapper {
+	position: relative;
 	display: flex;
 	align-items: center;
-
-	button:hover {
-		background: none;
-	}
-
-	@include tablets {
-		width: 100%;
-		margin-top: 30px;
-	}
 }
 
 .sortTitle {
 	display: flex;
 	align-items: center;
 	font-size: 14px;
+
+	b {
+		margin-right: 15px;
+	}
 }
 
 .sortActiveItem {
+	cursor: pointer;
 	text-decoration: underline;
 	text-transform: none;
 	color: #AC0000;
 	font-size: 14px;
 	text-decoration-style: dotted;
-
-	&:hover {
-		text-decoration: underline;
-		background: none;
-		text-decoration-style: dotted;
-	}
 }
 
-.sortItem {
-	padding: 10px 15px;
+.sortPopup {
+	position: absolute;
+	z-index: 99 !important;
+	top: 20px;
+	right: 0;
+	overflow: hidden;
+	margin-top: 15px;
+	padding: 10px 0;
+	border-radius: 10px;
+	background: #FFF;
+	box-shadow: 0 5px 15px rgb(0 0 0 / 9%);
 
-	&:last-child {
-		margin-bottom: 30px;
+	li {
+		padding: 10px 15px;
+
+		&:last-child {
+			margin-bottom: 30px;
+		}
 	}
 }
 
@@ -46,5 +50,3 @@
 	color: #AC0000;
 	background: rgb(255 0 0 / 5%);
 }
-
-
