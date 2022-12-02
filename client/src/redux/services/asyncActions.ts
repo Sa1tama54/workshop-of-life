@@ -1,16 +1,19 @@
-import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { axiosClassic as axios } from 'api/instance';
+import { FilterSliceState } from 'redux/filter/interfaces';
+import { ServicesItem } from './types';
 
-import { ServicesItem } from 'redux/services/types';
-
-export const fetchServices = createAsyncThunk<ServicesItem[]>(
+export const fetchServices = createAsyncThunk(
   'services/fetchServices',
-  async (_: void, thunkAPI) => {
+  async (params: FilterSliceState, thunkApi) => {
     try {
-      const { data } = await axios.get(`${process.env.API_URL}/services`);
-      return data.services;
+      const { categoryName, searchValue, currentPage } = params;
+      const { data } = await axios.get<{ services: ServicesItem[] }>(
+        `/services?page=${currentPage}&limit=8&category=${categoryName}&search=${searchValue}`
+      );
+      return data;
     } catch (error: any) {
-      return thunkAPI.rejectWithValue(error.response.data.message);
+      return thunkApi.rejectWithValue(error.response.data.message);
     }
   }
 );

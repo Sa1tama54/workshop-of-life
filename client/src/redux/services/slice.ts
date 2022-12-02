@@ -1,10 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { fetchServices } from 'redux/services/asyncActions';
 import { ServicesItem, ServicesSLiceState, Status } from 'redux/services/types';
+import { fetchServices } from './asyncActions';
 
 const initialState: ServicesSLiceState = {
-  items: [],
+  allServices: [],
+  total: 8,
   status: Status.LOADING,
 };
 
@@ -13,20 +14,23 @@ const servicesSlice = createSlice({
   initialState,
   reducers: {
     setItems(state, action: PayloadAction<ServicesItem[]>) {
-      state.items = action.payload;
+      state.allServices = action.payload;
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchServices.pending, (state) => {
-      (state.status = Status.LOADING), (state.items = []);
-    });
-    builder.addCase(fetchServices.fulfilled, (state, action) => {
-      state.items = action.payload;
-      state.status = Status.SUCCESS;
-    });
-    builder.addCase(fetchServices.rejected, (state) => {
-      (state.status = Status.ERROR), (state.items = []);
-    });
+    builder
+      .addCase(fetchServices.pending, (state) => {
+        state.status = Status.LOADING;
+        state.allServices = [];
+      })
+      .addCase(fetchServices.fulfilled, (state, action) => {
+        state.status = Status.SUCCESS;
+        state.allServices = action.payload.services;
+      })
+      .addCase(fetchServices.rejected, (state) => {
+        state.status = Status.ERROR;
+        state.allServices = [];
+      });
   },
 });
 

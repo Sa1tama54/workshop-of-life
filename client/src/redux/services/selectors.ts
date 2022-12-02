@@ -1,3 +1,3 @@
 import { RootState } from 'redux/store';
 
-export const selectorService = (state: RootState) => state.services.items;
+export const selectorService = (state: RootState) => state.services;
