@@ -1,14 +1,13 @@
 .pics {
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
-	padding: 32px;
+	gap: 20px;
 }
 
 .help {
 	display: flex;
 	align-items: center;
-	padding-left: 95px;
+	margin-top: 32.5px;
 
 	p {
 		color: #AFAFAF;
@@ -21,6 +20,7 @@
 .searchSvg {
 	width: 25px;
 	height: 25px;
+	margin-right: 14px;
 
 	img {
 		width: 100%;

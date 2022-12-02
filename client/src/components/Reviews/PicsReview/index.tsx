@@ -7,7 +7,6 @@ import pic2 from 'assets/images/pic2.png';
 import pic3 from 'assets/images/pic3.png';
 import pic4 from 'assets/images/pic4.png';
 
-import arrowLeft from 'assets/arrowLeft.svg';
 import arrowRight from 'assets/arrowRight.svg';
 import search from 'assets/search.svg';
 
@@ -15,9 +14,6 @@ const PicsReview = () => {
   return (
     <React.Fragment>
       <div className={styles.pics}>
-        <div className={styles.arrow}>
-          <Image src={arrowLeft} alt="arrow" />
-        </div>
         <Image src={pic1} alt="pic1" />
         <Image src={pic2} alt="pic2" />
         <Image src={pic3} alt="pic3" />

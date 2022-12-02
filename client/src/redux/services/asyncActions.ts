@@ -1,7 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+
 import { axiosClassic as axios } from 'api/instance';
+
 import { FilterSliceState } from 'redux/filter/interfaces';
-import { ServicesItem } from './types';
+import { ServicesItem } from 'redux/services/types';
 
 export const fetchServices = createAsyncThunk(
   'services/fetchServices',

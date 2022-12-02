@@ -23,3 +23,9 @@ export interface ServicesSLiceState {
   status: Status;
   total: number;
 }
+
+export interface SearchServicesParams {
+  sortBy: string;
+  searchValue: string;
+  currentPage: string;
+}

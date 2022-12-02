@@ -4,15 +4,20 @@
 	display: flex;
 	overflow: hidden;
 	justify-content: space-between;
-	min-height: 500px;
+	min-height: 400px;
 	margin-top: 40px;
 	border-radius: 20px;
 	background: #F3F3F3;
+
+	img {
+		width: 50%;
+	}
 }
 
 .textContainer {
 	width: 50%;
 	padding: 15px;
+	padding-top: 30px;
 
 	h2 {
 		margin-top: 10px;
@@ -37,6 +42,11 @@
 		display: block;
 		min-height: auto;
 
+		img {
+			width: 100%;
+			height: 300px;
+		}
+
 		.textContainer {
 			width: 95%;
 
@@ -54,7 +64,7 @@
 @include phones {
 	.wrapper {
 		img {
-			height: 30px;
+			height: 150px;
 		}
 
 		.textContainer {

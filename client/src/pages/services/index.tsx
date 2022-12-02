@@ -1,4 +1,5 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 
 import MainLayout from 'layouts/MainLayout';
 
@@ -6,17 +7,17 @@ import ServicesCard from 'components/Services/ServicesCard';
 import InformBanner from 'components/Services/ServicesBanner';
 import Categories from 'components/Services/Categories';
 import Search from 'components/ui/Search';
+import Paginations from 'components/ui/Pagination';
 
+import { useAppDispatch } from 'common/hooks/useAppDispatch';
+import { useAppSelector } from 'common/hooks/useAppSelector';
+
+import { filterSelector } from 'redux/filter/selector';
+import { selectorService } from 'redux/services/selectors';
 import { fetchServices } from 'redux/services/asyncActions';
 import { ServicesItem } from 'redux/services/types';
 
-import styles from './Services.module.scss';
-import Paginations from 'components/ui/Pagination';
-import { useRouter } from 'next/router';
-import { useAppDispatch } from 'common/hooks/useAppDispatch';
-import { useAppSelector } from 'common/hooks/useAppSelector';
-import { filterSelector } from 'redux/filter/selector';
-import { selectorService } from 'redux/services/selectors';
+import styles from 'pages/services/Services.module.scss';
 
 const ServicesPage = () => {
   const dispatch = useAppDispatch();
@@ -43,7 +44,7 @@ const ServicesPage = () => {
   ));
 
   return (
-    <MainLayout path={router.asPath} headingTitle="Каталог товаров">
+    <MainLayout path={router.asPath} headingTitle="Услуги">
       <div className={styles.main}>
         <Categories />
         <InformBanner />
@@ -56,15 +57,5 @@ const ServicesPage = () => {
     </MainLayout>
   );
 };
-
-// export const getServerSideProps = async () => {
-//   await store.dispatch(fetchServices());
-
-//   return {
-//     props: {
-//       services: store.getState().services.items,
-//     },
-//   };
-// };
 
 export default ServicesPage;

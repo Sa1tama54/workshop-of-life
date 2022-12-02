@@ -1,5 +1,4 @@
 import React from 'react';
-import { Button, Fade, Menu, MenuItem } from '@mui/material';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
 
 import { useAppDispatch } from 'common/hooks/useAppDispatch';
@@ -15,21 +14,11 @@ const Sort = ({ sortList }: { sortList: SortItem[] }) => {
   const dispatch = useAppDispatch();
   const { sort } = useAppSelector(filterSelector);
 
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-
-  const open = Boolean(anchorEl);
-
-  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+  const [open, setOpen] = React.useState(false);
 
   const onClickListItem = (obj: SortItem) => {
     dispatch(setSort(obj));
-    handleClose();
+    setOpen(false);
   };
 
   return (
@@ -37,40 +26,25 @@ const Sort = ({ sortList }: { sortList: SortItem[] }) => {
       <div className={styles.sortTitle}>
         <ArrowDropUpIcon />
         <b>Сортировка:</b>
-      </div>
-      <Button
-        id="fade-button"
-        aria-controls={open ? 'fade-menu' : undefined}
-        aria-haspopup="true"
-        aria-expanded={open ? 'true' : undefined}
-        onClick={handleClick}
-      >
-        <MenuItem className={styles.sortActiveItem} onClick={handleClose}>
+        <span className={styles.sortActiveItem} onClick={() => setOpen(!open)}>
           {sort?.name}
-        </MenuItem>
-      </Button>
-      <Menu
-        id="fade-menu"
-        MenuListProps={{
-          'aria-labelledby': 'fade-button',
-        }}
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleClose}
-        TransitionComponent={Fade}
-      >
-        {sortList.map((obj) => (
-          <MenuItem
-            className={`${styles.sortItem} ${
-              sort.sortProperty === obj.sortProperty ? styles.active : ''
-            }`}
-            key={obj.sortProperty}
-            onClick={() => onClickListItem(obj)}
-          >
-            {obj.name}
-          </MenuItem>
-        ))}
-      </Menu>
+        </span>
+      </div>
+      {open && (
+        <div className={styles.sortPopup}>
+          <ul>
+            {sortList.map((obj) => (
+              <li
+                key={obj.sortProperty}
+                onClick={() => onClickListItem(obj)}
+                className={sort.sortProperty === obj.sortProperty ? styles.active : ''}
+              >
+                {obj.name}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 };
