@@ -37,7 +37,7 @@ const remove = async (req, res) => {
 const getAll = async (req, res) => {
   try {
     const page = parseInt(req.query.page) - 1 || 0;
-    const limit = parseInt(req.query.limit) || 5;
+    const limit = parseInt(req.query.limit) || 0;
     let sort = req.query.sort || 'DESC';
 
     req.query.sort ? (sort = req.query.sort.split(',')) : (sort = [sort]);
