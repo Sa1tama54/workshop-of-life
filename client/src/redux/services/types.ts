@@ -11,10 +11,17 @@ export enum Status {
   ERROR = 'error',
 }
 
+export interface SearchServicesParams {
+  sortBy: string;
+  categoryName: string;
+  searchValue: string;
+  currentPage: string;
+}
+
 export interface ServicesSLiceState {
-  items: ServicesItem[];
-  total: number;
+  allServices: ServicesItem[];
   status: Status;
+  total: number;
 }
 
 export interface SearchServicesParams {

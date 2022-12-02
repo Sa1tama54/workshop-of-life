@@ -6,22 +6,22 @@ import styles from './Categories.module.scss';
 import { setCategoryName } from 'redux/filter/slice';
 
 const Categories: React.FC = () => {
-  const categoryName = useAppSelector((state) => state.filter.categoryName);
-
   const dispatch = useAppDispatch();
   const categories = useAppSelector((state) => state.categories.items);
   React.useEffect(() => {
     dispatch(fetchCategories());
   }, [dispatch]);
 
-  const onChangeCategory = (title: string) => {
-    dispatch(setCategoryName(title));
+  const onChangeCategory = (i: string) => {
+    dispatch(setCategoryName(i));
   };
+
+  const categoryName = useAppSelector((state) => state.filter.categoryName);
 
   return (
     <div className={styles.categories}>
       <ul>
-        {categories.map((item, i) => {
+        {categories.map((item) => {
           return (
             <li
               onClick={() => onChangeCategory(item.title)}
