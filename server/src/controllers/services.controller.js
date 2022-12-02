@@ -22,7 +22,7 @@ const getAll = async (req, res) => {
     const page = parseInt(req.query.page) - 1 || 0;
     const limit = parseInt(req.query.limit) || 5;
     const search = req.query.search || '';
-    const categoryName = req.query.category || '';
+    const categoryName = req.query.category || 'Все';
     let sort = req.query.sort || 'DESC';
 
     req.query.sort ? (sort = req.query.sort.split(',')) : (sort = [sort]);
@@ -38,26 +38,33 @@ const getAll = async (req, res) => {
 
     let services = null;
 
-    req.query.category
-      ? (services = await ServiceModel.find({
-          category: singleCategory,
-          title: { $regex: search, $options: 'i' },
-        })
-          .sort(sortBy)
-          .skip(page * limit)
-          .limit(limit)
-          .populate('category'))
-      : (services = await ServiceModel.find({
-          title: { $regex: search, $options: 'i' },
-        })
-          .sort(sortBy)
-          .skip(page * limit)
-          .limit(limit)
-          .populate('category'));
+    let total = null;
 
-    const total = await ServiceModel.countDocuments({
-      title: { $regex: search, $options: 'i' },
-    });
+    if (categoryName === 'Все') {
+      services = await ServiceModel.find({ title: { $regex: search, $options: 'i' } })
+        .sort(sortBy)
+        .skip(page * limit)
+        .limit(limit)
+        .populate('category');
+
+      total = await ServiceModel.countDocuments({
+        title: { $regex: search, $options: 'i' },
+      });
+    } else {
+      services = await ServiceModel.find({
+        category: singleCategory,
+        title: { $regex: search, $options: 'i' },
+      })
+        .sort(sortBy)
+        .skip(page * limit)
+        .limit(limit)
+        .populate('category');
+
+      total = await ServiceModel.countDocuments({
+        title: { $regex: search, $options: 'i' },
+        category: singleCategory,
+      });
+    }
 
     const response = {
       error: false,
