@@ -11,15 +11,9 @@
 	flex-direction: column;
 
 	button {
-		width: 150px;
 		height: 33px;
 		margin-top: 40px;
 		padding: 9px 21px;
-		text-align: center;
-		color: #FFF;
-		border: none;
-		border-radius: 4px;
-		background: #AC0000;
 		font-size: 12px;
 		font-weight: 700;
 		line-height: 15px;
@@ -44,4 +38,68 @@
 		font-weight: 600;
 		line-height: 20px;
 	}
+}
+
+.overlay {
+	position: fixed;
+	z-index: 2;
+	top: 0;
+	left: 0;
+	display: block;
+	overflow: auto;
+	width: 100%;
+	height: 100%;
+	margin-top: 100px;
+	background-color: rgb(0 0 0 / 40%);
+}
+
+.modalBlock {
+	position: relative;
+	top: 50%;
+	bottom: 20%;
+	left: 30%;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	width: 600px;
+	height: 785px;
+	padding: 60px 63px;
+	border-radius: 12px;
+	background-color: #FFF;
+	box-shadow: 0 0 20px rgb(0 0 0 / 25%);
+	gap: 30px;
+}
+
+.naming {
+	width: 474px;
+	height: 40px;
+	padding-left: 11px;
+	color: #808080;
+	border: 1px solid #AC0000;
+	border-radius: 12px;
+	background-color: inherit;
+}
+
+.review {
+	width: 474px;
+	height: 300px;
+	padding-top: 10px;
+	padding-left: 12px;
+	text-align: left;
+	color: #808080;
+	border: 1px solid #AC0000;
+	border-radius: 12px;
+	background-color: inherit;
+}
+
+.sendReviewBtn {
+	width: 235px;
+	padding: 12px 33px;
+	color: #FFF;
+	border: none;
+	border-radius: 12px;
+	background-color: #AC0000;
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 20px;
 }
