@@ -1,10 +1,21 @@
-import MainLayout from 'layouts/MainLayout';
+import React from 'react';
 import styles from './Reviews.module.scss';
-import { AverageRating, ProgressBarReview, PicsReview, ClientReview } from 'components/Reviews';
+import MainLayout from 'layouts/MainLayout';
+
+import { useAppDispatch } from 'common/hooks/useAppDispatch';
+import { fetchReviews } from 'redux/reviews/asyncActions';
 import { useRouter } from 'next/router';
+
+import { AverageRating, ProgressBarReview, PicsReview, ClientReview } from 'components/Reviews';
 
 const Reviews = () => {
   const router = useRouter();
+  const dispatch = useAppDispatch();
+
+  React.useEffect(() => {
+    dispatch(fetchReviews());
+  }, [dispatch]);
+
   return (
     <MainLayout headingTitle="Отзывы" path={router.asPath}>
       <section className={styles.scoreBar}>
