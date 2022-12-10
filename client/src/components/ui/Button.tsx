@@ -1,8 +1,7 @@
 import * as React from 'react';
 import Button from '@mui/material/Button';
 
-interface AppButtonProps {
-  children?: string;
+interface AppButtonProps extends React.PropsWithChildren {
   handleOpen: () => void;
 }
 

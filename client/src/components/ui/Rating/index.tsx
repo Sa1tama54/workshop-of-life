@@ -1,12 +1,20 @@
 import React from 'react';
-import Rating from '@mui/material/Rating';
+import RatingStar from '@mui/material/Rating';
 
 interface RatingProps {
   value: number;
 }
 
-const Rat = ({ value }: RatingProps) => {
-  return <Rating sx={{ fontSize: '30px', color: '#AC0000' }} readOnly value={value} />;
+const Rating = ({ value }: RatingProps) => {
+  return (
+    <RatingStar
+      precision={0.5}
+      sx={{ fontSize: '30px', color: '#AC0000' }}
+      readOnly
+      max={5}
+      value={value}
+    />
+  );
 };
 
-export default Rat;
+export default Rating;

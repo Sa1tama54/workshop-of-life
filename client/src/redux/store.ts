@@ -6,6 +6,7 @@ import filterReducer from 'redux/filter/slice';
 import servicesReducer from 'redux/services/slice';
 import categoriesReducer from 'redux/categories/slice';
 import productsReducer from 'redux/products/slice';
+import reviewsReducer from 'redux/reviews/slice';
 
 const makeStore = () => {
   return configureStore({
@@ -15,6 +16,7 @@ const makeStore = () => {
       services: servicesReducer,
       categories: categoriesReducer,
       products: productsReducer,
+      reviews: reviewsReducer,
     },
   });
 };
