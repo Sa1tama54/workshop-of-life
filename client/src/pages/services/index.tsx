@@ -20,6 +20,8 @@ import { ServicesItem } from 'redux/services/types';
 import styles from 'pages/services/Services.module.scss';
 import { fetchRequests } from 'redux/requests/asyncActions';
 import { requestSelector } from 'redux/requests/selector';
+import NotFoundItems from 'components/NotFoundItems';
+import CardSkeleton from 'components/ui/CardSkeleton';
 
 const ServicesPage = () => {
   const dispatch = useAppDispatch();
@@ -33,7 +35,7 @@ const ServicesPage = () => {
 
   const { sort, categoryName, searchValue, currentPage } = useAppSelector(filterSelector);
 
-  const { allServices, total } = useAppSelector(selectorService);
+  const { allServices, total, status } = useAppSelector(selectorService);
 
   React.useEffect(() => {
     dispatch(
@@ -51,6 +53,8 @@ const ServicesPage = () => {
     <ServicesCard key={service._id} service={service} />
   ));
 
+  const skeletons = [...new Array(6)].map((_, index) => <CardSkeleton key={index} />);
+
   return (
     <MainLayout path={router.asPath} headingTitle="Услуги">
       <div className={styles.main}>
@@ -61,7 +65,15 @@ const ServicesPage = () => {
         <Search />
         <div className={styles.cards}>{services}</div>
       </div>
-      <Paginations currentPage={currentPage} productsCount={total} />
+      {status === 'success' && !total ? (
+        <NotFoundItems />
+      ) : (
+        <>
+          <div className={styles.cards}>{status === 'loading' ? skeletons : services}</div>
+          <Paginations currentPage={currentPage} productsCount={total} />
+        </>
+      )}
+      {/* <Paginations currentPage={currentPage} productsCount={total} /> */}
     </MainLayout>
   );
 };
