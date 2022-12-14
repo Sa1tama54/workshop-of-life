@@ -7,7 +7,7 @@ import servicesReducer from 'redux/services/slice';
 import categoriesReducer from 'redux/categories/slice';
 import productsReducer from 'redux/products/slice';
 import reviewsReducer from 'redux/reviews/slice';
-
+import requestsReducer from 'redux/requests/slice';
 const makeStore = () => {
   return configureStore({
     reducer: {
@@ -17,6 +17,7 @@ const makeStore = () => {
       categories: categoriesReducer,
       products: productsReducer,
       reviews: reviewsReducer,
+      requests: requestsReducer,
     },
   });
 };

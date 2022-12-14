@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 
 import MainLayout from 'layouts/MainLayout';
@@ -18,10 +18,18 @@ import { fetchServices } from 'redux/services/asyncActions';
 import { ServicesItem } from 'redux/services/types';
 
 import styles from 'pages/services/Services.module.scss';
+import { fetchRequests } from 'redux/requests/asyncActions';
+import { requestSelector } from 'redux/requests/selector';
 
 const ServicesPage = () => {
   const dispatch = useAppDispatch();
   const router = useRouter();
+
+  const req = useAppSelector(requestSelector).requests;
+  console.log(req);
+  useEffect(() => {
+    dispatch(fetchRequests());
+  }, [dispatch]);
 
   const { sort, categoryName, searchValue, currentPage } = useAppSelector(filterSelector);
 
