@@ -1,5 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import dynamic from 'next/dynamic';
+
 import { useRouter } from 'next/router';
+import { animateScroll as scroll } from 'react-scroll';
 
 import MainLayout from 'layouts/MainLayout';
 
@@ -18,20 +21,13 @@ import { fetchServices } from 'redux/services/asyncActions';
 import { ServicesItem } from 'redux/services/types';
 
 import styles from 'pages/services/Services.module.scss';
-import { fetchRequests } from 'redux/requests/asyncActions';
-import { requestSelector } from 'redux/requests/selector';
 import NotFoundItems from 'components/NotFoundItems';
-import CardSkeleton from 'components/ui/CardSkeleton';
+
+const CardSkeleton = dynamic(import('components/ui/CardSkeleton'), { ssr: false });
 
 const ServicesPage = () => {
   const dispatch = useAppDispatch();
   const router = useRouter();
-
-  const req = useAppSelector(requestSelector).requests;
-  console.log(req);
-  useEffect(() => {
-    dispatch(fetchRequests());
-  }, [dispatch]);
 
   const { sort, categoryName, searchValue, currentPage } = useAppSelector(filterSelector);
 
@@ -46,7 +42,7 @@ const ServicesPage = () => {
         sort,
       })
     );
-    // scroll.scrollToTop();
+    scroll.scrollToTop();
   }, [dispatch, currentPage, categoryName, sort, searchValue]);
 
   const services = allServices.map((service: ServicesItem) => (
@@ -63,17 +59,15 @@ const ServicesPage = () => {
       </div>
       <div className={styles.content}>
         <Search />
-        <div className={styles.cards}>{services}</div>
+        {status === 'completed' && !total ? (
+          <NotFoundItems />
+        ) : (
+          <>
+            <div className={styles.cards}>{status === 'loading' ? skeletons : services}</div>
+          </>
+        )}
       </div>
-      {status === 'success' && !total ? (
-        <NotFoundItems />
-      ) : (
-        <>
-          <div className={styles.cards}>{status === 'loading' ? skeletons : services}</div>
-          <Paginations currentPage={currentPage} productsCount={total} />
-        </>
-      )}
-      {/* <Paginations currentPage={currentPage} productsCount={total} /> */}
+      <Paginations currentPage={currentPage} productsCount={total} />
     </MainLayout>
   );
 };
