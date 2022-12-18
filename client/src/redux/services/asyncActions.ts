@@ -10,7 +10,7 @@ export const fetchServices = createAsyncThunk(
   async (params: FilterSliceState, thunkApi) => {
     try {
       const { categoryName, searchValue, currentPage } = params;
-      const { data } = await axios.get<{ services: ServicesItem[] }>(
+      const { data } = await axios.get<{ services: ServicesItem[]; total: number }>(
         `/services?page=${currentPage}&limit=8&category=${categoryName}&search=${searchValue}`
       );
       return data;

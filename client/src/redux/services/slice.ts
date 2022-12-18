@@ -26,6 +26,7 @@ const servicesSlice = createSlice({
       .addCase(fetchServices.fulfilled, (state, action) => {
         state.status = Status.SUCCESS;
         state.allServices = action.payload.services;
+        state.total = action.payload.total;
       })
       .addCase(fetchServices.rejected, (state) => {
         state.status = Status.ERROR;

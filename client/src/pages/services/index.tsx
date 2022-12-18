@@ -1,5 +1,8 @@
 import React from 'react';
+import dynamic from 'next/dynamic';
+
 import { useRouter } from 'next/router';
+import { animateScroll as scroll } from 'react-scroll';
 
 import MainLayout from 'layouts/MainLayout';
 
@@ -18,6 +21,9 @@ import { fetchServices } from 'redux/services/asyncActions';
 import { ServicesItem } from 'redux/services/types';
 
 import styles from 'pages/services/Services.module.scss';
+import NotFoundItems from 'components/NotFoundItems';
+
+const CardSkeleton = dynamic(import('components/ui/CardSkeleton'), { ssr: false });
 
 const ServicesPage = () => {
   const dispatch = useAppDispatch();
@@ -25,7 +31,7 @@ const ServicesPage = () => {
 
   const { sort, categoryName, searchValue, currentPage } = useAppSelector(filterSelector);
 
-  const { allServices, total } = useAppSelector(selectorService);
+  const { allServices, total, status } = useAppSelector(selectorService);
 
   React.useEffect(() => {
     dispatch(
@@ -36,12 +42,14 @@ const ServicesPage = () => {
         sort,
       })
     );
-    // scroll.scrollToTop();
+    scroll.scrollToTop();
   }, [dispatch, currentPage, categoryName, sort, searchValue]);
 
   const services = allServices.map((service: ServicesItem) => (
     <ServicesCard key={service._id} service={service} />
   ));
+
+  const skeletons = [...new Array(6)].map((_, index) => <CardSkeleton key={index} />);
 
   return (
     <MainLayout path={router.asPath} headingTitle="Услуги">
@@ -51,7 +59,13 @@ const ServicesPage = () => {
       </div>
       <div className={styles.content}>
         <Search />
-        <div className={styles.cards}>{services}</div>
+        {status === 'completed' && !total ? (
+          <NotFoundItems />
+        ) : (
+          <>
+            <div className={styles.cards}>{status === 'loading' ? skeletons : services}</div>
+          </>
+        )}
       </div>
       <Paginations currentPage={currentPage} productsCount={total} />
     </MainLayout>
